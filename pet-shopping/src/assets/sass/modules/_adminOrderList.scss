@@ -1,0 +1,90 @@
+.adminOrderList {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+  font-family: "微軟正黑體";
+
+  table {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 1px 1px 5px rgb(165, 165, 165);
+    color: #494949;
+
+    tr {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-bottom: 1px solid rgb(39, 38, 38);
+    }
+
+    th,
+    td {
+      // font-weight: bold;
+      padding: 20px 15px;
+    }
+
+    thead {
+      color: rgb(238, 238, 238);
+      background-color: #343a40;
+    }
+
+    .t-s {
+      width: 100px;
+      text-align: center;
+    }
+
+    .t-message {
+      width: 70px;
+      position: relative;
+      text-align: center;
+
+      .btn {
+        transition: all 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          color: rgb(76, 167, 76);
+        }
+      }
+
+      .alert {
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        background-color: #343a40;
+
+        .msg {
+          color: #fff;
+          width: 150px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+
+        }
+      }
+
+    }
+
+    .t-m {
+      width: 130px;
+      text-align: center;
+    }
+
+    .t-xl {
+      flex: 0.6;
+      text-align: center;
+    }
+
+    .t-l {
+      flex: 0.4;
+    }
+
+    .text-paid {
+      color: rgb(76, 167, 76);
+    }
+
+
+  }
+}

@@ -41,7 +41,7 @@
       </table>
     </div>
     <!-- Pagination模板 -->
-    <adminPagination :paginationData="pagination" @updatePagination="getProducts" v-if="pagination !== undefined">
+    <adminPagination :paginationData="pagination" @updatePagination="getProducts" v-if="pagination.current_page !== 0">
     </adminPagination>
     <!-- 新增、修改商品模板 -->
     <updateModal @callUpdate="updateProduct" :item="thisItem" />
@@ -83,14 +83,14 @@
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/admin/products?page=${page}`;
         const vm = this;
         vm.effect.isLoading = true;
-        this.$http.get(url).then((response) => {
+        vm.$http.get(url).then((response) => {
           // 防止驗證逾期或其他錯誤
           if (response.data.success) {
             vm.products = response.data.products;
             vm.pagination = response.data.pagination;
           } else {
             vm.$router.push('/login');
-            this.$bus.$emit('message:push', response.data.message, 'danger');
+            vm.$bus.$emit('message:push', response.data.message, 'danger');
           }
           vm.effect.isLoading = false;
         })

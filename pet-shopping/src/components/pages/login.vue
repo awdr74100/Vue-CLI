@@ -31,6 +31,7 @@
       }
     },
     methods: {
+      // 登入
       signin() {
         const url = `${process.env.API_Server}/admin/signin`;
         const vm = this;

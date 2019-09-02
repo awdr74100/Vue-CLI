@@ -4,7 +4,7 @@
       <div v-for="(item, i) in messages" :key="i" class="alert" :class="'alert--' + item.status">
         <span v-if="item.status == 'success' "><i class="fas fa-check-circle"></i></span>
         <span v-if="item.status == 'warning' "><i class="fas fa-exclamation-triangle"></i></span>
-        <span v-if="item.status == 'danger' "><i class="fas fa-times-circle"></i></span>   
+        <span v-if="item.status == 'danger' "><i class="fas fa-times-circle"></i></span>
         <p>{{item.message}}</p>
         <button @click="removeMessage(i)">&times;</button>
       </div>
@@ -17,29 +17,24 @@
     data() {
       return {
         messages: [
-        //   {
-        //   message: '訊息內容',
-        //   status: 'success',
-        //   timestamp: '123',
-        // },{
-        //   message: '訊息內容',
-        //   status: 'warning',
-        //   timestamp: '123',
-        // },{
-        //   message: '訊息內容',
-        //   status: 'danger',
-        //   timestamp: '123',
-        // },
+          //   {
+          //   message: '訊息內容',
+          //   status: 'success',
+          //   timestamp: '123',
+          // },{
+          //   message: '訊息內容',
+          //   status: 'warning',
+          //   timestamp: '123',
+          // },{
+          //   message: '訊息內容',
+          //   status: 'danger',
+          //   timestamp: '123',
+          // },
         ],
       };
     },
     methods: {
       updateMessage(message, status) {
-        if(this.messages = []){
-
-        }else if(this.messages[1].message == '請先登入'){
-          this.messages.splice(1,1);
-        }
         const timestamp = Math.floor(new Date() / 1000);
         this.messages.push({
           message,

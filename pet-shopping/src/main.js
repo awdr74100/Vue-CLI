@@ -52,7 +52,6 @@ router.beforeEach((to, from, next) => {
         next({
           path: ('/login'),
         })
-        this.$bus.$emit('message:push', '請先登入', 'danger')
       }
     })
   } else {
