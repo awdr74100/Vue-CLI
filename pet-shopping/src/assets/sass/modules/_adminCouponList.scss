@@ -55,6 +55,10 @@
       background-color: #343a40;
     }
 
+    .t-code{
+      flex: 0.4;
+    }
+
     .t-xs {
       width: 100px;
       text-align: center;
@@ -71,7 +75,7 @@
     }
 
     .t-l {
-      flex: 1;
+      flex: 0.6;
     }
 
     .text-up {

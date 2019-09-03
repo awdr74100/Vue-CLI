@@ -14,8 +14,8 @@
       <table>
         <thead>
           <tr>
+            <th class="t-code">優惠碼</th>
             <th class="t-l" style="text-align: left">名稱</th>
-            <th class="t-s">優惠代碼</th>
             <th class="t-s">折扣百分比</th>
             <th class="t-m">到期日</th>
             <th class="t-xs">是否啟用</th>
@@ -24,8 +24,8 @@
         </thead>
         <tbody>
           <tr v-for="(item, index) in coupons" :key="index">
+            <td class="t-code">{{item.code}}</td>
             <td class="t-l">{{item.title}}</td>
-            <td class="t-s">{{item.code}}</td>
             <td class="t-s">{{item.percent}}%</td>
             <td class="t-m">{{item.due_date | dateTime}}</td>
             <td class="t-xs">
@@ -99,6 +99,11 @@
             break;
           case 'edit':
             vm.thisItem = Object.assign({}, item);
+            // timesTamp轉dateTime格式
+            let d = new Date(vm.thisItem.due_date * 1000);
+            let dateTime =
+              `${d.getFullYear()}-${((d.getMonth() + 1) < 10 ? '0' : '')}${(d.getMonth() + 1)}-${((d.getDate() + 1) < 10 ? '0' : '')}${(d.getDate())}`;
+            vm.thisItem.due_date = dateTime;
             $('#couponModal').modal('show');
             break;
           case 'delete':
@@ -125,12 +130,14 @@
             httpMehods = 'delete';
             break;
         }
+        // 避免淺層複製造成原物件date格式錯誤
+        let CouponData = Object.assign({}, cacheCoupon);
         // 轉換為timesTamp
         let dateTime = cacheCoupon.due_date;
-        var date = new Date(dateTime);
-        cacheCoupon.due_date = (date.getTime()) / 1000;
+        var timesTamp = (new Date(dateTime)) / 1000;
+        CouponData.due_date = timesTamp;
         this.$http[httpMehods](url, {
-          data: cacheCoupon
+          data: CouponData
         }).then((response) => {
           $('#couponModal').modal('hide');
           $('#delDataModal').modal('hide');
