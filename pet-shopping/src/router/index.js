@@ -8,6 +8,7 @@ import Backend from '@/components/pages/backend';
 // 後端組件
 import adminProductList from '@/components/adminProductList';
 import adminOrderList from '@/components/adminOrderList';
+import adminCouponList from '@/components/adminCouponList';
 // 載入bootstrap.js
 import 'bootstrap';
 // 啟動組件
@@ -43,6 +44,13 @@ export default new Router({
         path: 'orderList',
         name: 'orderList',
         component: adminOrderList,
+        meta: {
+          requiresAuth: true
+        }
+      }, {
+        path: 'couponList',
+        name: 'couponList',
+        component: adminCouponList,
         meta: {
           requiresAuth: true
         }

@@ -7,30 +7,30 @@
         </span>
       </template>
     </loading>
-    <div class="adminProductList">
-      <div class="addProduct">
-        <button class="btn btn--add" @click="openModal('add')">建立新的產品</button>
+    <div class="adminCouponList">
+      <div class="addCoupon">
+        <button class="btn btn--add" @click="openModal('add')">新增優惠卷</button>
       </div>
       <table>
         <thead>
           <tr>
-            <th class="t-m" style="text-align: left">分類</th>
-            <th class="t-l">產品名稱</th>
-            <th class="t-m">原價</th>
-            <th class="t-m">售價</th>
-            <th class="t-s">是否上架</th>
+            <th class="t-l" style="text-align: left">名稱</th>
+            <th class="t-s">優惠代碼</th>
+            <th class="t-s">折扣百分比</th>
+            <th class="t-m">到期日</th>
+            <th class="t-xs">是否啟用</th>
             <th class="t-m">操作</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in products" :key="index">
-            <td class="t-m" style="text-align: left">{{item.category}}</td>
+          <tr v-for="(item, index) in coupons" :key="index">
             <td class="t-l">{{item.title}}</td>
-            <td class="t-m">{{item.origin_price | currency}}</td>
-            <td class="t-m">{{item.price | currency}}</td>
-            <td class="t-s">
-              <span v-if="item.is_enabled" class="text-up">上架</span>
-              <span v-else>下架</span>
+            <td class="t-s">{{item.code}}</td>
+            <td class="t-s">{{item.percent}}%</td>
+            <td class="t-m">{{item.due_date | dateTime}}</td>
+            <td class="t-xs">
+              <span v-if="item.is_enabled == 1" class="text-up">啟用</span>
+              <span v-else>尚未啟用</span>
             </td>
             <td class="btn-group">
               <button class="btn btn--edit" @click="openModal('edit',item)">編輯</button>
@@ -41,17 +41,17 @@
       </table>
     </div>
     <!-- Pagination模板 -->
-    <adminPagination :paginationData="pagination" @updatePagination="getProducts" v-if="pagination.current_page !== 0">
+    <adminPagination :paginationData="pagination" @updatePagination="getCoupons" v-if="pagination.current_page !== 0">
     </adminPagination>
     <!-- 新增、修改商品模板 -->
-    <updateModal @callUpdate="updateProduct" :item="thisItem" />
+    <updateModal @callUpdate="updateCoupon" :item="thisItem" />
   </div>
 </template>
 
 <script>
   // 載入新增、修改商品的模板
   import updateModal from './updateModal';
-  import adminPagination from './adminPagination'
+  import adminPagination from './adminPagination';
   // 載入完整jquery
   import $ from 'jquery';
 
@@ -62,36 +62,29 @@
     },
     data() {
       return {
-        // 全部商品
-        products: [],
+        // 全部優惠卷
+        coupons: [],
         // 操作模式
         doing: '',
         // 編輯或刪除的項目
         thisItem: {},
-        // Lodaing效果觸發
+        // Loading效果觸發
         effect: {
           isLoading: false,
         },
-        // Pagination物件
+        // Pagination
         pagination: {},
-
       }
     },
     methods: {
-      // 取得商品列表
-      getProducts(page = 1) {
-        const url = `${process.env.API_Server}/api/${process.env.API_Path}/admin/products?page=${page}`;
+      // 取得優惠卷列表
+      getCoupons(page = 1) {
+        const url = `${process.env.API_Server}/api/${process.env.API_Path}/admin/coupons?page=${page}`;
         const vm = this;
         vm.effect.isLoading = true;
         vm.$http.get(url).then((response) => {
-          // 防止驗證逾期或其他錯誤
-          if (response.data.success) {
-            vm.products = response.data.products;
-            vm.pagination = response.data.pagination;
-          } else {
-            vm.$router.push('/login');
-            vm.$bus.$emit('message:push', response.data.message, 'danger');
-          }
+          vm.coupons = response.data.coupons;
+          vm.pagination = response.data.pagination;
           vm.effect.isLoading = false;
         })
       },
@@ -102,11 +95,11 @@
         switch (vm.doing) {
           case 'add':
             vm.thisItem = {};
-            $('#productModal').modal('show');
+            $('#couponModal').modal('show');
             break;
           case 'edit':
             vm.thisItem = Object.assign({}, item);
-            $('#productModal').modal('show');
+            $('#couponModal').modal('show');
             break;
           case 'delete':
             vm.thisItem = Object.assign({}, item);
@@ -114,37 +107,40 @@
             break;
         }
       },
-      // 更新產品列表
-      updateProduct(cacheProduct) {
-        console.log(cacheProduct);
+      // 更新優惠列表
+      updateCoupon(cacheCoupon) {
         const vm = this;
         let url, httpMehods;
         switch (vm.doing) {
           case 'add':
-            url = `${process.env.API_Server}/api/${process.env.API_Path}/admin/product`;
+            url = `${process.env.API_Server}/api/${process.env.API_Path}/admin/coupon`;
             httpMehods = 'post';
             break;
           case 'edit':
-            url = `${process.env.API_Server}/api/${process.env.API_Path}/admin/product/${cacheProduct.id}`;
+            url = `${process.env.API_Server}/api/${process.env.API_Path}/admin/coupon/${cacheCoupon.id}`;
             httpMehods = 'put';
             break;
           case 'delete':
-            url = `${process.env.API_Server}/api/${process.env.API_Path}/admin/product/${cacheProduct.id}`;
+            url = `${process.env.API_Server}/api/${process.env.API_Path}/admin/coupon/${cacheCoupon.id}`;
             httpMehods = 'delete';
             break;
         }
+        // 轉換為timesTamp
+        let dateTime = cacheCoupon.due_date;
+        var date = new Date(dateTime);
+        cacheCoupon.due_date = (date.getTime()) / 1000;
         this.$http[httpMehods](url, {
-          data: cacheProduct
+          data: cacheCoupon
         }).then((response) => {
-          $('#productModal').modal('hide');
+          $('#couponModal').modal('hide');
           $('#delDataModal').modal('hide');
           vm.$bus.$emit('message:push', response.data.message, 'success');
-          vm.getProducts();
+          vm.getCoupons();
         })
       }
     },
     created() {
-      this.getProducts();
+      this.getCoupons();
     },
   }
 

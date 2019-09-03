@@ -1,11 +1,11 @@
-.adminProductList {
+.adminCouponList {
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
   position: relative;
   font-family: "微軟正黑體";
 
-  .addProduct {
+  .addCoupon {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -46,7 +46,7 @@
 
     th,
     td {
-      // font-weight: bold;
+      //   font-weight: bold;
       padding: 20px 15px;
     }
 
@@ -55,13 +55,18 @@
       background-color: #343a40;
     }
 
-    .t-s {
+    .t-xs {
       width: 100px;
       text-align: center;
     }
 
-    .t-m {
+    .t-s {
       width: 130px;
+      text-align: center;
+    }
+
+    .t-m {
+      width: 160px;
       text-align: center;
     }
 
@@ -75,7 +80,7 @@
 
     .btn-group {
       padding: 0;
-      width: 130px;
+      width: 160px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -110,5 +115,4 @@
     }
 
   }
-
 }

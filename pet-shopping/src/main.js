@@ -18,11 +18,13 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 import './bus';
 // 自訂 filters
 import currencyFilter from './filters/currency';
+import dateTimeFilter from './filters/dateTime';
 
 // 元件方式載入loadin-overlay套件
 Vue.component('Loading', Loading);
 // 全域載入Filter方法
 Vue.filter('currency',currencyFilter);
+Vue.filter('dateTime',dateTimeFilter);
 // 啟用附加套件
 Vue.use(VueAxios, axios, VueAwesomeSwiper);
 

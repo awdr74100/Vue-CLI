@@ -21,7 +21,7 @@
         </thead>
         <tbody>
           <tr v-for="(item, index) in orders" :key="index">
-            <td class="t-m" style="text-align: left">2018/06/13</td>
+            <td class="t-m" style="text-align: left">{{item.create_at | dateTime}}</td>
             <td class="t-l">{{item.user.email}}</td>
             <td class="t-xl">飛鳥拂女佯裝 數量：6件</td>
             <td class="t-m">$6640</td>

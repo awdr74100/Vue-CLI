@@ -18,10 +18,10 @@
           </router-link>
         </li>
         <li class="list__item">
-          <a href="#">
-            <i class="fas fa-gift"></i>
-            <p>優惠代碼</p>
-          </a>
+          <router-link to="/admin/couponList" :class="{'active' : visibility == 'couponList'}">
+           <i class="fas fa-gift"></i>
+            <p>優惠卷</p>
+          </router-link>
         </li>
         <li class="list__item">
           <a href="#">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- 編輯、新增用模板 -->
+    <!-- 編輯、新增用模板 - Product -->
     <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
@@ -18,8 +18,7 @@
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="image">輸入圖片網址</label>
-                  <input type="text" class="form-control" id="image" placeholder="請輸入圖片連結"
-                    v-model="tempProduct.imageUrl">
+                  <input type="text" class="form-control" id="image" placeholder="請輸入圖片連結" v-model="tempData.imageUrl">
                 </div>
                 <div class="form-group">
                   <label for="customFile">或 上傳圖片
@@ -29,23 +28,23 @@
                 </div>
                 <img
                   img="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=828346ed697837ce808cae68d3ddc3cf&auto=format&fit=crop&w=1350&q=80"
-                  class="img-fluid" alt="" :src="tempProduct.imageUrl">
+                  class="img-fluid" alt="" :src="tempData.imageUrl">
               </div>
               <div class="col-sm-8">
                 <div class="form-group">
                   <label for="title">標題</label>
-                  <input type="text" class="form-control" id="title" placeholder="請輸入標題" v-model="tempProduct.title">
+                  <input type="text" class="form-control" id="title" placeholder="請輸入標題" v-model="tempData.title">
                 </div>
 
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="category">分類</label>
                     <input type="text" class="form-control" id="category" placeholder="請輸入分類"
-                      v-model="tempProduct.category">
+                      v-model="tempData.category">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="price">單位</label>
-                    <input type="unit" class="form-control" id="unit" placeholder="請輸入單位" v-model="tempProduct.unit">
+                    <input type="unit" class="form-control" id="unit" placeholder="請輸入單位" v-model="tempData.unit">
                   </div>
                 </div>
 
@@ -53,12 +52,11 @@
                   <div class="form-group col-md-6">
                     <label for="origin_price">原價</label>
                     <input type="number" class="form-control" id="origin_price" placeholder="請輸入原價"
-                      v-model="tempProduct.origin_price">
+                      v-model="tempData.origin_price">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="price">售價</label>
-                    <input type="number" class="form-control" id="price" placeholder="請輸入售價"
-                      v-model="tempProduct.price">
+                    <input type="number" class="form-control" id="price" placeholder="請輸入售價" v-model="tempData.price">
                   </div>
                 </div>
                 <hr>
@@ -66,16 +64,16 @@
                 <div class="form-group">
                   <label for="description">產品描述</label>
                   <textarea type="text" class="form-control" id="description" placeholder="請輸入產品描述"
-                    v-model="tempProduct.description"></textarea>
+                    v-model="tempData.description"></textarea>
                 </div>
                 <div class="form-group">
                   <label for="content">說明內容</label>
                   <textarea type="text" class="form-control" id="content" placeholder="請輸入產品說明內容"
-                    v-model="tempProduct.content"></textarea>
+                    v-model="tempData.content"></textarea>
                 </div>
                 <div class="form-group">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="is_enabled" v-model="tempProduct.is_enabled"
+                    <input class="form-check-input" type="checkbox" id="is_enabled" v-model="tempData.is_enabled"
                       :true-value="1" :false-value="2">
                     <label class="form-check-label" for="is_enabled">
                       是否啟用
@@ -87,30 +85,90 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-primary" @click="callUpdateProduct">確認</button>
+            <button type="button" class="btn btn-primary" @click="callUpdate">確認</button>
           </div>
         </div>
       </div>
     </div>
-    <!-- 刪除用模板 -->
-    <div class="modal fade" id="delProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <!-- 編輯、新增用模板 - Coupon -->
+    <div class="modal fade" id="couponModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content border-0">
-          <div class="modal-header bg-danger text-white">
+          <div class="modal-header bg-dark text-white">
             <h5 class="modal-title" id="exampleModalLabel">
-              <span>刪除產品</span>
+              <span>新增優惠卷</span>
             </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            是否刪除 <strong class="text-danger">{{ tempProduct.title }}</strong> 商品(刪除後將無法恢復)。
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="title">標題</label>
+                  <input type="text" class="form-control" id="title" placeholder="請輸入標題" v-model="tempData.title">
+                </div>
+
+                <div class="form-group">
+                  <label for="code">優惠代碼</label>
+                  <input type="text" class="form-control" id="code" placeholder="請輸入優惠代碼" v-model="tempData.code">
+                </div>
+
+                <div class="form-group">
+                  <label for="date">到期日</label>
+                  <!-- <input type="datetime" name="" id=""> -->
+                  <input type="date" class="form-control" id="date" placeholder="請輸入到期日" v-model="tempData.due_date">
+                </div>
+
+                <div class="form-group">
+                  <label for="percent">折扣百分比</label>
+                  <input type="text" class="form-control" id="percent" placeholder="請輸入折扣百分比"
+                    v-model="tempData.percent">
+                </div>
+
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="is_enabled" :true-value="1" :false-value="2">
+                    <label class="form-check-label" for="is_enabled">
+                      是否啟用
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-danger" @click="callUpdateProduct">確認刪除</button>
+            <button type="button" class="btn btn-primary" @click="callUpdate">確認</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 刪除用模板 -->
+    <div class="modal fade" id="delDataModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content border-0">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" id="exampleModalLabel">
+              <span v-if="tempData.percent">刪除優惠卷</span>
+              <span v-else>刪除產品</span>
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            是否刪除 <strong class="text-danger">{{ tempData.title }}</strong>
+            <span v-if="tempData.percent">優惠卷</span>
+            <span v-else>商品</span>
+            (刪除後將無法恢復)。
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-danger" @click="callUpdate">確認刪除</button>
           </div>
         </div>
       </div>
@@ -123,17 +181,17 @@
     props: ['item'],
     data() {
       return {
-        // 暫存商品資料
-        cacheProduct: {},
+        // 暫存資料
+        cacheData: {},
         // 上團圖片狀態
         status: false,
       }
     },
     methods: {
       // 呼叫外層方法
-      callUpdateProduct() {
+      callUpdate() {
         const vm = this
-        vm.$emit('callUpdate', vm.cacheProduct);
+        vm.$emit('callUpdate', vm.cacheData);
       },
       // 上傳圖片
       uploadFile() {
@@ -152,7 +210,7 @@
           if (!response.data.success) {
             vm.$bus.$emit('message:push', response.data.message, 'danger');
           }
-          vm.$set(vm.cacheProduct, 'imageUrl', response.data.imageUrl);
+          vm.$set(vm.cacheData, 'imageUrl', response.data.imageUrl);
           document.getElementById(uploadId).value = '';
           vm.status = false;
         })
@@ -160,11 +218,11 @@
     },
     computed: {
       // 取得快取檔案
-      tempProduct() {
+      tempData() {
         const vm = this;
-        vm.cacheProduct = vm.item;
-        return vm.cacheProduct;
-      }
+        vm.cacheData = vm.item;
+        return vm.cacheData;
+      },
     }
   }
 
