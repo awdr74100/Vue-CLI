@@ -100,7 +100,7 @@
             // timesTamp轉dateTime格式
             let d = new Date(vm.thisItem.due_date * 1000);
             let dateTime =
-              `${d.getFullYear()}-${((d.getMonth() + 1) < 10 ? '0' : '')}${(d.getMonth() + 1)}-${((d.getDate() + 1) < 10 ? '0' : '')}${(d.getDate())}`;
+              `${d.getFullYear()}-${((d.getMonth() + 1) < 10 ? '0' : '')}${(d.getMonth() + 1)}-${((d.getDate()) < 10 ? '0' : '')}${(d.getDate())}`;
             vm.thisItem.due_date = dateTime;
             $('#couponModal').modal('show');
             break;
