@@ -2,9 +2,7 @@
   <div>
     <loading :active.sync="effect.isLoading">
       <template slot="default">
-        <span class="size-xl">
-          <i class="fas fa-spinner fa-spin"></i>
-        </span>
+        <span class="loader"><span class="loader-inner"></span></span>
       </template>
     </loading>
     <div class="adminProductList">

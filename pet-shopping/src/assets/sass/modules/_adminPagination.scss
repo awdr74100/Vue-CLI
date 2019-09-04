@@ -1,7 +1,5 @@
 .adminPagination {
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 20px;
   position: relative;
   font-family: "微軟正黑體";
 
@@ -14,18 +12,30 @@
     &__item {
       margin-left: 15px;
 
-      a {
+      .page {
         display: block;
-        padding: 13px 16px;
+        padding: 8px 11px;
         border-radius: 20px;
         text-decoration: none;
-        color: #494949;
+        color: #343a40;
         transition: all 0.3s;
         font-size: $font-xxs;
 
         &:hover {
-          background-color: #4ca74c;
+          background-color: #343a40;
           color: #fff;
+        }
+      }
+
+      .prev,
+      .next {
+        padding: 8px 11px;
+        color: #343a40;
+        transition: all 0.3s;
+        font-size: $font-xxs;
+
+        &:hover {
+          font-size: $font-l;
         }
       }
 
@@ -35,8 +45,9 @@
       }
 
       .active {
-        background-color: #4ca74c;
+        background-color: #343a40;
         color: #fff;
+        padding: 6px 18px;
       }
     }
   }

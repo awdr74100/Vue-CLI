@@ -5,6 +5,24 @@
   position: relative;
   font-family: "微軟正黑體";
 
+  .selectMode {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+
+    select {
+      padding-left: 32px;
+      background-color: rgb(76, 167, 76);
+      color: #fff;
+      font-size: $font-xs;
+      width: 140px;
+      height: 39px;
+      border-radius: 5px;
+    }
+
+  }
+
   table {
     width: 100%;
     background-color: #fff;

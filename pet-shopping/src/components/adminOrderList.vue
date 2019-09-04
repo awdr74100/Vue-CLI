@@ -2,12 +2,17 @@
   <div>
     <loading :active.sync="effect.isLoading">
       <template slot="default">
-        <span class="size-xl">
-          <i class="fas fa-spinner fa-spin"></i>
-        </span>
+        <span class="loader"><span class="loader-inner"></span></span>
       </template>
     </loading>
     <div class="adminOrderList">
+      <div class="selectMode">
+        <select name="" id="">
+          <option value="all" selected>顯示全部</option>
+          <option value="finsh">已付款</option>
+          <option value="undone">尚未付款</option>
+        </select>
+      </div>
       <table>
         <thead>
           <tr>
