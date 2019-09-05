@@ -2,7 +2,7 @@
   <div>
     <loading :active.sync="effect.isLoading">
       <template slot="default">
-          <span class="loader"><span class="loader-inner"></span></span>
+        <span class="loader"><span class="loader-inner"></span></span>
       </template>
     </loading>
     <div class="adminCouponList">

@@ -6,21 +6,47 @@
   font-family: "微軟正黑體";
 
   .selectMode {
+    position: relative;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin-bottom: 10px;
 
+    .icon {
+      position: absolute;
+      width: 39px;
+      height: 39px;
+      background-color: rgb(62, 134, 62);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 8px;
+      color: #fff;
+      pointer-events: none;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
     select {
-      padding-left: 32px;
+      cursor: pointer;
       background-color: rgb(76, 167, 76);
       color: #fff;
       font-size: $font-xs;
+      border-radius: 5px;
       width: 140px;
       height: 39px;
-      border-radius: 5px;
-    }
+      padding-left: 19px;
+      border: none;
+      -webkit-appearance: button;
+      appearance: button;
+      outline: none;
+      transition: all 0.3s;
 
+      &:hover {
+        background-color: rgb(62, 134, 62);
+        box-shadow: 1px 1px 5px rgb(62, 134, 62);
+      }
+    }
   }
 
   table {

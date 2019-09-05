@@ -7,8 +7,11 @@
     </loading>
     <div class="adminOrderList">
       <div class="selectMode">
-        <select name="" id="">
-          <option value="all" selected>顯示全部</option>
+        <div class="icon">
+          <i class="fas fa-sort-down"></i>
+        </div>
+        <select name="" id="" v-model="selectMode">
+          <option value="">顯示全部</option>
           <option value="finsh">已付款</option>
           <option value="undone">尚未付款</option>
         </select>
@@ -71,6 +74,7 @@
         },
         //   Pagination物件
         pagination: {},
+        selectMode: '',
       }
     },
     methods: {

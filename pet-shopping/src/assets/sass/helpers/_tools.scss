@@ -7,6 +7,11 @@
     padding-top: 20px;
 }
 
+.pt-pb-40{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
 .mt-20{
     margin-top: 20px;
 }
@@ -35,5 +40,11 @@
 .size-xl{
     font-size: 56px;
     color: rgb(39, 38, 38);
+}
+
+.justify-content-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
