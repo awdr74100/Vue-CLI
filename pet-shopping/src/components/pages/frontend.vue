@@ -5,12 +5,10 @@
         <Topbar />
         <Navbar />
       </header>
-      <div class="banner">
-        <Swiper />
-      </div>
       <section>
-        <Features />
+        <router-view></router-view>
       </section>
+      <Footer />
     </div>
   </div>
 </template>
@@ -18,15 +16,13 @@
 <script>
   import Topbar from '../Topbar';
   import Navbar from '../Navbar';
-  import Swiper from '../Swiper';
-  import Features from '../features';
+  import Footer from '../Footer';
 
   export default {
     components: {
       Topbar,
       Navbar,
-      Swiper,
-      Features,
+      Footer,
     }
   }
 

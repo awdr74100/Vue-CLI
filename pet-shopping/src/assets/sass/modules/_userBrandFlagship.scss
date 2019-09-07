@@ -1,0 +1,69 @@
+.userBrandFlagship {
+  position: relative;
+
+  h3 {
+    font-size: $font-l;
+    font-weight: bold;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .img {
+    width: 100%;
+    height: 320px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &--brand1 {
+      background-image: url(~@/assets/img/brand1.jpg);
+    }
+
+    &--brand2 {
+      background-image: url(~@/assets/img/brand2.jpg);
+    }
+
+    &--brand3 {
+      background-image: url(~@/assets/img/brand3.jpg);
+    }
+
+  }
+
+  h4 {
+    padding: 30px 0px 30px 0px;
+    position: relative;
+    display: block;
+    color: rgb(76, 167, 76);
+    font-weight: bold;
+    font-size: $font-m;
+  }
+
+  p {
+    line-height: 1.5;
+    font-size: 14px;
+    padding-bottom: 30px;
+  }
+
+  a {
+    text-align: center;
+    line-height: 48px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    width: 120px;
+    height: 48px;
+    background-color: rgb(76, 167, 76);
+    transition: all 0.3s;
+
+    i {
+      padding-left: 15px;
+    }
+
+    &:hover {
+      padding-left: 10px;
+      background-color: rgb(62, 134, 62);
+      box-shadow: 1px 1px 5px rgb(62, 134, 62);
+    }
+  }
+
+}

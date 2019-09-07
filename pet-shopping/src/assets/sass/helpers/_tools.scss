@@ -7,9 +7,17 @@
     padding-top: 20px;
 }
 
+.pb-15{
+    padding-bottom: 15px;
+}
+
 .pt-pb-40{
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+.mb-40{
+    margin-bottom: 40px;
 }
 
 .mt-20{
@@ -46,5 +54,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.flex-direction-colum{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.align-items-flex-end{
+    align-items: flex-end;
 }
 
