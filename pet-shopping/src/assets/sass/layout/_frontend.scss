@@ -1,0 +1,23 @@
+.frontend {
+  position: relative;
+  margin: 0 auto;
+  font-family: "微軟正黑體";
+
+  aside {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    z-index: 10;
+    background-color: #f8f9f8;
+  }
+
+  main {
+    position: relative;
+    padding-left: 250px;
+    background-image: url(~@/assets/img/background.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+}

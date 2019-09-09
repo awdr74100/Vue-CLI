@@ -6,9 +6,7 @@ import frontend from '@/components/pages/frontend';
 import Login from '@/components/pages/login';
 import Backend from '@/components/pages/backend';
 // 前端組件
-import userHome from '@/components/userHome'
-import userBrandStory from '@/components/userBrandStory';
-import userBrandFlagship from '@/components/userBrandFlagship';
+import userHome from '@/components/userHome';
 // 後端組件
 import adminProductList from '@/components/adminProductList';
 import adminOrderList from '@/components/adminOrderList';
@@ -19,32 +17,23 @@ import 'bootstrap';
 Vue.use(Router);
 
 
-
 export default new Router({
   routes: [{
       path: '*',
       redirect: '/',
     },
     {
+      path: '/login',
+      name: 'Login',
+      component: Login,
+    }, {
       path: '/',
       component: frontend,
       children: [{
         path: '',
         name: 'Home',
         component: userHome,
-      }, {
-        path: 'BrandStory',
-        name: 'BrandStory',
-        component: userBrandStory,
-      }, {
-        path: 'BrandFlagship',
-        name: 'BrandFlagship',
-        component: userBrandFlagship,
       }]
-    }, {
-      path: '/login',
-      name: 'Login',
-      component: Login,
     }, {
       path: '/admin',
       name: 'Backend',

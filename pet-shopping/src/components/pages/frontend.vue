@@ -1,28 +1,21 @@
 <template>
   <div>
-    <div class="wrap">
-      <header class="header">
-        <Topbar />
-        <Navbar />
-      </header>
-      <section>
+    <div class="frontend">
+      <aside>
+        <userSidebar />
+      </aside>
+      <main>
         <router-view></router-view>
-      </section>
-      <Footer />
+      </main>
     </div>
   </div>
 </template>
 
 <script>
-  import Topbar from '../Topbar';
-  import Navbar from '../Navbar';
-  import Footer from '../Footer';
-
+  import userSidebar from '../userSidebar';
   export default {
     components: {
-      Topbar,
-      Navbar,
-      Footer,
+      userSidebar,
     }
   }
 
