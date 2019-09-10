@@ -4,7 +4,9 @@
       <div class="logo"></div>
       <input type="text" name="search" id="" placeholder="搜尋商品">
       <ul class="list">
-        <li class="list__item"><a href="#">首　　頁</a></li>
+        <li class="list__item">
+          <router-link to="/">首　　頁</router-link>
+          </li>
         <li class="list__item"><a href="#">關於我們</a></li>
         <li class="list__item"><a href="#">嚴選商品</a></li>
         <li class="list__item"><a href="#">最新消息</a></li>

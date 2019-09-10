@@ -1,25 +1,30 @@
 <template>
   <div>
     <div class="userHome">
-      <div class="container px-0">
-        <div class="row row__noGutter">
-          <div class="col-12">
-            <div class="swiper-container">
-              <swiper />
-            </div>
-            <div class="box1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero porro suscipit modi hic cumque, nisi eos laudantium corrupti soluta eligendi tempora minus optio nemo impedit dolorum assumenda sequi? Reiciendis, ea.</div>
-          </div>
+      <section class="swiper-container">
+        <Swiper />
+        <div class="message"><span>嚴選商品 x 效率服務</span><br>
+          提供最精緻、最溫暖的服務，滿足飼主與毛孩，</div>
+        <div class="prompt">
+          <i class="fas fa-angle-double-down"></i>
+          <p>Scroll Down</p>
+          <i class="fas fa-angle-double-down"></i>
         </div>
-      </div>
+      </section>
+      <footer>
+        <userFooter />
+      </footer>
     </div>
   </div>
 </template>
 
 <script>
   import Swiper from './Swiper';
+  import userFooter from './userFooter';
   export default {
     components: {
       Swiper,
+      userFooter,
     }
   }
 

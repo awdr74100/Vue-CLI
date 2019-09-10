@@ -4,11 +4,12 @@
       <!-- slides -->
       <swiper-slide><a href="#" class="banner banner--Img1"></a></swiper-slide>
       <swiper-slide><a href="#" class="banner banner--Img2"></a></swiper-slide>
+      <swiper-slide><a href="#" class="banner banner--Img3"></a></swiper-slide>
       <!-- Optional controls -->
-      <div class="swiper-pagination" slot="pagination"></div>
+      <!-- <div class="swiper-pagination" slot="pagination"></div> -->
       <!-- <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
-      <div class="swiper-scrollbar" slot="scrollbar"></div> -->
+      <div class="swiper-button-next" slot="button-next"></div> -->
+      <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
     </swiper>
   </div>
 </template>
@@ -23,9 +24,9 @@
       return {
         swiperOption: {
           // Swiper 4.x Setting
-          pagination: {
-            el: '.swiper-pagination'
-          },
+          // pagination: {
+          //   el: '.swiper-pagination'
+          // },
           speed: 1000,
           loop: true,
           autoplay: {
