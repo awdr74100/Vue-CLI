@@ -4,7 +4,9 @@
       <div class="container px-0">
         <div class="row row__noGutter">
           <div class="col-12">
-            485748
+            <div class="swiper-container">
+              <swiper />
+            </div>
           </div>
         </div>
       </div>
