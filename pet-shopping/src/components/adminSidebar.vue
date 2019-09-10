@@ -19,7 +19,7 @@
         </li>
         <li class="list__item">
           <router-link to="/admin/couponList" :class="{'active' : visibility == 'couponList'}">
-           <i class="fas fa-gift"></i>
+            <i class="fas fa-gift"></i>
             <p>優惠卷</p>
           </router-link>
         </li>

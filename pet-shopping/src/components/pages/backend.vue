@@ -4,10 +4,10 @@
       <div class="container px-0">
         <div class="row row__noGutter">
           <div class="col-2">
-            <adminSidebar/>
+            <adminSidebar />
           </div>
           <div class="col-10">
-            <adminTopbar/>
+            <adminTopbar />
             <router-view></router-view>
           </div>
         </div>
@@ -17,14 +17,14 @@
 </template>
 
 <script>
+  import adminSidebar from "../adminSidebar";
+  import adminTopbar from "../adminTopbar";
 
-import adminSidebar from "../adminSidebar";
-import adminTopbar from "../adminTopbar";
-
-export default {
-  components:{
-    adminSidebar,
-    adminTopbar,
+  export default {
+    components: {
+      adminSidebar,
+      adminTopbar,
+    }
   }
-}
+
 </script>

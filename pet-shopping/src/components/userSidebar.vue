@@ -17,7 +17,7 @@
       </ul>
       <div class="privacy">
         <h4>隱私權政策</h4>
-        <p>Copyright © 2018 by Roya</p>
+        <p>Copyright © 2019 by Roya</p>
         <span><i class="fab fa-github"></i><i class="fab fa-codepen ml-20"></i></span>
       </div>
     </div>

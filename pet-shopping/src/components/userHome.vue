@@ -7,6 +7,7 @@
             <div class="swiper-container">
               <swiper />
             </div>
+            <div class="box1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero porro suscipit modi hic cumque, nisi eos laudantium corrupti soluta eligendi tempora minus optio nemo impedit dolorum assumenda sequi? Reiciendis, ea.</div>
           </div>
         </div>
       </div>
