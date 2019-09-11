@@ -7,6 +7,7 @@ import Login from '@/components/pages/login';
 import Backend from '@/components/pages/backend';
 // 前端組件
 import userHome from '@/components/userHome';
+import userAbout from '@/components/userAbout';
 // 後端組件
 import adminProductList from '@/components/adminProductList';
 import adminOrderList from '@/components/adminOrderList';
@@ -33,6 +34,10 @@ export default new Router({
         path: '',
         name: 'Home',
         component: userHome,
+      }, {
+        path: 'About',
+        name: 'About',
+        component: userAbout,
       }]
     }, {
       path: '/admin',

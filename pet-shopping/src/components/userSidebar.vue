@@ -6,8 +6,10 @@
       <ul class="list">
         <li class="list__item">
           <router-link to="/">首　　頁</router-link>
-          </li>
-        <li class="list__item"><a href="#">關於我們</a></li>
+        </li>
+        <li class="list__item">
+          <router-link to="/About">關於我們</router-link>
+        </li>
         <li class="list__item"><a href="#">嚴選商品</a></li>
         <li class="list__item"><a href="#">最新消息</a></li>
         <li class="list__item"><a href="#">領養專區</a></li>

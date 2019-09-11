@@ -31,7 +31,7 @@
     align-items: center;
     color: #fff;
     font-size: $font-l;
-    animation: visibility-Font 2s infinite linear alternate;
+    animation: visibility-Font 1s infinite linear alternate;
 
     p {
       padding: 0px 10px;
@@ -44,7 +44,7 @@
     }
 
     100% {
-      color: rgba(255, 255, 255, 0);
+      color: rgba(255, 255, 255, 0.219);
     }
   }
 
