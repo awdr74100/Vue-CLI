@@ -10,7 +10,9 @@
         <li class="list__item">
           <router-link to="/About">關於我們</router-link>
         </li>
-        <li class="list__item"><a href="#">嚴選商品</a></li>
+        <li class="list__item">
+          <router-link to="/ProductList">嚴選商品</router-link>
+        </li>
         <li class="list__item"><a href="#">最新消息</a></li>
         <li class="list__item"><a href="#">領養專區</a></li>
         <li class="list__item"><a href="#">聯絡我們</a></li>
