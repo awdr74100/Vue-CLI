@@ -37,77 +37,33 @@
   }
 
   .list {
-    margin-top: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    transition: all 0.3s;
-
-    &__item {
-      width: 100%;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 15px 0px;
-      cursor: pointer;
-      transition: all 0.3s;
-
-      a {
-        display: block;
-        text-decoration: none;
-        color: $color-primary;
-      }
-
-      .arrow {
-        position: absolute;
-        font-size: 10px;
-        color: $color-primary;
-
-        &--Right{
-          right: 20px;
-        }
-
-        &--Left{
-          left: 20px;
-        }
-      }
-
-      &:hover {
-        background-color: #fff;
-        color: #6aa431;
-        // border-left: 5px solid #6aa431;
-      }
-    }
-  }
-
-  .user {
-    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    margin-top: 20px;
 
-    a {
-      display: block;
-      text-decoration: none;
-      color: $color-primary;
-      padding: 15px 0px;
-      text-align: center;
-      width: 100%;
+    &__item {
+      a {
+        display: block;
+        padding: 15px 20px;
+        text-decoration: none;
+        color: $color-primary;
+      }
 
-      &:hover {
-        background-color: #fff;
+      .dropdownList {
+        max-height: 0px;
+        transition: all 0.3s;
+        overflow: hidden;
+
+        &--active {
+          max-height: 300px;
+        }
       }
     }
-
-    .userIcon {
-      margin-right: 10px;
-    }
   }
+
+
 
   .privacy {
     margin-top: 40px;
