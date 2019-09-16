@@ -40,7 +40,7 @@ export default new Router({
         name: 'About',
         component: userAbout,
       }, {
-        path: 'ProductList',
+        path: 'ProductList/:id',
         name: 'ProductList',
         component: userProductList,
       }]
