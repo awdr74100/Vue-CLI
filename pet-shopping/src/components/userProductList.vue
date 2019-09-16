@@ -42,8 +42,21 @@
 <script>
   export default {
     created() {
-      console.log(this.$route.params.id);
+      // console.log(this.$route.params.id);
+      this.fetchData();
     },
+    watch: {
+      '$route': 'fetchData',
+    },
+    methods: {
+      fetchData() {
+        const vm = this;
+        let id = vm.$route.params.id;
+        console.log(id);
+      },
+    },
+
+
   }
 
 </script>
