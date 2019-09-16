@@ -2,6 +2,7 @@
   position: relative;
   background-color: #f8f9f8ef;
 
+
   .title {
     margin: 0 auto;
     padding-top: 90px;
@@ -50,21 +51,140 @@
     }
   }
 
-  .productList{
-   margin-top: 40px;
+  .list {
+    padding-bottom: 26px;
 
-   &__item{
-     padding: 40px;
-     background-color: rgb(218, 218, 218);
-     
-     .img{
-       width: 100%;
-       height:300px;
-       background-position: center center;
-       background-image: url(~@/assets/img/try1.jpg);
-       background-repeat: no-repeat;
-       background-size: cover;
-     }
-   }
+    &__item {
+      margin-top: 26px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      background-color: #fff;
+      padding: 20px 40px 160px 40px;
+      overflow: hidden;
+      transition: all 0.3s;
+
+      .img {
+        width: 100%;
+        height: 200px;
+        background-image: url("https://s.yimg.com/zp/images/EC1BF93E7EE1BBDC4F062500F7AA1CB76DF1F8A7");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+      }
+
+      &:hover .detail {
+        top: 0px;
+      }
+
+      &:hover .content {
+        bottom: 0px;
+      }
+
+      &:hover {
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .detail {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: -180px;
+      background-color: rgba(255, 255, 255, 0.205);
+      transition: all 0.3s;
+
+      &__view {
+        margin: 80px 0px;
+        padding: 10px 10px;
+        background-color: rgba(255, 255, 255, 0);
+        border: 2px solid #fff;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: #fff;
+          color: #333333;
+        }
+
+        &:active,
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .content {
+      z-index: 10;
+      position: absolute;
+      bottom: -55px;
+      width: 100%;
+      padding: 10px 20px 10px 20px;
+      background-color: rgb(255, 255, 255);
+      transition: all 0.3s;
+
+      h4 {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333333;
+      }
+
+      .group {
+        padding-top: 10px;
+        font-size: $font-xs;
+        color: #777777;
+
+        i {
+          margin-right: 10px;
+        }
+      }
+
+      .price {
+        padding-top: 10px;
+        border-bottom: 1px solid black;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        .o-price {
+          color: #AAA;
+          text-decoration: line-through;
+          font-size: $font-xs;
+        }
+
+        .discount {
+          margin-left: 10px;
+          font-size: $font-m;
+          font-weight: bold;
+          color: rgb(76, 167, 76);
+        }
+      }
+
+      .addCart {
+        padding: 6px 15px;
+        border-radius: 5px;
+        font-size: $font-xxs;
+        background-color: #FFF;
+        border: 1px solid rgb(76, 167, 76);
+        color: rgb(76, 167, 76);
+        transition: all 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgb(76, 167, 76);
+          color: #fff;
+        }
+      }
+    }
   }
 }

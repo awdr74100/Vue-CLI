@@ -1,39 +1,36 @@
 <template>
   <div>
     <div class="userProductList">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="title">
-              <span><i class="fas fa-cat"></i></span>
-              <h3>商品列表</h3>
+      <div class="wrap">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="title">
+                <span><i class="fas fa-cat"></i></span>
+                <h3>商品列表</h3>
+              </div>
             </div>
           </div>
-        </div>
-        <ul class="row productList">
-          <li class="col-4">
-            <div class="productList__item">
-              <div class="img"></div>
-              <h4 class="name">腳踏車</h4>
-              <p class="content">登山車的輕齒比設計可以讓你爬坡時不用出那麼多力，只要有恆心，就能征服高山。</p>
-              <div class="price">
-                <span class="origin-Price">原價 $350</span>
-                <span class="special-Price">特價 $299</span>
+          <ul class="row list">
+            <li class="col-4">
+              <div class="list__item">
+                <div class="img"></div>
+                <div class="detail">
+                  <button class="detail__view">VIEW DETAIL</button>
+                </div>
+                <div class="content">
+                  <h4>原野優越Earthborn《室內貓(雞肉+鮭魚+蔓越莓)》5磅</h4>
+                  <p class="group"><i class="fas fa-tag"></i>貓咪飼料</p>
+                  <div class="price">
+                    <span class="o-price">NT$1680</span>
+                    <span class="discount">NT$1480</span>
+                  </div>
+                  <button class="addCart">加入購物車</button>
+                </div>
               </div>
-              <hr>
-              <button>查看更多</button>
-              <button>加到購物車</button>
-            </div>
-          </li>
-          <li class="col-4">
-
-          </li>
-          <li class="col-4">
-
-          </li>
-
-        </ul>
-
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
