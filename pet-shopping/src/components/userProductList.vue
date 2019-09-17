@@ -11,6 +11,21 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col-12 justify-content-flex-end">
+              <div class="sort">
+                <div class="thisSort">
+                  <span>{{sortMode}}</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <ul>
+                  <li @click="sortMode = '商品排序' ">商品排序</li>
+                  <li @click="sortMode = '價格：由高至低' ">價格：由高至低</li>
+                  <li @click="sortMode = '價格：由低至高' ">價格：由低至高</li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <ul class="row list">
             <li class="col-4">
               <div class="list__item">
@@ -38,6 +53,11 @@
 
 <script>
   export default {
+    data() {
+      return {
+        sortMode: '商品排序',
+      }
+    },
     created() {
       // console.log(this.$route.params.id);
       this.fetchData();
@@ -46,14 +66,19 @@
       '$route': 'fetchData',
     },
     methods: {
+      getSortMode(e) {
+        console.log(this);
+      },
       fetchData() {
         const vm = this;
         let id = vm.$route.params.id;
         console.log(id);
+        // const url = `${process.env.API_Server}/api/${process.env.API_Path}/products/all`;
+        // vm.$http.get(url).then((response) => {
+        //   console.log(response.data);
+        // })
       },
     },
-
-
   }
 
 </script>
