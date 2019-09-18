@@ -19,12 +19,14 @@ import './bus';
 // 自訂 filters
 import currencyFilter from './filters/currency';
 import dateTimeFilter from './filters/dateTime';
+import dollarFilter from './filters/dollar';
 
 // 元件方式載入loadin-overlay套件
 Vue.component('Loading', Loading);
 // 全域載入Filter方法
 Vue.filter('currency',currencyFilter);
 Vue.filter('dateTime',dateTimeFilter);
+Vue.filter('dollar',dollarFilter);
 // 啟用附加套件
 Vue.use(VueAxios, axios, VueAwesomeSwiper);
 

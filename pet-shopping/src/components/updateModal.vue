@@ -76,7 +76,7 @@
                     <input class="form-check-input" type="checkbox" id="is_enabled" v-model="tempData.is_enabled"
                       :true-value="1" :false-value="2">
                     <label class="form-check-label" for="is_enabled">
-                      是否啟用
+                      是否上架
                     </label>
                   </div>
                 </div>

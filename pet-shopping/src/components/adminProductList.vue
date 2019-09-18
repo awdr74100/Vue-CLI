@@ -27,7 +27,7 @@
             <td class="t-m">{{item.origin_price | currency}}</td>
             <td class="t-m">{{item.price | currency}}</td>
             <td class="t-s">
-              <span v-if="item.is_enabled" class="text-up">上架</span>
+              <span v-if="item.is_enabled == 1" class="text-up">上架</span>
               <span v-else>下架</span>
             </td>
             <td class="btn-group">
@@ -114,7 +114,7 @@
       },
       // 更新產品列表
       updateProduct(cacheProduct) {
-        console.log(cacheProduct);
+        // console.log(cacheProduct);
         const vm = this;
         let url, httpMehods;
         switch (vm.doing) {

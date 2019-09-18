@@ -16,10 +16,10 @@
           <a href="#" @click.prevent="dropdownOpen = !dropdownOpen">嚴選商品<i class="fas fa-chevron-down arrowLink"
               :class="{'arrowLink--active':dropdownOpen}"></i></a>
           <ul class="dropdownList" :class="{'dropdownList--active':dropdownOpen}">
-            <li><router-link to="/ProductList/dog1">狗狗飼料</router-link></li>
-            <li><router-link to="/ProductList/dog2">狗狗罐頭</router-link></li>
-            <li><a href="#">貓咪飼料</a></li>
-            <li><a href="#">貓咪罐罐</a></li>
+            <li><router-link to="/ProductList/全部商品">全部商品</router-link></li>
+            <li><router-link to="/ProductList/品牌狗飼料">品牌狗飼料</router-link></li>
+            <li><router-link to="/ProductList/品牌貓飼料">品牌貓飼料</router-link></li>
+            <li><router-link to="/ProductList/寵物營養品">寵物營養品</router-link></li>
           </ul>
         </li>
         <li><a href="#">最新消息</a></li>

@@ -213,6 +213,13 @@
           color: #AAA;
           text-decoration: line-through;
           font-size: $font-xs;
+
+          &--active {
+            text-decoration: none;
+            font-size: $font-m;
+            font-weight: bold;
+            color: rgb(76, 167, 76);
+          }
         }
 
         .discount {
