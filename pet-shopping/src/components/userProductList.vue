@@ -26,7 +26,7 @@
               </div>
             </div>
           </div>
-          <ul class="row list">
+          <ul class="row productList">
             <!-- <li class="col-4">
               <div class="list__item">
                 <div class="img"></div>
@@ -46,7 +46,7 @@
             </li> -->
             <!-- test -->
             <li class="col-4" v-for="(item, index) in thisProducts" :key="index">
-              <div class="list__item">
+              <div class="productList__item">
                 <div class="img" :style="{backgroundImage:`url(${item.imageUrl})`}"></div>
                 <div class="detail">
                   <button class="detail__view">VIEW DETAIL</button>
@@ -64,6 +64,14 @@
               </div>
             </li>
           </ul>
+          <div class="row">
+            <div class="col-12 mb-40">
+              <!-- Pagination模板 -->
+              <adminPagination :paginationData="pagination" @updatePagination="getThisProductList"
+                v-if="pagination.current_page !== 0">
+              </adminPagination>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -71,7 +79,11 @@
 </template>
 
 <script>
+  import adminPagination from './adminPagination';
   export default {
+    components: {
+      adminPagination,
+    },
     data() {
       return {
         sortMode: '商品排序',
@@ -79,6 +91,8 @@
         products: [],
         // 指定種類商品
         thisProducts: [],
+        // Pagination物件
+        pagination: {},
 
       }
     },
@@ -89,12 +103,11 @@
         const vm = this;
         vm.$http.get(url).then((response) => {
           vm.products = response.data.products;
-          console.log(vm.products);
           vm.getThisProductList();
         })
       },
       // 取得指定種類商品列表
-      getThisProductList() {
+      getThisProductList(page = 1) {
         const vm = this;
         let listType = vm.$route.params.id;
         if (listType === '全部商品') {
@@ -103,6 +116,31 @@
           vm.thisProducts = vm.products.filter(item => item.category === listType && item.is_enabled == 1);
         }
         console.log(vm.thisProducts);
+        console.log(page);
+        // let currentData = vm.thisProducts.slice(0, 9)
+        vm.createPagination(page);
+      },
+      // 模擬API Pagination
+      createPagination(page) {
+        // console.log(page);
+        const vm = this;
+        let paginationData = {
+          "total_pages": 1,
+          "current_page": 1,
+          "has_pre": true,
+          "has_next": false,
+          "category": null
+        };
+        paginationData.total_pages = Math.ceil(vm.thisProducts.length / 9);
+        paginationData.current_page = page;
+        if (paginationData.current_page < paginationData.total_pages) {
+          paginationData.has_next = true;
+        }
+        if (paginationData.current_page == 1) {
+          paginationData.has_pre = false;
+        }
+        // console.log(paginationData);
+        vm.pagination = paginationData;
       }
     },
     // 監控$route.Id
@@ -112,6 +150,14 @@
     computed: {
       filterProductData() {
         const vm = this;
+        let pagination = {
+          "total_pages": 1,
+          "current_page": 1,
+          "has_pre": false,
+          "has_next": false,
+          "category": null
+        }
+
 
       }
     },
