@@ -8,25 +8,26 @@ $pulse-duration: 750ms;
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
-@keyframes pulse {	
-  50% { 
+@keyframes pulse {
+  50% {
     background: $white;
-  } 
+  }
 }
 
 
 .loading {
-    border-radius: 50%;
-    width: $base-line-height;
-    height: $base-line-height;
-    border: .25rem solid $off-white;
-    border-top-color: $white;
-    animation: spin $spin-duration infinite linear;
+  border-radius: 50%;
+  width: $base-line-height;
+  height: $base-line-height;
+  border: .25rem solid $off-white;
+  border-top-color: $white;
+  animation: spin $spin-duration infinite linear;
 }
 
 .loading-pulse {
@@ -36,7 +37,9 @@ $pulse-duration: 750ms;
   background: $off-white;
   animation: pulse $pulse-duration infinite;
   animation-delay: ($pulse-duration / 3);
-  &:before, &:after {
+
+  &:before,
+  &:after {
     content: '';
     position: absolute;
     display: block;
@@ -47,9 +50,11 @@ $pulse-duration: 750ms;
     transform: translateY(-50%);
     animation: pulse $pulse-duration infinite;
   }
+
   &:before {
     left: -($base-line-height / 2);
   }
+
   &:after {
     left: ($base-line-height / 2);
     animation-delay: ($pulse-duration / 1.5);
