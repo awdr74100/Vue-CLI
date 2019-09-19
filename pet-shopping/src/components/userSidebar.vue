@@ -20,6 +20,7 @@
             <li><router-link to="/ProductList/品牌狗飼料">品牌狗飼料</router-link></li>
             <li><router-link to="/ProductList/品牌貓飼料">品牌貓飼料</router-link></li>
             <li><router-link to="/ProductList/寵物營養品">寵物營養品</router-link></li>
+            <li><router-link to="/ProductList/貓砂與貓砂盆">貓砂與貓砂盆</router-link></li>
           </ul>
         </li>
         <li><a href="#">最新消息</a></li>

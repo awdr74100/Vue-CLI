@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="adminPagination">
+    <div class="pagination">
       <ul class="list">
         <!-- 上一頁 -->
         <li class="list__item">

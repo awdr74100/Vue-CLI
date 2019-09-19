@@ -2,7 +2,7 @@
   <div>
     <loading :active.sync="effect.isLoading">
       <template slot="default">
-        <span class="loader"><span class="loader-inner"></span></span>
+        <div class="loading-pulse"></div>
       </template>
     </loading>
     <div class="adminCouponList">
@@ -39,8 +39,8 @@
       </table>
     </div>
     <!-- Pagination模板 -->
-    <adminPagination :paginationData="pagination" @updatePagination="getCoupons" v-if="pagination.current_page !== 0">
-    </adminPagination>
+    <Pagination :paginationData="pagination" @updatePagination="getCoupons" v-if="pagination.current_page !== 0">
+    </Pagination>
     <!-- 新增、修改商品模板 -->
     <updateModal @callUpdate="updateCoupon" :item="thisItem" />
   </div>
@@ -49,14 +49,14 @@
 <script>
   // 載入新增、修改商品的模板
   import updateModal from './updateModal';
-  import adminPagination from './adminPagination';
+  import Pagination from './Pagination';
   // 載入完整jquery
   import $ from 'jquery';
 
   export default {
     components: {
       updateModal,
-      adminPagination,
+      Pagination,
     },
     data() {
       return {

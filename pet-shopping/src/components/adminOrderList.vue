@@ -2,7 +2,7 @@
   <div>
     <loading :active.sync="effect.isLoading">
       <template slot="default">
-        <span class="loader"><span class="loader-inner"></span></span>
+       <div class="loading-pulse"></div>
       </template>
     </loading>
     <div class="adminOrderList">
@@ -52,17 +52,17 @@
       </table>
     </div>
     <!-- Pagination模板 -->
-    <adminPagination :paginationData="pagination" @updatePagination="getOrders" v-if="pagination.current_page !== 0">
-    </adminPagination>
+    <Pagination :paginationData="pagination" @updatePagination="getOrders" v-if="pagination.current_page !== 0">
+    </Pagination>
   </div>
 </template>
 
 <script>
-  import adminPagination from './adminPagination';
+  import Pagination from './Pagination';
   import $ from 'jquery';
   export default {
     components: {
-      adminPagination,
+      Pagination,
     },
     data() {
       return {

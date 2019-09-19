@@ -15,18 +15,17 @@
 @import "modules/loading";
 @import "modules/alertMessage";
 @import "modules/login";
-
-
+@import "modules/pagination";
+// --前台
 @import "modules/userSidebar";
 @import "modules/userHome";
 @import "modules/userAbout";
 @import "modules/userFooter";
 @import "modules/userProductList";
-
+// --後台
 @import "modules/adminTopbar";
 @import "modules/adminSidebar";
 @import "modules/adminProductList";
-@import "modules/adminPagination";
 @import "modules/adminOrderList";
 @import "modules/adminCouponList";
 

@@ -90,10 +90,11 @@
       transition: all 0.5s;
 
       a {
+        text-align: left;
         display: block;
         position: relative;
         line-height: 46px;
-        padding-left: 20px;
+        padding-left: 100px;
         text-decoration: none;
         color: rgb(122, 122, 122);
         transition: all 0.3s;
@@ -101,13 +102,14 @@
 
         &:hover {
           color: #4ca74c;
-          padding-left: 25px;
+          padding-left: 110px;
         }
       }
 
       &--active {
         max-height: 300px;
       }
+
     }
 
 

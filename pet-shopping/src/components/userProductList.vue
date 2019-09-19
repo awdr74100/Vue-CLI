@@ -1,5 +1,10 @@
 <template>
   <div>
+    <loading :active.sync="effect.isLoading">
+      <template slot="default">
+        <div class="loading-pulse"></div>
+      </template>
+    </loading>
     <div class="userProductList">
       <div class="wrap">
         <div class="container">
@@ -19,9 +24,9 @@
                   <i class="fas fa-chevron-down"></i>
                 </div>
                 <ul>
-                  <li @click="sortMode = '商品排序' ">商品排序</li>
-                  <li @click="sortMode = '價格：由高至低' ">價格：由高至低</li>
-                  <li @click="sortMode = '價格：由低至高' ">價格：由低至高</li>
+                  <li @click="getThisProductList('default')">商品排序</li>
+                  <li @click="getThisProductList('price-toLow')">價格：由高至低</li>
+                  <li @click="getThisProductList('price-toHigh')">價格：由低至高</li>
                 </ul>
               </div>
             </div>
@@ -45,7 +50,7 @@
               </div>
             </li> -->
             <!-- test -->
-            <li class="col-4" v-for="(item, index) in displayProducts" :key="index">
+            <li class="col-4" v-for="(item, index) in toggleProducts" :key="index">
               <div class="productList__item">
                 <div class="img" :style="{backgroundImage:`url(${item.imageUrl})`}"></div>
                 <div class="detail">
@@ -67,9 +72,9 @@
           <div class="row">
             <div class="col-12 mb-40">
               <!-- Pagination模板 -->
-              <adminPagination :paginationData="pagination" @updatePagination="getThisProductList"
+              <Pagination :paginationData="pagination" @updatePagination="getToggleProductList"
                 v-if="pagination.current_page !== 0">
-              </adminPagination>
+              </Pagination>
             </div>
           </div>
         </div>
@@ -79,10 +84,10 @@
 </template>
 
 <script>
-  import adminPagination from './adminPagination';
+  import Pagination from './Pagination';
   export default {
     components: {
-      adminPagination,
+      Pagination,
     },
     data() {
       return {
@@ -92,34 +97,54 @@
         // 指定種類商品
         classProducts: [],
         // 切換頁面顯示的商品
-        displayProducts: [],
+        toggleProducts: [],
+        // Loading效果觸發
+        effect: {
+          isLoading: false,
+        },
         // Pagination物件
         pagination: {},
       }
     },
     methods: {
-      // 取得商品列表
+      // 取得全部商品列表
       getProductList() {
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/products/all`;
         const vm = this;
+        vm.effect.isLoading = true;
         vm.$http.get(url).then((response) => {
           vm.products = response.data.products;
+          vm.effect.isLoading = false;
           vm.getThisProductList();
         })
       },
       // 取得指定種類商品列表
-      getThisProductList(page = 1) {
+      getThisProductList(mode = 'default') {
         const vm = this;
         let listType = vm.$route.params.id;
+        // 過濾下架產品與不同種類產品
         if (listType === '全部商品') {
           vm.classProducts = vm.products.filter(item => item.is_enabled == 1);
         } else {
           vm.classProducts = vm.products.filter(item => item.category === listType && item.is_enabled == 1);
-        }
-        // 顯示切換頁面所需的商品
+        };
+        if (mode == 'default') {
+          vm.sortMode = '商品排序';
+        } else if (mode == 'price-toLow') {
+          vm.sortMode = '價格：由高至低';
+          vm.classProducts = vm.classProducts.sort((a, b) => b.price - a.price);
+        } else {
+          vm.sortMode = '價格：由低至高'
+          vm.classProducts = vm.classProducts.sort((a, b) => a.price - b.price);
+        };
+        vm.getToggleProductList();
+      },
+      // 取得切換頁面商品列表
+      getToggleProductList(page = 1) {
+        const vm = this;
         let startItem = (page - 1) * 9;
         let endItem = page * 9;
-        vm.displayProducts = vm.classProducts.slice(startItem, endItem);
+        vm.toggleProducts = vm.classProducts.slice(startItem, endItem);
         vm.createPagination(page);
       },
       // 模擬 API Pagination 組件
