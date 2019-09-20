@@ -6,6 +6,33 @@
       </template>
     </loading>
     <div class="userProductList">
+      <div class="shoppingCart">
+        <div class="cart">
+          <p class="event">PAY</p>
+          <span class="count">
+            <p>8</p>
+          </span>
+        </div>
+        <div class="cartList">
+          <h4>近期加入商品</h4>
+          <ul class="list">
+            <li class="list__item">
+              <div class="img"></div>
+              <div class="content">
+                <p class="name">海洋之星FISH4CATS 鮭魚無麩質低敏配方400g、全貓</p>
+                <p class="unit">1<span> / </span>包</p>
+              </div>
+              <div class="doing">
+                <p>NT$4562</p>
+                <button>刪除</button>
+              </div>
+            </li>
+          </ul>
+          <div class="goCart">
+            <button>查看我的購物車</button>
+          </div>
+        </div>
+      </div>
       <div class="wrap">
         <div class="container">
           <div class="row">
