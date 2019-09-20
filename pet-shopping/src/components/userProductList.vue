@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loading height="900px" :active.sync="effect.isLoading">
+    <loading :active.sync="effect.isLoading">
       <template slot="default">
         <div class="loading-pulse left-125"></div>
       </template>
