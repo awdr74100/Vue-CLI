@@ -1,7 +1,7 @@
 <template>
   <div class="addToCart">
-    <div class="cart" @click="cartActive = !cartActive">
-      <p class="event">PAY</p>
+    <div class="cart" @click="cartActive = !cartActive" :class="{'cart--active':cartActive}">
+      <p class="event" :class="{'event--active':cartActive}">PAY</p>
       <span class="count">
         <p>8</p>
       </span>
@@ -13,18 +13,18 @@
           <div class="content">
             <div class="img"></div>
             <div class="product">
-              <p class="name">海洋洋之11asd41asd4ad1星海洋之星</p>
+              <p class="name">多利明 Torumin HLP 紅蚯蚓酵素(120粒)</p>
               <p class="unit">1<span> / </span>包</p>
             </div>
           </div>
           <div class="doing">
-            <p>NT$4562</p>
+            <p>NT$48562</p>
             <span>刪除</span>
           </div>
         </li>
       </ul>
       <div class="goCart">
-        <p class="total">總共：<span>NT$6890</span></p>
+        <p class="total">總共：<span>NT$68590</span></p>
         <button>查看並結帳</button>
       </div>
     </div>
