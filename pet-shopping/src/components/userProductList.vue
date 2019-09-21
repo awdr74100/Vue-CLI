@@ -6,33 +6,8 @@
       </template>
     </loading>
     <div class="userProductList">
-      <div class="shoppingCart">
-        <div class="cart">
-          <p class="event">PAY</p>
-          <span class="count">
-            <p>8</p>
-          </span>
-        </div>
-        <div class="cartList">
-          <h4>近期加入商品</h4>
-          <ul class="list">
-            <li class="list__item">
-              <div class="img"></div>
-              <div class="content">
-                <p class="name">海洋之星FISH4CATS 鮭魚無麩質低敏配方400g、全貓</p>
-                <p class="unit">1<span> / </span>包</p>
-              </div>
-              <div class="doing">
-                <p>NT$4562</p>
-                <button>刪除</button>
-              </div>
-            </li>
-          </ul>
-          <div class="goCart">
-            <button>查看我的購物車</button>
-          </div>
-        </div>
-      </div>
+      <!-- addToCart模板 -->
+      <AddToCart :update="xx" />
       <div class="wrap">
         <div class="container">
           <div class="row">
@@ -91,7 +66,7 @@
                       :class="{'o-price--active':item.origin_price == item.price}">{{item.origin_price | dollar}}</span>
                     <span class="discount" v-if="item.origin_price !== item.price">{{item.price | dollar}}</span>
                   </div>
-                  <button class="addCart">加入購物車</button>
+                  <button class="addCart" @click.prevent="addItemToCart(item)">加入購物車</button>
                 </div>
               </div>
             </li>
@@ -112,9 +87,11 @@
 
 <script>
   import Pagination from './Pagination';
+  import AddToCart from './AddToCart';
   export default {
     components: {
       Pagination,
+      AddToCart,
     },
     data() {
       return {
@@ -131,6 +108,8 @@
         },
         // Pagination物件
         pagination: {},
+        // 更新,
+        xx: '',
       }
     },
     methods: {
@@ -184,6 +163,9 @@
           .has_next = false;
         paginationData.current_page == 1 ? paginationData.has_pre = false : paginationData.has_pre = true;
         vm.pagination = paginationData;
+      },
+      addItemToCart(item) {
+        this.xx = item;
       }
     },
     // 監控$route.Id
