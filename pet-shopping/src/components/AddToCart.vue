@@ -1,30 +1,37 @@
 <template>
   <div class="addToCart">
-    <div class="cart" @click="cartActive = !cartActive" :class="{'cart--active':cartActive}">
-      <p class="event" :class="{'event--active':cartActive}">PAY</p>
+    <div class="cart" @click="cartVisibility = !cartVisibility" :class="{'cart--active':cartVisibility}">
+      <p class="event" :class="{'event--active':cartVisibility}">PAY</p>
       <span class="count">
-        <p>8</p>
+        <p>{{cartProductLen}}</p>
       </span>
     </div>
-    <div class="cartList" :class="{'cartList--active':cartActive}">
-      <h4>近期加入商品</h4>
-      <ul class="list">
-        <li class="list__item">
-          <div class="content">
-            <div class="img"></div>
-            <div class="product">
-              <p class="name">多利明 Torumin HLP 紅蚯蚓酵素(120粒)</p>
-              <p class="unit">1<span> / </span>包</p>
+    <div class="cartList" :class="{'cartList--active':cartVisibility}">
+      <div class="top">
+        <p>近期加入商品</p>
+        <span @click="cartVisibility = false">×</span>
+      </div>
+      <div class="listSection">
+        <ul class="list">
+          <li class="list__item" v-for="(item, index) in cartProductData.carts" :key="index">
+            <div class="content">
+              <div class="img" :style="{backgroundImage:`url(${item.product.imageUrl})`}"></div>
+              <div class="product">
+                <p class="name">{{item.product.title}}</p>
+                <p class="unit">{{item.qty}}<span> / </span>{{item.product.unit}}</p>
+              </div>
             </div>
-          </div>
-          <div class="doing">
-            <p>NT$48562</p>
-            <span>刪除</span>
-          </div>
-        </li>
-      </ul>
+            <div class="doing">
+              <p>{{item.final_total | dollar}}</p>
+              <span @click="delCartProduct(item.id)"> <i class="fas fa-spinner fa-spin"
+                  v-if="item.id === effect.defLoading"></i>刪除</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
       <div class="goCart">
-        <p class="total">總共：<span>NT$68590</span></p>
+        <p class="total">總共：<span>{{cartProductData.final_total | dollar}}</span></p>
         <button>查看並結帳</button>
       </div>
     </div>
@@ -33,18 +40,43 @@
 
 <script>
   export default {
-    props: ['update'],
+    props: ['updateActive'],
     data() {
       return {
-        cartActive: false,
+        cartVisibility: false,
+        cartProductData: [],
+        cartProductLen: 0,
+        effect: {
+          defLoading: '',
+        }
+      }
+    },
+    methods: {
+      updateCart() {
+        const vm = this;
+        const url = `${process.env.API_Server}/api/${process.env.API_Path}/cart`;
+        vm.$http.get(url).then((response) => {
+          vm.cartProductData = response.data.data;
+          vm.cartProductLen = vm.cartProductData.carts.length;
+        })
+      },
+      delCartProduct(id) {
+        const vm = this;
+        const url = `${process.env.API_Server}/api/${process.env.API_Path}/cart/${id}`;
+        vm.effect.defLoading = id;
+        vm.$http.delete(url).then((response) => {
+          vm.updateCart();
+          vm.effect.defLoading = '';
+        })
+      }
+    },
+    watch: {
+      updateActive() {
+        this.updateCart();
       }
     },
     created() {
-      const vm = this;
-      const url = `${process.env.API_Server}/api/${process.env.API_Path}/cart`;
-      vm.$http.get(url).then((response) => {
-        console.log(response.data);
-      })
+      this.updateCart();
     }
   }
 

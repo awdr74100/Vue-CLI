@@ -7,7 +7,7 @@
     </loading>
     <div class="userProductList">
       <!-- addToCart模板 -->
-      <AddToCart :update="xx" />
+      <AddToCart :updateActive="updateCart" />
       <div class="wrap">
         <div class="container">
           <div class="row">
@@ -66,7 +66,8 @@
                       :class="{'o-price--active':item.origin_price == item.price}">{{item.origin_price | dollar}}</span>
                     <span class="discount" v-if="item.origin_price !== item.price">{{item.price | dollar}}</span>
                   </div>
-                  <button class="addCart" @click.prevent="addItemToCart(item)">加入購物車</button>
+                  <button class="addCart" @click.prevent="addProductToCart(item.id,item.qty)">加入購物車</button>
+                  <i class="fas fa-spinner fa-spin" v-if="item.id === effect.addLoading"></i>
                 </div>
               </div>
             </li>
@@ -105,11 +106,12 @@
         // Loading效果觸發
         effect: {
           isLoading: false,
+          addLoading: '',
         },
         // Pagination物件
         pagination: {},
-        // 更新,
-        xx: '',
+        // 觸發購物車更新,
+        updateCart: '',
       }
     },
     methods: {
@@ -164,19 +166,29 @@
         paginationData.current_page == 1 ? paginationData.has_pre = false : paginationData.has_pre = true;
         vm.pagination = paginationData;
       },
-      addItemToCart(item) {
-        this.xx = item;
+      // 增加商品到購物車
+      addProductToCart(id, qty = 1) {
+        const vm = this;
+        const url = `${process.env.API_Server}/api/${process.env.API_Path}/cart`;
+        let product = {
+          'product_id': id,
+          'qty': qty,
+        }
+        vm.effect.addLoading = id;
+        vm.$http.post(url, {
+          data: product
+        }).then((response) => {
+          // 隨機變數觸發更新購物車列表
+          vm.updateCart = id;
+          vm.$bus.$emit('message:push', response.data.message, 'success');
+          vm.effect.addLoading = '';
+        })
       }
     },
-    // 監控$route.Id
+    // 監控$route.Id - 判斷切換動作
     watch: {
       '$route'() {
         this.getThisProductList();
-      }
-    },
-    computed: {
-      filterProductData() {
-        const vm = this;
       }
     },
     created() {

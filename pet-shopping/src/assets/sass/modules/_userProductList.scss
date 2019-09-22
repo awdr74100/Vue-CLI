@@ -229,6 +229,7 @@
         }
       }
 
+
       .addCart {
         padding: 6px 15px;
         border-radius: 5px;
@@ -238,12 +239,18 @@
         color: rgb(76, 167, 76);
         transition: all 0.3s;
         cursor: pointer;
+        margin-right: 10px;
+
+        &:focus {
+          outline: none;
+        }
 
         &:hover {
           background-color: rgb(76, 167, 76);
           color: #fff;
         }
       }
+
     }
   }
 }
