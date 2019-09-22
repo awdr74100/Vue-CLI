@@ -56,7 +56,7 @@
               <div class="productList__item">
                 <div class="img" :style="{backgroundImage:`url(${item.imageUrl})`}"></div>
                 <div class="detail">
-                  <button class="detail__view">VIEW DETAIL</button>
+                  <button class="detail__view" @click.prevent="toProductDetail(item.id)">VIEW DETAIL</button>
                 </div>
                 <div class="content">
                   <h4>{{item.title}}</h4>
@@ -66,8 +66,8 @@
                       :class="{'o-price--active':item.origin_price == item.price}">{{item.origin_price | dollar}}</span>
                     <span class="discount" v-if="item.origin_price !== item.price">{{item.price | dollar}}</span>
                   </div>
-                  <button class="addCart" @click.prevent="addProductToCart(item.id,item.qty)">加入購物車</button>
-                  <i class="fas fa-spinner fa-spin" v-if="item.id === effect.addLoading"></i>
+                  <button class="addCart" @click.prevent="addProductToCart(item.id,item.qty)"><span
+                      v-if="item.id === effect.addLoading"><i class="fas fa-spinner fa-spin"></i></span>加入購物車</button>
                 </div>
               </div>
             </li>
@@ -129,7 +129,7 @@
       // 取得指定種類商品列表
       getThisProductList(mode = 'default') {
         const vm = this;
-        let listType = vm.$route.params.id;
+        let listType = vm.$route.params.class;
         // 過濾下架產品與不同種類產品
         if (listType === '全部商品') {
           vm.classProducts = vm.products.filter(item => item.is_enabled == 1);
@@ -183,6 +183,13 @@
           vm.$bus.$emit('message:push', response.data.message, 'success');
           vm.effect.addLoading = '';
         })
+      },
+      // 跳轉指定商品細節頁面
+      toProductDetail(id) {
+        const vm = this;
+        vm.$router.push({
+          path: `/ProductDetail/${id}`
+        });
       }
     },
     // 監控$route.Id - 判斷切換動作

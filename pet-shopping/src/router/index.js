@@ -9,6 +9,7 @@ import Backend from '@/components/pages/backend';
 import userHome from '@/components/userHome';
 import userAbout from '@/components/userAbout';
 import userProductList from '@/components/userProductList';
+import userProductDetail from '@/components/userProductDetail';
 // 後端組件
 import adminProductList from '@/components/adminProductList';
 import adminOrderList from '@/components/adminOrderList';
@@ -40,9 +41,13 @@ export default new Router({
         name: 'About',
         component: userAbout,
       }, {
-        path: 'ProductList/:id',
+        path: 'ProductList/:class',
         name: 'ProductList',
         component: userProductList,
+      }, {
+        path: 'ProductDetail/:id',
+        name: 'ProductDetail',
+        component: userProductDetail,
       }]
     }, {
       path: '/admin',

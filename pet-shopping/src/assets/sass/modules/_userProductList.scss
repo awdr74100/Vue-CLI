@@ -154,7 +154,7 @@
 
       &__view {
         margin: 80px 0px;
-        padding: 10px 10px;
+        padding: 10px 12px;
         background-color: rgba(255, 255, 255, 0);
         border: 2px solid #fff;
         border-radius: 5px;
@@ -167,10 +167,10 @@
           color: #333333;
         }
 
-        &:active,
         &:focus {
           outline: none;
         }
+
       }
     }
 
@@ -239,7 +239,10 @@
         color: rgb(76, 167, 76);
         transition: all 0.3s;
         cursor: pointer;
-        margin-right: 10px;
+
+        span {
+          margin-right: 10px;
+        }
 
         &:focus {
           outline: none;
