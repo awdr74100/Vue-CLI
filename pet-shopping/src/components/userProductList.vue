@@ -179,7 +179,7 @@
           data: product
         }).then((response) => {
           // 隨機變數觸發更新購物車列表
-          vm.updateCart = id;
+          vm.updateCart = Date.now();
           vm.$bus.$emit('message:push', response.data.message, 'success');
           vm.effect.addLoading = '';
         })
