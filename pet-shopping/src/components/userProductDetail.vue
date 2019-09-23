@@ -1,5 +1,10 @@
 <template>
   <div>
+    <loading :active.sync="effect.isLoading">
+      <template slot="default">
+        <div class="loading-pulse left-125"></div>
+      </template>
+    </loading>
     <div class="userProductDetail">
       <!-- addToCart模板 -->
       <AddToCart :updateActive="updateCart" />
@@ -26,7 +31,7 @@
                 <div class="message"><i class="fas fa-bullhorn"></i>全店，本島宅配滿二千免運</div>
                 <div class="explain">
                   <span class="name">【商品特色】</span>
-                  <p>適合成年時體重超過25公斤、已斷奶、18-24個月大的幼犬；不適合懷孕或哺乳中的狗狗</p>
+                  <p v-html="description"></p>
                 </div>
                 <p class="price">
                   {{productDetailData.price | dollar}}<span>{{productDetailData.origin_price | dollar}}</span></p>
@@ -39,10 +44,19 @@
                 </div>
                 <div class="addSection">
                   <button class="addCart" @click="doingMode('add')"><i class="fas fa-spinner fa-spin"
-                      v-if="doing == 'add'"></i><i class="fas fa-cart-plus"></i>加入購物車</button>
+                      v-if="effect.doing == 'add'"></i><i class="fas fa-cart-plus"></i>加入購物車</button>
                   <button class="checkout" @click="doingMode('checkout')"><i class="fas fa-spinner fa-spin"
-                      v-if="doing == 'checkout'"></i><i class="fas fa-cart-arrow-down"></i>直接購買</button>
+                      v-if="effect.doing == 'checkout'"></i><i class="fas fa-cart-arrow-down"></i>直接購買</button>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-30">
+            <div class="col-12">
+              <div class="productData">
+                <h3>商品介紹</h3>
+
+                <p>{{productDetailData.content}}</p>
               </div>
             </div>
           </div>
@@ -62,13 +76,17 @@
       return {
         // 觸發購物車更新,
         updateCart: '',
-        // 判斷產品動作
-        doing: '',
+        // Loading效果觸發
+        effect: {
+          isLoading: false,
+          doing: '',
+        },
         // 指定商品資料
         productDetailData: [],
         // 購買產品數量
         productNun: '',
-
+        // 字串轉成列表 - description
+        description: '',
       }
     },
     methods: {
@@ -77,8 +95,11 @@
         const vm = this;
         let productId = vm.$route.params.id
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/product/${productId}`;
+        vm.effect.isLoading = true;
         vm.$http.get(url).then((response) => {
           vm.productDetailData = response.data.product;
+          vm.toDescription();
+          vm.effect.isLoading = false;
         })
       },
       // 判斷購物車產品增加或結帳
@@ -92,16 +113,24 @@
           'product_id': vm.productDetailData.id,
           'qty': vm.productNun,
         }
-        vm.doing = name;
+        vm.effect.doing = name;
         vm.$http.post(url, {
           data: product
         }).then((response) => {
           // 隨機變數觸發更新購物車列表
           vm.updateCart = Date.now();
           vm.$bus.$emit('message:push', response.data.message, 'success');
-          vm.doing = '';
+          vm.effect.doing = '';
         })
       },
+      // 將商品細節轉為HTML格式
+      toDescription() {
+        const vm = this;
+        let str = vm.productDetailData.description;
+        let toBreak = str.replace(/\；/g, "<span class='br'></span>");
+        let toList = toBreak.replace(/\*/g, '◆　');
+        vm.description = toList;
+      }
     },
     created() {
       const vm = this;
