@@ -22,6 +22,7 @@
             <div class="col-6">
               <div class="leftImg">
                 <div class="img"><span :style="{backgroundImage:`url(${productDetailData.imageUrl})`}"></span></div>
+                <p class="goBack" @click="goBackList"><i class="fas fa-reply"></i>返回列表</p>
               </div>
             </div>
             <div class="col-6">
@@ -55,7 +56,6 @@
             <div class="col-12">
               <div class="productData">
                 <h3>商品介紹</h3>
-
                 <p>{{productDetailData.content}}</p>
               </div>
             </div>
@@ -130,6 +130,10 @@
         let toBreak = str.replace(/\；/g, "<span class='br'></span>");
         let toList = toBreak.replace(/\*/g, '◆　');
         vm.description = toList;
+      },
+      // 返回商品列表
+      goBackList(){
+        this.$router.go(-1);
       }
     },
     created() {

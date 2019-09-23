@@ -76,6 +76,24 @@
         background-size: cover;
       }
     }
+
+    .goBack {
+      position: absolute;
+      bottom: 8px;
+      left: 0px;
+      cursor: pointer;
+      color: #8a8a8a;
+      margin-left: 16px;
+      transition: all 0.3s;
+
+      i {
+        margin-right: 10px;
+      }
+
+      &:hover {
+        color: rgb(199, 157, 43);
+      }
+    }
   }
 
   .rightContent {
