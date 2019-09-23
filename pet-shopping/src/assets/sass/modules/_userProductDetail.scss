@@ -186,17 +186,45 @@
       align-items: center;
       margin-top: 20px;
 
-      select {
-        font-family: '微軟正黑體';
-        font-size: 15px;
-        padding: 6px 100px 6px 10px;
-        border: 1px solid rgb(219, 219, 219);
-        background-color: #3f3f3f;
+      .btn {
+        padding: 10px 12px;
+        border: 1px solid #333;
+        background-color: #333;
         color: #fff;
-        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &--cancel {
+          background-color: rgb(151, 151, 151);
+          border: 1px solid rgb(151, 151, 151);
+          pointer-events: none;
+        }
 
         &:focus {
-          outline: rgb(76, 167, 76);
+          outline: none;
+        }
+
+        &:hover {
+          background-color: rgb(70, 69, 69);
+        }
+      }
+
+      input[type=number] {
+        font-size: $font-m;
+        width: 150px;
+        height: 37px;
+        text-align: center;
+        color: #5f5f5f;
+        border: 1px solid rgb(161, 161, 161);
+
+        &:focus {
+          outline: none;
+        }
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
         }
       }
 

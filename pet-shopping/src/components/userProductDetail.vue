@@ -37,11 +37,11 @@
                 <p class="price">
                   {{productDetailData.price | dollar}}<span>{{productDetailData.origin_price | dollar}}</span></p>
                 <div class="num">
-                  <select v-model="productNun">
-                    <option disabled value="">請選擇數量</option>
-                    <option :value="item" v-for="(item, index) in 10" :key="index">選購{{item}}包</option>
-                  </select>
-                  <p>小計：{{productDetailData.price * productNun}}</p>
+                  <button class="btn" :class="{'btn--cancel':productNum <= 1}" @click="productNum = productNum - 1"><i
+                      class="fas fa-minus"></i></button>
+                  <input type="number" name="" id="" min="0" max="999" v-model.number="productNum">
+                  <button class="btn" @click="productNum = productNum + 1"><i class="fas fa-plus"></i></button>
+                  <p>小計：{{productDetailData.price * productNum}}</p>
                 </div>
                 <div class="addSection">
                   <button class="addCart" @click="doingMode('add')"><i class="fas fa-spinner fa-spin"
@@ -84,7 +84,7 @@
         // 指定商品資料
         productDetailData: [],
         // 購買產品數量
-        productNun: '',
+        productNum: 1,
         // 字串轉成列表 - description
         description: '',
       }
@@ -106,12 +106,12 @@
       doingMode(name) {
         const vm = this;
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/cart`;
-        if (vm.productNun == '') {
+        if (vm.productNum == '') {
           return
         };
         let product = {
           'product_id': vm.productDetailData.id,
-          'qty': vm.productNun,
+          'qty': vm.productNum,
         }
         vm.effect.doing = name;
         vm.$http.post(url, {
@@ -132,7 +132,7 @@
         vm.description = toList;
       },
       // 返回商品列表
-      goBackList(){
+      goBackList() {
         this.$router.go(-1);
       }
     },
