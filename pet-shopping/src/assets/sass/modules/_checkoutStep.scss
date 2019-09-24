@@ -2,46 +2,60 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 200px 60px 200px;
+  padding: 0px 0px 60px 0px;
 
   &__item {
+    position: relative;
     flex: 0.25;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .stepSection {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
 
     .step {
       display: block;
       width: 40px;
       line-height: 40px;
-      color: rgba(148, 148, 148, 0.712);
+      color: #fff;
       text-align: center;
-      background-color: #d0d0d0a4;
+      background-color: rgb(59, 196, 59);
       border-radius: 20px;
       font-weight: bold;
-
-      &--active {
-        color: #fff;
-        background-color: rgba(59, 196, 59, 0.815);
-        box-shadow: 0px 0px 5px rgb(139, 139, 139);
-      }
+      z-index: 10;
     }
 
     .name {
       margin-top: 12px;
       color: rgba(148, 148, 148, 0.712);
+    }
 
-      &--active {
-        color: rgba(59, 196, 59, 0.815);
-      }
+    &::after {
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      display: block;
+      content: "";
+      height: 3px;
+      width: 100%;
+      background-color: #eeeeee;
+    }
+  }
+
+  &--active {
+    &::after {
+      background-image: linear-gradient(to right, rgb(59, 196, 59), #e2e2e2 60%);
+    }
+  }
+
+  &--resActive {
+    &::after {
+      background-image: linear-gradient(to right, #e2e2e2 40%, rgb(59, 196, 59));
+    }
+  }
+
+  &--cancel {
+    &::after {
+      height: 0px;
     }
   }
 }
