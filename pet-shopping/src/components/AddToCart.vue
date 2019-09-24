@@ -32,7 +32,7 @@
 
       <div class="goCart">
         <p class="total">總共：<span>{{cartProductData.final_total | dollar}}</span></p>
-        <button>查看並結帳</button>
+        <router-link to="/Checkout">查看並結帳</router-link>
       </div>
     </div>
   </div>
