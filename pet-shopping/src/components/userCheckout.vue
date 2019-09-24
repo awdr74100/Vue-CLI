@@ -13,25 +13,11 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <ul class="stepList">
-                <li class="stepList__item">
-                  <p>1</p>
-                  <span>購物車清單</span>
-                </li>
-                <li class="stepList__item">
-                  <p>1</p>
-                  <span>收件人資訊</span>
-                </li>
-                <li class="stepList__item">
-                  <p>1</p>
-                  <span>購買明細確認</span>
-                </li>
-                <li class="stepList__item">
-                  <p>1</p>
-                  <span>送出訂單</span>
-                </li>
-              </ul>
+              <CheckoutStep />
             </div>
+          </div>
+          <div class="row">
+            <router-view></router-view>
           </div>
         </div>
       </div>
@@ -40,8 +26,11 @@
 </template>
 
 <script>
+  import CheckoutStep from './CheckoutStep';
   export default {
-
+    components: {
+      CheckoutStep,
+    }
   }
 
 </script>

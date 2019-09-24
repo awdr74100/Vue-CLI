@@ -10,7 +10,8 @@ import userHome from '@/components/userHome';
 import userAbout from '@/components/userAbout';
 import userProductList from '@/components/userProductList';
 import userProductDetail from '@/components/userProductDetail';
-import userCheckout from '@/components/userCheckout'
+import userCheckout from '@/components/userCheckout';
+import userShoppingCart from '@/components/userShoppingCart';
 // 後端組件
 import adminProductList from '@/components/adminProductList';
 import adminOrderList from '@/components/adminOrderList';
@@ -53,6 +54,11 @@ export default new Router({
         path: 'Checkout',
         name: 'Checkout',
         component: userCheckout,
+        children: [{
+          path: '',
+          name: 'ShoppingCart',
+          component: userShoppingCart,
+        }]
       }]
     }, {
       path: '/admin',

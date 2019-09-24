@@ -1,0 +1,47 @@
+.checkoutStep {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 200px 60px 200px;
+
+  &__item {
+    flex: 0.25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stepSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .step {
+      display: block;
+      width: 40px;
+      line-height: 40px;
+      color: rgba(148, 148, 148, 0.712);
+      text-align: center;
+      background-color: #d0d0d0a4;
+      border-radius: 20px;
+      font-weight: bold;
+
+      &--active {
+        color: #fff;
+        background-color: rgba(59, 196, 59, 0.815);
+        box-shadow: 0px 0px 5px rgb(139, 139, 139);
+      }
+    }
+
+    .name {
+      margin-top: 12px;
+      color: rgba(148, 148, 148, 0.712);
+
+      &--active {
+        color: rgba(59, 196, 59, 0.815);
+      }
+    }
+  }
+}
