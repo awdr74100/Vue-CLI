@@ -32,7 +32,7 @@
 
       <div class="goCart">
         <p class="total">總共：<span>{{cartProductData.final_total | dollar}}</span></p>
-        <router-link to="/Checkout">查看並結帳</router-link>
+        <router-link to="/ShoppingCart">查看並結帳</router-link>
       </div>
     </div>
   </div>
@@ -43,9 +43,13 @@
     props: ['updateActive'],
     data() {
       return {
+        // 是否打開購物車列表
         cartVisibility: false,
+        // 購物車列表資料
         cartProductData: [],
+        // 購物車品項數量
         cartProductLen: 0,
+        // Loading效果觸發
         effect: {
           defLoading: '',
         }
@@ -68,7 +72,7 @@
           vm.updateCart();
           vm.effect.defLoading = '';
         })
-      }
+      },
     },
     watch: {
       updateActive() {

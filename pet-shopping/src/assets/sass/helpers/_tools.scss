@@ -3,6 +3,8 @@
   padding-top: 5px;
 }
 
+
+
 .pt-20 {
   padding-top: 20px;
 }
@@ -40,9 +42,12 @@
   margin-top: 30px;
 }
 
-.pb-500{
-  // padding-bottom: 250px;
-  // background-color: #fff;
+.table-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
 }
 
 .mt-50{
