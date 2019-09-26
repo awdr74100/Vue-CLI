@@ -24,8 +24,8 @@
       z-index: 10;
 
       &--active {
-        background-color: #5fd15f;
-        box-shadow: 0px 0px 5px #5fd15f;
+        background-color: #4ca74c;
+        box-shadow: 0px 0px 5px #4ca74c;
       }
     }
 
@@ -36,7 +36,7 @@
 
 
       &--active {
-        color: #5fd15f;
+        color: #4ca74c;
       }
     }
 
@@ -54,13 +54,13 @@
 
   &--active {
     &::after {
-      background-image: linear-gradient(to right, #5fd15f, #d6d6d6 60%);
+      background-image: linear-gradient(to right, #4ca74c, #d6d6d6 60%);
     }
   }
 
   &--resActive {
     &::after {
-      background-image: linear-gradient(to right, #d6d6d6 40%, #5fd15f);
+      background-image: linear-gradient(to right, #d6d6d6 40%, #4ca74c);
     }
   }
 

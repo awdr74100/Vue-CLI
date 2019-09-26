@@ -51,5 +51,171 @@
     }
   }
 
-  
+  .couponSection {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .coupon-container {
+      width: 90%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-direction: column;
+    }
+
+    .message {
+      font-size: $font-xs - 1;
+      color: #da7b22;
+    }
+
+    .coupon {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__input {
+        font-family: '微軟正黑體';
+        font-size: $font-xxs;
+        height: 37px;
+        border: 1px solid #4e4e4e;
+        border-right: none;
+        width: 260px;
+        padding-left: 10px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        color: #4e4e4e;
+        background-color: #ffffff;
+
+        &:focus {
+          box-shadow: 0px 0px 5px #aaaaaa;
+          outline: none;
+        }
+      }
+
+      &__btn {
+        font-family: '微軟正黑體';
+        font-size: $font-xxs;
+        color: #4e4e4e;
+        background-color: #f5f5f5;
+        border: 1px solid #4e4e4e;
+        padding: 8px 12px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        transition: all 0.3s;
+        cursor: pointer;
+
+        i {
+          margin-right: 10px;
+        }
+
+        &:hover {
+          background-color: #4e4e4e;
+          border: 1px solid #4e4e4e;
+          color: #fff;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+  }
+
+  .transport {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .name {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: #4ca74c;
+      border-bottom: 3px solid #4ca74c;
+      width: 100%;
+      padding: 8px 0px;
+
+      i {
+        font-size: $font-xl;
+      }
+
+      h3 {
+        font-size: $font-m;
+        margin-left: 16px;
+      }
+    }
+
+    .list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 20px;
+
+      &__item {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 16px 0px;
+        border-bottom: 1px solid #4ca74c
+      }
+
+      .method {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: 10px;
+
+        p {
+          color: #333;
+        }
+
+        span {
+          margin-top: 8px;
+          font-size: $font-xxs;
+          color: rgb(192, 146, 82);
+        }
+      }
+    }
+
+    button {
+      padding: 8px 20px;
+      background-color: rgb(76, 167, 76);
+      color: #fff;
+      border: 1px solid rgb(76, 167, 76);
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: '微軟正黑體';
+
+      i {
+        margin-left: 8px;
+      }
+
+      &:hover {
+        background-color: #fff;
+        color: rgb(76, 167, 76);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+
+
 }
