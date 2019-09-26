@@ -41,7 +41,7 @@
                             v-if="effect.delProduct == item.id"></i><i class="far fa-trash-alt"
                             @click="delCartProduct(item.id)" v-else></i></span>
                       <td class="t-m">
-                      <div class="img" :style="{backgroundImage:`url(${item.product.imageUrl})`}"></div>
+                        <div class="img" :style="{backgroundImage:`url(${item.product.imageUrl})`}"></div>
                       </td>
                       <td class="t-xl">
                         <div class="name">
@@ -152,12 +152,12 @@
           data: coupon
         }).then((response) => {
           if (response.data.success === true) {
-            vm.couponCode = '',
-              vm.$bus.$emit('message:push', response.data.message, 'success');
+            vm.couponCode = '';
+            vm.$bus.$emit('message:push', response.data.message, 'success');
             vm.updateCart();
           } else {
-            vm.couponCode = '',
-              vm.$bus.$emit('message:push', response.data.message, 'danger');
+            vm.couponCode = '';
+            vm.$bus.$emit('message:push', response.data.message, 'danger');
           }
           vm.effect.applyCoupon = false;
         })
