@@ -18,6 +18,7 @@
 @import "modules/pagination";
 @import "modules/addToCart";
 @import "modules/checkoutStep";
+@import "modules/cartData";
 // --前台
 @import "modules/userSidebar";
 @import "modules/userHome";
@@ -26,6 +27,7 @@
 @import "modules/userProductList";
 @import "modules/userProductDetail";
 @import "modules/userShoppingCart";
+@import "modules/userCheckout";
 // --後台
 @import "modules/adminTopbar";
 @import "modules/adminSidebar";
