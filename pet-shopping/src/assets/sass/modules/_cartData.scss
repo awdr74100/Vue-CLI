@@ -87,7 +87,7 @@
         transition: all 0.3s;
 
         &:hover {
-          color: rgb(187, 46, 46);
+          color: rgb(161, 23, 23);
         }
       }
     }
@@ -111,12 +111,49 @@
 
       p {
         line-height: 1.3;
-        color: #303030;
+        color: #333;
       }
 
       .applyCoupon {
-        margin-top: 2px;
-        color: rgb(214, 117, 38);
+        margin-top: 6px;
+        color: #178013;
+
+        span {
+          display: block;
+          background-color: #da7b22;
+          text-align: center;
+          // line-height: 26px;
+          height: 20px;
+          line-height: 20px;
+          color: #fff;
+          width: 60px;
+          font-size: $font-xxs - 1.5;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-color: transparent #da7b22 transparent transparent;
+            border-style: solid;
+            border-width: 10px 10px 10px 0;
+          }
+
+          &:after {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 1px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.4);
+          }
+        }
       }
     }
 

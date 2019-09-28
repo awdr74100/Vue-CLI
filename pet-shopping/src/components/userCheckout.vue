@@ -50,6 +50,7 @@
                         <td class="t-xl">
                           <div class="name">
                             <p>{{item.product.title}}</p>
+                            <p class="applyCoupon" v-if="item.coupon"><span>80 %</span></p>
                           </div>
                         </td>
                         <td class="t-m">
@@ -72,8 +73,10 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <couponSection v-if="step == 'checkCart' " />
-              <transportSection v-if="step == 'checkCart' " />
+              <!-- 套用優惠卷 -->
+              <couponSection v-if="step == 'checkCart' "  @updateCart="getCartData" />
+              <!-- 選擇運送方式 -->
+              <transportSection v-if="step == 'checkCart' " @nextStep="step = 'createOrder'" />
             </div>
           </div>
         </div>
@@ -118,6 +121,7 @@
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/cart`;
         vm.effect.isLoading = true;
         vm.$http.get(url).then((response) => {
+          console.log(response.data);
           vm.cartProductData = response.data.data;
           vm.cartProductLen = vm.cartProductData.carts.length;
           vm.effect.isLoading = false;

@@ -154,7 +154,7 @@
           if (response.data.success === true) {
             vm.couponCode = '';
             vm.$bus.$emit('message:push', response.data.message, 'success');
-            vm.updateCart();
+            
           } else {
             vm.couponCode = '';
             vm.$bus.$emit('message:push', response.data.message, 'danger');

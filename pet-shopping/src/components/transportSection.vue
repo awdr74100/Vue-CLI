@@ -2,7 +2,7 @@
   <div class="transportSection">
     <div class="name">
       <i class="fas fa-exclamation-circle"></i>
-      <h3>請選擇物流方式</h3>
+      <h3>確認配送方式</h3>
     </div>
     <ul class="list">
       <li class="list__item">
@@ -20,6 +20,17 @@
         </label>
       </li>
     </ul>
-    <button>下一步<i class="fas fa-arrow-right"></i></button>
+    <button @click="callnextStep">下一步<i class="fas fa-arrow-right"></i></button>
   </div>
 </template>
+
+<script>
+  export default {
+    methods: {
+      callnextStep() {
+        this.$emit('nextStep')
+      }
+    },
+  }
+
+</script>
