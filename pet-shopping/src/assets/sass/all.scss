@@ -7,7 +7,7 @@
 
 // layout
 @import "layout/grid";
-@import "layout/header";
+// @import "layout/header";
 @import "layout/backend";
 @import "layout/frontend";
 
@@ -37,5 +37,6 @@
 // 結帳頁面
 @import "modules/couponSection";
 @import "modules/transportSection";
+@import "modules/editOrderSection";
 // vendors
 @import "vendors/swiper";

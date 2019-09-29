@@ -50,7 +50,7 @@
                         <td class="t-xl">
                           <div class="name">
                             <p>{{item.product.title}}</p>
-                            <p class="applyCoupon" v-if="item.coupon"><span>80 %</span></p>
+                            <p class="applyCoupon" v-if="item.coupon"><span>{{item.coupon.percent}} %</span></p>
                           </div>
                         </td>
                         <td class="t-m">
@@ -74,9 +74,11 @@
           <div class="row">
             <div class="col-12">
               <!-- 套用優惠卷 -->
-              <couponSection v-if="step == 'checkCart' "  @updateCart="getCartData" />
+              <couponSection v-if="step == 'checkCart' " @updateCart="getCartData" />
               <!-- 選擇運送方式 -->
               <transportSection v-if="step == 'checkCart' " @nextStep="step = 'createOrder'" />
+              <!-- 填寫訂購資料 -->
+              <editOrderSection v-if="step == 'createOrder' " />
             </div>
           </div>
         </div>
@@ -89,12 +91,14 @@
   import CheckoutStep from './CheckoutStep';
   import couponSection from './couponSection';
   import transportSection from './transportSection';
+  import editOrderSection from './editOrderSection';
 
   export default {
     components: {
       CheckoutStep,
       couponSection,
       transportSection,
+      editOrderSection,
     },
     data() {
       return {

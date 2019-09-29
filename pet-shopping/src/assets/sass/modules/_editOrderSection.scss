@@ -1,0 +1,142 @@
+.editOrderSection {
+  position: relative;
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .name {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #4e4e4e;
+    border-bottom: 2px solid #4e4e4e;
+    width: 100%;
+    padding: 8px 0px;
+
+    i {
+      font-size: $font-m + 1;
+    }
+
+    h3 {
+      font-size: $font-s;
+      margin-left: 10px;
+    }
+  }
+
+  .order {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+   padding: 0px 10px;
+  }
+
+  .sectionTitle{
+    color: #979797;
+    margin-top: 16px;
+    font-size: $font-xs;
+}
+
+  .form {
+    flex: 0.5;
+
+    .userRow {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 8px;
+      width: 80%;
+
+      .icon {
+        width: 45px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        color: #fff;
+        background-color: #4e4e4e;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+    }
+
+    label {
+      display: block;
+      color: #4e4e4e;
+      margin-top: 20px;
+      font-size: $font-xs - 1;
+    }
+
+    input {
+      height: 35px;
+      border: 1px solid rgb(204, 204, 204);
+      width: 100%;
+      padding-left: 10px;
+      font-size: $font-xs;
+      color: #4e4e4e;
+      font-family: '微軟正黑體';
+      background-color: rgb(252, 252, 252);
+
+      &:focus {
+        box-shadow: 0px 0px 5px #aaaaaa;
+        outline: none;
+      }
+    }
+
+    textarea {
+      font-family: '微軟正黑體';
+      margin-top: 10px;
+      width: 80%;
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 5px;
+      font-size: $font-xs;
+      color: #4e4e4e;
+      background-color: rgb(252, 252, 252);
+
+      &:focus {
+        box-shadow: 0px 0px 5px #aaaaaa;
+        outline: none;
+      }
+    }
+  }
+
+  .pay {
+    flex: 0.5;
+
+    .list {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: 22px;
+
+      &__item {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: 1px solid #dfdfdf;
+        
+      }
+      label{
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin-left: 10px;
+          color: #4e4e4e;
+          padding: 20px 0px;
+          cursor: pointer;
+          width: 100%;
+          font-size: $font-xs - 1;
+          
+          i{
+              font-size: $font-l;
+              margin-right: 10px;
+          }
+      }
+    }
+  }
+}

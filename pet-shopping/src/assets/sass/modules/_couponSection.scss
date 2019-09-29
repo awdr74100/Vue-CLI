@@ -1,73 +1,73 @@
 .couponSection {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .coupon-container {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+  .message {
+    font-size: $font-xs - 1;
+    color: #da7b22;
+  }
+
+  .coupon {
+    margin-top: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .coupon-container {
-      width: 90%;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      flex-direction: column;
+    &__input {
+      font-family: '微軟正黑體';
+      font-size: $font-xxs;
+      height: 37px;
+      border: 1px solid #4e4e4e;
+      border-right: none;
+      width: 260px;
+      padding-left: 10px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      color: #4e4e4e;
+      background-color: #ffffff;
+
+      &:focus {
+        box-shadow: 0px 0px 5px #aaaaaa;
+        outline: none;
+      }
     }
 
-    .message {
-      font-size: $font-xs - 1;
-      color: #da7b22;
-    }
+    &__btn {
+      font-family: '微軟正黑體';
+      font-size: $font-xxs;
+      color: #4e4e4e;
+      background-color: #f5f5f5;
+      border: 1px solid #4e4e4e;
+      padding: 8px 12px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      transition: all 0.3s;
+      cursor: pointer;
 
-    .coupon {
-      margin-top: 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &__input {
-        font-family: '微軟正黑體';
-        font-size: $font-xxs;
-        height: 37px;
-        border: 1px solid #4e4e4e;
-        border-right: none;
-        width: 260px;
-        padding-left: 10px;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-        color: #4e4e4e;
-        background-color: #ffffff;
-
-        &:focus {
-          box-shadow: 0px 0px 5px #aaaaaa;
-          outline: none;
-        }
+      i {
+        margin-right: 10px;
       }
 
-      &__btn {
-        font-family: '微軟正黑體';
-        font-size: $font-xxs;
-        color: #4e4e4e;
-        background-color: #f5f5f5;
+      &:hover {
+        background-color: #4e4e4e;
         border: 1px solid #4e4e4e;
-        padding: 8px 12px;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-        transition: all 0.3s;
-        cursor: pointer;
+        color: #fff;
+      }
 
-        i {
-          margin-right: 10px;
-        }
-
-        &:hover {
-          background-color: #4e4e4e;
-          border: 1px solid #4e4e4e;
-          color: #fff;
-        }
-
-        &:focus {
-          outline: none;
-        }
+      &:focus {
+        outline: none;
       }
     }
   }
+}

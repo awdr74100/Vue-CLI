@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 170px 60px 170px;
+  padding: 0px 120px 60px 120px;
 
   &__item {
     position: relative;
@@ -14,26 +14,27 @@
 
     .step {
       display: block;
-      width: 40px;
-      line-height: 40px;
+      width: 46px;
+      height: 46px;
       color: #fff;
+      font-size: $font-m;
       text-align: center;
-      background-color: #c5c5c5;
-      border-radius: 20px;
-      font-weight: bold;
+      background-color: #4e4e4e;
+      border-radius: 50%;
       z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       &--active {
         background-color: #4ca74c;
-        box-shadow: 0px 0px 5px #4ca74c;
       }
     }
 
     .name {
       margin-top: 12px;
-      color: #c5c5c5;
+      color: #4e4e4e;
       font-size: $font-xs;
-
 
       &--active {
         color: #4ca74c;
@@ -54,13 +55,8 @@
 
   &--active {
     &::after {
-      background-image: linear-gradient(to right, #4ca74c, #d6d6d6 60%);
-    }
-  }
-
-  &--resActive {
-    &::after {
-      background-image: linear-gradient(to right, #d6d6d6 40%, #4ca74c);
+      background-color: #4ca74c;
+      // background-image: linear-gradient(to right, #4ca74c, #d6d6d6 60%);
     }
   }
 

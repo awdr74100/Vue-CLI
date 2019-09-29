@@ -12,18 +12,18 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    color: #4ca74c;
-    border-bottom: 3px solid #4ca74c;
+    color: #4e4e4e;
+    border-bottom: 2px solid #4e4e4e;
     width: 100%;
     padding: 8px 0px;
 
     i {
-      font-size: $font-xl;
+      font-size: $font-m + 1;
     }
 
     h3 {
-      font-size: $font-m;
-      margin-left: 16px;
+      font-size: $font-s;
+      margin-left: 10px;
     }
   }
 
@@ -41,7 +41,7 @@
       justify-content: flex-start;
       align-items: flex-start;
       padding: 16px 0px;
-      border-bottom: 1px solid #4ca74c;
+      border-bottom: 1px solid #cccccc;
 
     }
 
@@ -55,25 +55,27 @@
 
       p {
         color: #333;
+        font-size: $font-xs - 1;
       }
 
       span {
         margin-top: 8px;
-        font-size: $font-xxs;
+        font-size: $font-xxs - 1;
         color: rgb(192, 146, 82);
       }
     }
   }
 
   button {
-    padding: 8px 20px;
-    background-color: rgb(76, 167, 76);
+    padding: 8px 30px;
+    background-color: #4e4e4e;
     color: #fff;
-    border: 1px solid rgb(76, 167, 76);
+    border: 1px solid #4e4e4e;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
     font-family: '微軟正黑體';
+    font-size: $font-xxs;
 
     i {
       margin-left: 8px;
@@ -81,7 +83,7 @@
 
     &:hover {
       background-color: rgba(255, 255, 255, 0);
-      color: rgb(76, 167, 76);
+      color: #4e4e4e;
     }
 
     &:focus {
