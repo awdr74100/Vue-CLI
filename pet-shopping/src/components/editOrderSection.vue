@@ -31,11 +31,11 @@
         <textarea name="remarks" id="remarks" cols="30" rows="7"></textarea>
       </form>
       <div class="pay">
-          <h3 class="sectionTitle">付款方式</h3>
+        <h3 class="sectionTitle">付款方式</h3>
         <ul class="list">
           <li class="list__item">
             <input type="radio" name="pay" id="atm" disabled>
-            <label for="atm"><i class="fab fa-cc-apple-pay"></i>網路ATM / ATM 櫃員機 (暫不開放)</label>
+            <label for="atm"><i class="far fa-credit-card"></i>網路ATM / ATM 櫃員機 (暫不開放)</label>
           </li>
           <li class="list__item">
             <input type="radio" name="pay" id="card" disabled>
@@ -47,6 +47,29 @@
           </li>
         </ul>
       </div>
+      <div class="btn-group">
+        <button class="btn btn--prev" @click="callprevStep"><i class="fas fa-arrow-left"></i>回上一步</button>
+        <button class="btn btn--next">建立訂單並確認付款<i class="fas fa-arrow-right"></i></button>
+      </div>
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+
+      }
+    },
+    methods: {
+      callprevStep() {
+        this.$emit('prevStep');
+      },
+      callnextStep() {
+        this.$emit('event');
+      }
+    },
+  }
+
+</script>

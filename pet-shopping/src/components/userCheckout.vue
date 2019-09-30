@@ -78,7 +78,7 @@
               <!-- 選擇運送方式 -->
               <transportSection v-if="step == 'checkCart' " @nextStep="step = 'createOrder'" />
               <!-- 填寫訂購資料 -->
-              <editOrderSection v-if="step == 'createOrder' " />
+              <editOrderSection v-if="step == 'createOrder' " @prevStep="step = 'checkCart'" />
             </div>
           </div>
         </div>
