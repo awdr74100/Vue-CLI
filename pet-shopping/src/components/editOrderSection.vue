@@ -74,17 +74,12 @@
       callprevStep() {
         this.$emit('prevStep');
       },
-      callnextStep() {
-        this.$emit('event');
-      },
       createOrder() {
         const vm = this;
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/order`;
         vm.$http.post(url, {
           data: vm.userData
         }).then((response) => {
-          console.log(response.data);
-          console.log(response.data.orderId);
           let orderId = response.data.orderId;
           if (response.data.success) {
             vm.$bus.$emit('message:push', response.data.message, 'success');

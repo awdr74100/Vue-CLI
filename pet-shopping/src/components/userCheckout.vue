@@ -78,8 +78,10 @@
               <!-- 選擇運送方式 -->
               <transportSection v-if="step == 'checkCart' " @nextStep="step = 'createOrder'" />
               <!-- 填寫訂購資料 -->
-              <editOrderSection v-if="step == 'createOrder' " @updateCart="showThisOrder"
+              <editOrderSection v-if="step == 'createOrder' " @updateCart="showOrderDetial"
                 @prevStep="step = 'checkCart'" />
+              <!-- 付款/完成訂單 -->
+              
             </div>
           </div>
         </div>
@@ -117,6 +119,10 @@
         },
         // 購物車是否打開
         cartVisibility: true,
+        // 查詢訂單 - 商品資料
+        orderProductData: [],
+        // 查詢訂單 - 客戶資料
+        orderUserData: [],
       }
     },
     methods: {
@@ -143,18 +149,13 @@
         })
       },
       // 顯示指定訂單內容
-      showThisOrder(id) {
+      showOrderDetial(orderId) {
         const vm = this;
-        let orderId = id;
-        console.log(id);
-        vm.xx = true;
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/order/${orderId}`;
         vm.$http.get(url).then((response) => {
           console.log(response.data);
-          let object = response.data.order;
-          console.log(object.products);
-          vm.object = object.products;
-          vm.effect.isLoading = false;
+          vm.orderProductData = response.data.order.products;
+          vm.orderUserData = response.data.order.user;
         })
       }
     },
