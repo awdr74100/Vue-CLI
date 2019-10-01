@@ -3,9 +3,10 @@
   border: 1px solid rgba(0, 0, 0, .125);
   border-radius: 6px;
   overflow: hidden;
-  margin-bottom: 40px;
+  margin: 0 auto;
   max-height: 57px;
   transition: all 0.5s;
+  margin-bottom: 40px;
 
   &--open {
     max-height: 1000px;

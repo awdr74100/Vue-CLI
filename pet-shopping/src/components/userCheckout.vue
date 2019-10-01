@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12 table-center">
+            <div class="col-12">
               <div class="cartData" :class="{'cartData--open':cartVisibility}">
                 <p class="cartData__title" @click="cartVisibility = !cartVisibility">購物車清單<i
                     class="fas fa-caret-down"></i></p>
@@ -78,7 +78,8 @@
               <!-- 選擇運送方式 -->
               <transportSection v-if="step == 'checkCart' " @nextStep="step = 'createOrder'" />
               <!-- 填寫訂購資料 -->
-              <editOrderSection v-if="step == 'createOrder' " @prevStep="step = 'checkCart'" />
+              <editOrderSection v-if="step == 'createOrder' " @updateCart="showThisOrder"
+                @prevStep="step = 'checkCart'" />
             </div>
           </div>
         </div>
@@ -125,7 +126,6 @@
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/cart`;
         vm.effect.isLoading = true;
         vm.$http.get(url).then((response) => {
-          console.log(response.data);
           vm.cartProductData = response.data.data;
           vm.cartProductLen = vm.cartProductData.carts.length;
           vm.effect.isLoading = false;
@@ -142,6 +142,21 @@
           vm.effect.delProduct = '';
         })
       },
+      // 顯示指定訂單內容
+      showThisOrder(id) {
+        const vm = this;
+        let orderId = id;
+        console.log(id);
+        vm.xx = true;
+        const url = `${process.env.API_Server}/api/${process.env.API_Path}/order/${orderId}`;
+        vm.$http.get(url).then((response) => {
+          console.log(response.data);
+          let object = response.data.order;
+          console.log(object.products);
+          vm.object = object.products;
+          vm.effect.isLoading = false;
+        })
+      }
     },
     created() {
       this.getCartData();

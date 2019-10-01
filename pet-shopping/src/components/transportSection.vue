@@ -28,7 +28,7 @@
   export default {
     methods: {
       callnextStep() {
-        this.$emit('nextStep')
+        this.$emit('nextStep');
       }
     },
   }
