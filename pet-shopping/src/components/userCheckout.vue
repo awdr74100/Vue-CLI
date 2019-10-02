@@ -18,70 +18,27 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <CheckoutStep />
+              <checkoutStep :step="step" />
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="cartData" :class="{'cartData--open':cartVisibility}">
-                <p class="cartData__title" @click="cartVisibility = !cartVisibility">購物車清單<i
-                    class="fas fa-caret-down"></i></p>
-                <div class="cartData__container">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th class="t-s">操作</th>
-                        <th class="t-m">產品圖片</th>
-                        <th class="t-xl">產品名稱</th>
-                        <th class="t-m">數量</th>
-                        <th class="t-m">小計</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr v-for="(item, index) in cartProductData.carts" :key="index">
-                        <td class="t-s">
-                          <span class="delete"><i class="fas fa-spinner fa-spin"
-                              v-if="effect.delProduct == item.id"></i><i class="far fa-trash-alt"
-                              @click="delCartProduct(item.id)" v-else></i></span>
-                        </td>
-                        <td class="t-m">
-                          <div class="img" :style="{backgroundImage:`url(${item.product.imageUrl})`}"></div>
-                        </td>
-                        <td class="t-xl">
-                          <div class="name">
-                            <p>{{item.product.title}}</p>
-                            <p class="applyCoupon" v-if="item.coupon"><span>{{item.coupon.percent}} %</span></p>
-                          </div>
-                        </td>
-                        <td class="t-m">
-                          <p class="count">{{item.qty}}<span> / {{item.product.unit}}</span></p>
-                        </td>
-                        <td class="t-m">
-                          <p class="total">{{item.final_total | dollar}}</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div class="content">
-                    <p class="count">共計<span>{{cartProductLen}}</span>項商品</p>
-                    <p class="price">+ 運費<span>NT$0</span>總計：<span
-                        class="totalPrice">{{cartProductData.final_total | dollar}}</span></p>
-                  </div>
-                </div>
-              </div>
+              <!-- 渲染購物車清單 -->
+              <cartData :data="cartProductData" :dataLen="cartProductLen" @updateCart="getCartData" />
             </div>
           </div>
           <div class="row">
             <div class="col-12">
               <!-- 套用優惠卷 -->
-              <couponSection v-if="step == 'checkCart' " @updateCart="getCartData" />
+              <applyCoupon v-if="step == 'checkCart' " @updateCart="getCartData" />
               <!-- 選擇運送方式 -->
-              <transportSection v-if="step == 'checkCart' " @nextStep="step = 'createOrder'" />
+              <deliveryMethods v-if="step == 'checkCart' " @nextStep="step = 'createOrder'" />
               <!-- 填寫訂購資料 -->
-              <editOrderSection v-if="step == 'createOrder' " @updateCart="showOrderDetial"
+              <purchaseData v-if="step == 'createOrder' " @updateCart="showOrderDetial"
                 @prevStep="step = 'checkCart'" />
               <!-- 付款/完成訂單 -->
-              
+              <orderDetail v-if="step == 'showOrderDetail' || step == 'completeOrder' " @updateCart="showOrderDetial"
+                :userData="cartProductData" />
             </div>
           </div>
         </div>
@@ -91,17 +48,22 @@
 </template>
 
 <script>
-  import CheckoutStep from './CheckoutStep';
-  import couponSection from './couponSection';
-  import transportSection from './transportSection';
-  import editOrderSection from './editOrderSection';
+  import checkoutStep from './checkoutModules/checkoutStep';
+  import cartData from './checkoutModules/cartData';
+  import applyCoupon from './checkoutModules/applyCoupon';
+  import deliveryMethods from './checkoutModules/deliveryMethods';
+  import purchaseData from './checkoutModules/purchaseData';
+  import orderDetail from './checkoutModules/orderDetail';
+
 
   export default {
     components: {
-      CheckoutStep,
-      couponSection,
-      transportSection,
-      editOrderSection,
+      checkoutStep,
+      cartData,
+      applyCoupon,
+      deliveryMethods,
+      purchaseData,
+      orderDetail,
     },
     data() {
       return {
@@ -114,15 +76,7 @@
         // Loading效果觸發
         effect: {
           isLoading: false,
-          applyCoupon: false,
-          delProduct: '',
         },
-        // 購物車是否打開
-        cartVisibility: true,
-        // 查詢訂單 - 商品資料
-        orderProductData: [],
-        // 查詢訂單 - 客戶資料
-        orderUserData: [],
       }
     },
     methods: {
@@ -137,25 +91,21 @@
           vm.effect.isLoading = false;
         })
       },
-      // 刪除購物車商品
-      delCartProduct(id) {
-        const vm = this;
-        const url = `${process.env.API_Server}/api/${process.env.API_Path}/cart/${id}`;
-        vm.effect.delProduct = id;
-        vm.$http.delete(url).then((response) => {
-          vm.$bus.$emit('message:push', '已刪除項目', 'success');
-          vm.getCartData();
-          vm.effect.delProduct = '';
-        })
-      },
-      // 顯示指定訂單內容
+      // 顯示指定訂單細節
       showOrderDetial(orderId) {
         const vm = this;
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/order/${orderId}`;
+        vm.effect.isLoading = true;
         vm.$http.get(url).then((response) => {
           console.log(response.data);
-          vm.orderProductData = response.data.order.products;
-          vm.orderUserData = response.data.order.user;
+          vm.cartProductData = response.data.order;
+          vm.cartProductLen = Object.keys(response.data.order.products).length;
+          if (response.data.order.is_paid == true) {
+            vm.step = 'completeOrder';
+          } else {
+            vm.step = 'showOrderDetail';
+          }
+          vm.effect.isLoading = false;
         })
       }
     },

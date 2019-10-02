@@ -1,5 +1,5 @@
 <template>
-  <div class="editOrderSection">
+  <div class="purchaseData">
     <div class="name">
       <i class="far fa-edit"></i>
       <h3>填寫訂購資料</h3>
@@ -49,7 +49,9 @@
       </div>
       <div class="btn-group">
         <button class="btn btn--prev" @click="callprevStep"><i class="fas fa-arrow-left"></i>回上一步</button>
-        <button class="btn btn--next" @click="createOrder">建立訂單並確認付款<i class="fas fa-arrow-right"></i></button>
+        <button class="btn btn--next" @click="createOrder">建立訂單並確認付款
+          <i class="fas fa-arrow-right" v-if="!effect.createOrder"></i>
+          <i class="fas fa-spinner fa-spin" v-else></i></button>
       </div>
     </div>
   </div>
@@ -67,7 +69,11 @@
             address: '',
           },
           message: '',
+        },
+        effect: {
+          createOrder: false,
         }
+
       }
     },
     methods: {
@@ -77,16 +83,18 @@
       createOrder() {
         const vm = this;
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/order`;
+        vm.effect.createOrder = true;
         vm.$http.post(url, {
           data: vm.userData
         }).then((response) => {
           let orderId = response.data.orderId;
           if (response.data.success) {
             vm.$bus.$emit('message:push', response.data.message, 'success');
-            vm.$emit('updateCart',orderId);
+            vm.$emit('updateCart', orderId);
           } else {
             vm.$bus.$emit('message:push', response.data.message, 'danger');
           }
+          vm.effect.createOrder = false;
         })
       }
     },

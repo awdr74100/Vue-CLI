@@ -1,5 +1,5 @@
 <template>
-  <div class="transportSection">
+  <div class="deliveryMethods">
     <div class="name">
       <i class="fas fa-exclamation-circle"></i>
       <h3>確認配送方式</h3>

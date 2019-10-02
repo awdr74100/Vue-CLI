@@ -10,7 +10,6 @@ import userHome from '@/components/userHome';
 import userAbout from '@/components/userAbout';
 import userProductList from '@/components/userProductList';
 import userProductDetail from '@/components/userProductDetail';
-import userShoppingCart from '@/components/userShoppingCart';
 import userCheckout from '@/components/userCheckout';
 // 後端組件
 import adminProductList from '@/components/adminProductList';
@@ -50,16 +49,11 @@ export default new Router({
         path: 'ProductDetail/:id',
         name: 'ProductDetail',
         component: userProductDetail,
-      },{
-        path:'ShoppingCart',
-        name:'ShoppingCart',
-        component:userShoppingCart,
-      },{
-        path:'Checkout',
-        name:'Checkout',
-        component:userCheckout,
-      }
-    ]
+      }, {
+        path: 'Checkout',
+        name: 'Checkout',
+        component: userCheckout,
+      }]
     }, {
       path: '/admin',
       name: 'Backend',
@@ -86,7 +80,6 @@ export default new Router({
           requiresAuth: true
         }
       }]
-
     }
   ]
 })

@@ -1,4 +1,4 @@
-.editOrderSection {
+.orderDetail {
   position: relative;
   width: 100%;
   margin-bottom: 50px;
@@ -26,12 +26,11 @@
     }
   }
 
-  .order {
+  .checkOrder {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    flex-flow: row wrap;
     padding: 0px 10px;
   }
 
@@ -41,10 +40,17 @@
     font-size: $font-xs;
   }
 
-  .form {
+  .userData {
     width: 50%;
 
-    .userRow {
+    &__title {
+      display: block;
+      color: #4e4e4e;
+      margin-top: 20px;
+      font-size: $font-xs - 1;
+    }
+
+    &__row {
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -63,53 +69,37 @@
       }
     }
 
-    label {
-      display: block;
-      color: #4e4e4e;
-      margin-top: 20px;
-      font-size: $font-xs - 1;
-    }
-
-    input {
-      height: 35px;
-      border: 1px solid rgb(204, 204, 204);
+    &__content {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      line-height: 1.2;
       width: 100%;
       padding-left: 10px;
       font-size: $font-xs;
       color: #4e4e4e;
       font-family: '微軟正黑體';
-      background-color: rgb(252, 252, 252);
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-
-      &:focus {
-        box-shadow: 0px 0px 5px #aaaaaa;
-        outline: none;
-      }
     }
 
-    textarea {
+    &__remark {
       font-family: '微軟正黑體';
       margin-top: 10px;
       width: 80%;
-      border: 1px solid rgb(204, 204, 204);
-      border-radius: 5px;
+      line-height: 1.4;
       font-size: $font-xs;
       color: #4e4e4e;
-      background-color: rgb(252, 252, 252);
-
-      &:focus {
-        box-shadow: 0px 0px 5px #aaaaaa;
-        outline: none;
-      }
     }
   }
 
-  .pay {
+  .orderData {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
     .list {
-      width: 80%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -122,36 +112,31 @@
         justify-content: flex-start;
         align-items: center;
         border-bottom: 1px solid #dfdfdf;
-
-      }
-
-      label {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-left: 10px;
+        font-size: $font-xs - 1;
         color: #4e4e4e;
         padding: 20px 0px;
-        cursor: pointer;
-        width: 100%;
-        font-size: $font-xs - 1;
+      }
 
-        i {
-          font-size: $font-l;
-          margin-right: 10px;
+      i {
+        margin-left: 10px;
+      }
+
+      p {
+        margin-left: 8px;
+      }
+
+      .pay {
+        color: rgb(211, 33, 33);
+
+        &--isPay {
+          color: #4ca74c;
         }
       }
-    }
-  }
 
-  .btn-group {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+    }
 
     .btn {
+      margin-top: 20px;
       padding: 8px 30px;
       border-radius: 5px;
       cursor: pointer;
@@ -159,34 +144,36 @@
       font-family: '微軟正黑體';
       font-size: $font-xxs;
 
-      &--prev {
+      &--pay {
         background-color: #4e4e4e;
         color: #fff;
         border: 1px solid #4e4e4e;
 
-        i {
-          margin-right: 8px;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0);
+          color: #4e4e4e;
         }
       }
 
-      &--next {
-        background-color: #4e4e4e;
+      &--reset {
+        background-color: #4ca74c;
         color: #fff;
-        border: 1px solid #4e4e4e;
+        border: 1px solid #4ca74c;
 
-        i {
-          margin-left: 8px;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0);
+          color: #4ca74c;
         }
       }
 
-      &:hover {
-        background-color: rgba(255, 255, 255, 0);
-        color: #4e4e4e;
-      }
-
-      &:focus {
+      &:focus{
         outline: none;
       }
+
+      i {
+        margin-left: 10px;
+      }
     }
+
   }
 }
