@@ -7,7 +7,8 @@
 
 // layout
 @import "layout/grid";
-// @import "layout/header";
+@import "layout/header";
+@import "layout/footer";
 @import "layout/backend";
 @import "layout/frontend";
 
@@ -21,7 +22,6 @@
 @import "modules/userSidebar";
 @import "modules/userHome";
 @import "modules/userAbout";
-@import "modules/userFooter";
 @import "modules/userProductList";
 @import "modules/userProductDetail";
 @import "modules/userCheckout";

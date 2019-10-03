@@ -11,8 +11,9 @@
           <i class="fas fa-angle-double-down"></i>
         </div>
       </section>
-      <footer>
-        <userFooter />
+      <footer class="footer">
+        <h2><span>毛孩</span>百貨</h2>
+        <p>資料、圖片來源皆來自網路，僅用來做為學習用途。</p>
       </footer>
     </div>
   </div>
@@ -20,11 +21,10 @@
 
 <script>
   import Swiper from './Swiper';
-  import userFooter from './userFooter';
   export default {
     components: {
       Swiper,
-      userFooter,
+
     }
   }
 

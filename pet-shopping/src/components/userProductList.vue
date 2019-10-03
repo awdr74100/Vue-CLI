@@ -9,15 +9,11 @@
       <!-- addToCart模板 -->
       <AddToCart :updateActive="updateCart" />
       <div class="wrap">
+        <header class="header">
+          <span><i class="fas fa-cat"></i></span>
+          <h3>商品列表</h3>
+        </header>
         <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="title">
-                <span><i class="fas fa-cat"></i></span>
-                <h3>商品列表</h3>
-              </div>
-            </div>
-          </div>
           <div class="row">
             <div class="col-12 justify-content-flex-end">
               <div class="sort">
@@ -66,14 +62,15 @@
                       :class="{'o-price--active':item.origin_price == item.price}">{{item.origin_price | dollar}}</span>
                     <span class="discount" v-if="item.origin_price !== item.price">{{item.price | dollar}}</span>
                   </div>
-                  <button class="addCart" @click.prevent="addProductToCart(item.id,item.qty)"><span
-                      v-if="item.id === effect.addLoading"><i class="fas fa-spinner fa-spin"></i></span>加入購物車</button>
+                  <button :disabled="effect.addLoading !== '' " class="addCart"
+                    @click.prevent="addProductToCart(item.id,item.qty)"><span v-if="item.id === effect.addLoading"><i
+                        class="fas fa-spinner fa-spin"></i></span>加入購物車</button>
                 </div>
               </div>
             </li>
           </ul>
           <div class="row">
-            <div class="col-12 mb-40">
+            <div class="col-12 pb-15">
               <!-- Pagination模板 -->
               <Pagination :paginationData="pagination" @updatePagination="getToggleProductList"
                 v-if="pagination.current_page !== 0">
@@ -82,6 +79,10 @@
           </div>
         </div>
       </div>
+      <footer class="footer">
+        <h2><span>毛孩</span>百貨</h2>
+        <p>資料、圖片來源皆來自網路，僅用來做為學習用途。</p>
+      </footer>
     </div>
   </div>
 </template>

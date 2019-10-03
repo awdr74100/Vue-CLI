@@ -12,7 +12,8 @@
         <span @click="cartVisibility = false">×</span>
       </div>
       <div class="listSection">
-        <ul class="list">
+        <p class="listEmpty" v-if="cartProductLen == 0">尚未加入任何商品</p>
+        <ul class="list" v-else>
           <li class="list__item" v-for="(item, index) in cartProductData.carts" :key="index">
             <div class="content">
               <div class="img" :style="{backgroundImage:`url(${item.product.imageUrl})`}"></div>
@@ -32,7 +33,7 @@
 
       <div class="goCart">
         <p class="total">總共：<span>{{cartProductData.final_total | dollar}}</span></p>
-        <router-link to="/Checkout">查看並結帳</router-link>
+        <router-link class="btn" :class="{'btn--disabled':cartProductLen == 0}" to="/Checkout">查看並結帳</router-link>
       </div>
     </div>
   </div>

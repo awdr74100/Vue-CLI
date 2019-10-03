@@ -2,53 +2,44 @@
   position: relative;
   background-color: #f8f9f8ef;
 
-  .title {
-    margin: 0 auto;
-    padding-top: 40px;
-    padding-bottom: 50px;
-    max-width: 60%;
+  .cartEmpty {
+    position: relative;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    overflow: hidden;
+    padding: 250px 0px;
 
-    i {
-      font-size: $font-xl;
-      color: #333333;
-      padding-bottom: 10px;
+    p {
+      color: #868686;
+      font-size: $font-m - 1;
     }
 
-    h3 {
-      display: block;
-      width: 100px;
-      position: relative;
-      font-weight: bold;
-      text-align: center;
-      color: #333333;
-      font-size: $font-s;
-      margin: 0;
+    button {
+      margin-top: 30px;
+      padding: 8px 30px;
+      background-color: #4e4e4e;
+      color: #fff;
+      border: 1px solid #4e4e4e;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: '微軟正黑體';
+      font-size: $font-xxs;
 
-      &::before {
-        position: absolute;
-        left: -999px;
-        width: 990px;
-        top: 50%;
-        display: block;
-        content: "";
-        border: 1px solid #333333;
+      i {
+        margin-right: 8px;
       }
 
-      &::after {
-        position: absolute;
-        right: -999px;
-        top: 50%;
-        width: 990px;
-        display: block;
-        content: "";
-        border: 1px solid #333333;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0);
+        color: #4e4e4e;
+      }
+
+      &:focus {
+        outline: none;
       }
     }
   }
-
 }

@@ -49,25 +49,25 @@ $grid-sum:12;
   }
 }
 
-// @media(max-width:768px) {
-//     // @for $i from 1 to $grid-sum+1 {
-//     //     .col-#{$i} {
-//     //         max-width: 100%;
-//     //         flex: 0 0 100%;
-//     //     }
-//     // }
-//     .container{
-//         padding-left: $gutter-width/2;
-//         padding-right: $gutter-width/2;
-//     }
-// }
-// @media(max-width:720px){
-//     @for $i from 1 to $grid-sum+1 {
-//         .col-#{$i} {
-//             max-width: 100%;
-//             flex: 0 0 100%;
-//         }
-//     }
-// }
+@media(max-width:768px) {
+    // @for $i from 1 to $grid-sum+1 {
+    //     .col-#{$i} {
+    //         max-width: 100%;
+    //         flex: 0 0 100%;
+    //     }
+    // }
+    .container{
+        padding-left: $gutter-width/2;
+        padding-right: $gutter-width/2;
+    }
+}
+@media(max-width:720px){
+    @for $i from 1 to $grid-sum+1 {
+        .col-#{$i} {
+            max-width: 100%;
+            flex: 0 0 100%;
+        }
+    }
+}
 
 // grid system end

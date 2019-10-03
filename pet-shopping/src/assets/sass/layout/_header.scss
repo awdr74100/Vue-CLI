@@ -1,3 +1,49 @@
 .header {
   position: relative;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  max-width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+
+  i {
+    font-size: $font-xl;
+    color: #4e4e4e;
+    padding-bottom: 10px;
+  }
+
+  h3 {
+    display: block;
+    width: 80px;
+    position: relative;
+    font-weight: bold;
+    text-align: center;
+    color: #4e4e4e;
+    font-size: $font-s;
+    margin: 0;
+
+    &::before {
+      position: absolute;
+      left: -999px;
+      width: 990px;
+      top: 50%;
+      display: block;
+      content: "";
+      border: 1px solid #4e4e4e;
+    }
+
+    &::after {
+      position: absolute;
+      right: -999px;
+      top: 50%;
+      width: 990px;
+      display: block;
+      content: "";
+      border: 1px solid #4e4e4e;
+    }
+  }
 }

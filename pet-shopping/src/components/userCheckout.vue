@@ -7,15 +7,15 @@
     </loading>
     <div class="userCheckout">
       <div class="wrap">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="title">
-                <span><i class="fas fa-cat"></i></span>
-                <h3>購物車列表</h3>
-              </div>
-            </div>
-          </div>
+        <header class="header">
+          <span><i class="fas fa-cat"></i></span>
+          <h3>商品列表</h3>
+        </header>
+        <section class="cartEmpty" v-if="cartProductLen === 0 ">
+          <p>尚未加入任何商品</p>
+          <button @click="toShopping"><i class="fas fa-arrow-left"></i>繼續逛逛</button>
+        </section>
+        <div class="container" v-if="cartProductLen > 0">
           <div class="row">
             <div class="col-12">
               <checkoutStep :step="step" />
@@ -43,6 +43,10 @@
           </div>
         </div>
       </div>
+      <footer class="footer">
+        <h2><span>毛孩</span>百貨</h2>
+        <p>資料、圖片來源皆來自網路，僅用來做為學習用途。</p>
+      </footer>
     </div>
   </div>
 </template>
@@ -97,7 +101,6 @@
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/order/${orderId}`;
         vm.effect.isLoading = true;
         vm.$http.get(url).then((response) => {
-          console.log(response.data);
           vm.cartProductData = response.data.order;
           vm.cartProductLen = Object.keys(response.data.order.products).length;
           if (response.data.order.is_paid == true) {
@@ -106,6 +109,12 @@
             vm.step = 'showOrderDetail';
           }
           vm.effect.isLoading = false;
+        })
+      },
+      // 回到商品列表
+      toShopping() {
+        this.$router.push({
+          path: "/ProductList/全部商品",
         })
       }
     },
