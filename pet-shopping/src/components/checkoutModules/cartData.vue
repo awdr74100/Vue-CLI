@@ -25,14 +25,18 @@
             <td class="t-xl">
               <div class="name">
                 <p>{{item.product.title}}</p>
-                <p class="discount" v-if="item.coupon"><span>{{item.coupon.percent}} %</span></p>
+                <p class="discount" v-if="item.coupon"><span>- {{ 100 - item.coupon.percent}} %</span></p>
               </div>
             </td>
             <td class="t-m">
               <p class="count">{{item.qty}}<span> / {{item.product.unit}}</span></p>
             </td>
             <td class="t-m">
-              <p class="total">{{item.final_total | dollar}}</p>
+              <div class="total">
+                <p class="o-price" v-if="item.total !== item.final_total"
+                  :class="{' o-price--delete':item.total !== item.final_total}">{{item.total | dollar}}</p>
+                <p class="final-price">{{item.final_total | dollar}}</p>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -45,23 +49,32 @@
             <td class="t-xl">
               <div class="name">
                 <p>{{item.product.title}}</p>
-                <p class="discount" v-if="item.coupon"><span>{{item.coupon.percent}} %</span></p>
+                <p class="discount" v-if="item.coupon"><span>- {{ 100 - item.coupon.percent}} %</span></p>
               </div>
             </td>
             <td class="t-m">
               <p class="count">{{item.qty}}<span> / {{item.product.unit}}</span></p>
             </td>
             <td class="t-m">
-              <p class="total">{{item.final_total | dollar}}</p>
+              <div class="total">
+                <p class="o-price" v-if="item.total !== item.final_total"
+                  :class="{' o-price--delete':item.total !== item.final_total}">{{item.total | dollar}}</p>
+                <p class="final-price">{{item.final_total | dollar}}</p>
+              </div>
             </td>
           </tr>
         </tbody>
       </table>
-      <div class="content">
+      <div class="content" v-if="data.carts">
         <p class="count">共計<span>{{dataLen}}</span>項商品</p>
-        <p class="price" v-if="data.carts">+ 運費<span>NT$0</span>總計：<span
+        <p class="price">+ 運費<span>NT$0</span>總金額：<span class="totalPrice"
+            :class="{'totalPrice--disabled':data.total !== data.final_total}">{{data.total | dollar}}</span></p>
+        <p class="price" v-if="data.total !== data.final_total">優惠價：<span
             class="totalPrice">{{data.final_total | dollar}}</span></p>
-        <p class="price" v-else>+ 運費<span>NT$0</span>總計：<span class="totalPrice">{{data.total | dollar}}</span></p>
+      </div>
+      <div class="content" v-else>
+        <p class="count">共計<span>{{dataLen}}</span>項商品</p>
+        <p class="price">總金額：<span class="totalPrice">{{data.total | dollar}}</span></p>
       </div>
     </div>
   </div>

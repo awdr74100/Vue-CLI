@@ -162,7 +162,21 @@
     }
 
     .total {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       color: #4ca74c;
+      .o-price{
+        &--delete{
+          text-decoration: line-through;
+          color: #333;
+          
+        }
+      }
+      .final-price{
+        margin-top: 10px;
+      }
     }
   }
 
@@ -183,19 +197,28 @@
     }
 
     .price {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
       margin-top: 12px;
       font-size: 14px;
       color: #333;
 
       span {
         margin: 0px 16px;
-        margin-left: 12px;
       }
 
       .totalPrice {
+        width: 100px;
+        text-align: right;
         margin-right: 0;
+        margin-left: 0;
         color: #4ca74c;
         font-size: 19px;
+        &--disabled{
+          color: #333;
+          text-decoration: line-through;
+        }
       }
     }
   }

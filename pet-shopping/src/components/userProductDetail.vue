@@ -9,15 +9,11 @@
       <!-- addToCart模板 -->
       <AddToCart :updateActive="updateCart" />
       <div class="wrap">
+        <header class="header">
+          <span><i class="fas fa-cat"></i></span>
+          <h3>商品列表</h3>
+        </header>
         <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="title">
-                <span><i class="fas fa-cat"></i></span>
-                <h3>產品介紹</h3>
-              </div>
-            </div>
-          </div>
           <div class="row mt-50 pb-500">
             <div class="col-6">
               <div class="leftImg">
@@ -35,7 +31,9 @@
                   <p v-html="description"></p>
                 </div>
                 <p class="price">
-                  {{productDetailData.price | dollar}}<span>{{productDetailData.origin_price | dollar}}</span></p>
+                  {{productDetailData.price | dollar}}<span
+                    v-if="productDetailData.price !== productDetailData.origin_price">{{productDetailData.origin_price | dollar}}</span>
+                </p>
                 <div class="num">
                   <button class="btn" :class="{'btn--cancel':productNum <= 1}" @click="productNum = productNum - 1"><i
                       class="fas fa-minus"></i></button>
@@ -62,6 +60,13 @@
           </div>
         </div>
       </div>
+      <footer class="footer">
+        <div class="link">
+          <a href="https://reurl.cc/oD15r3"><i class="fab fa-github"></i></a>
+          <a href="https://reurl.cc/9zGRvv"><i class="fab fa-codepen"></i></a>
+        </div>
+        <p>資料、圖片來源皆來自網路，僅用來做為學習用途。</p>
+      </footer>
     </div>
   </div>
 </template>
@@ -106,7 +111,8 @@
       doingMode(name) {
         const vm = this;
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/cart`;
-        if (vm.productNum == '') {
+        if (vm.productNum == '' || vm.productNum <= 0) {
+          vm.$bus.$emit('message:push', '產品數量錯誤', 'danger');
           return
         };
         let product = {
@@ -121,6 +127,11 @@
           vm.updateCart = Date.now();
           vm.$bus.$emit('message:push', response.data.message, 'success');
           vm.effect.doing = '';
+          if (name == "checkout") {
+            vm.$router.push({
+              path: '/Checkout',
+            })
+          }
         })
       },
       // 將商品細節轉為HTML格式
