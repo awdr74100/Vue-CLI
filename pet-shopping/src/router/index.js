@@ -11,6 +11,7 @@ import userAbout from '@/components/userAbout';
 import userProductList from '@/components/userProductList';
 import userProductDetail from '@/components/userProductDetail';
 import userCheckout from '@/components/userCheckout';
+import userAdopt from '@/components/userAdopt';
 // 後端組件
 import adminProductList from '@/components/adminProductList';
 import adminOrderList from '@/components/adminOrderList';
@@ -53,6 +54,10 @@ export default new Router({
         path: 'Checkout',
         name: 'Checkout',
         component: userCheckout,
+      },{
+        path:'Adopt',
+        name:'Adopt',
+        component:userAdopt,
       }]
     }, {
       path: '/admin',

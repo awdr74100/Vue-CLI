@@ -9,7 +9,7 @@
       <div class="wrap">
         <header class="header">
           <span><i class="fas fa-cat"></i></span>
-          <h3>商品列表</h3>
+          <h3>訂單資訊</h3>
         </header>
         <section class="cartEmpty" v-if="cartProductLen === 0 ">
           <p>尚未加入任何商品</p>

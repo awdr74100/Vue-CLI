@@ -34,7 +34,9 @@
           </ul>
         </li>
         <li><a href="#">最新消息</a></li>
-        <li><a href="#">領養專區</a></li>
+        <li>
+         <router-link to="/Adopt">領養專區</router-link>
+          </li>
         <li><a href="#">聯絡我們</a></li>
         <li><a href="#" class="mt-30"><i class="fas fa-shopping-cart"></i>購物車</a></li>
         <li>
