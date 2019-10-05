@@ -29,7 +29,7 @@
 
     }
 
-    &--warning{
+    &--warning {
       background-color: #fff;
       border-left: 5px solid rgb(226, 197, 29);
       color: rgb(226, 197, 29);
@@ -52,9 +52,14 @@
       border: none;
       background-color: rgba(255, 255, 255, 0);
       transition: all 0.3s;
+      cursor: pointer;
 
       &:hover {
         color: rgb(70, 70, 70);
+      }
+
+      &:hover {
+        outline: none;
       }
     }
   }

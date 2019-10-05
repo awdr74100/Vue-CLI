@@ -10,7 +10,7 @@
       <AddToCart :updateActive="updateCart" />
       <div class="wrap">
         <header class="header">
-          <span><i class="fas fa-cat"></i></span>
+          <span><i class="fas fa-cube"></i></span>
           <h3>商品列表</h3>
         </header>
         <div class="container">

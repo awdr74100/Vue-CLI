@@ -58,7 +58,7 @@
         position: relative;
         line-height: 46px;
         text-decoration: none;
-        color: #333;
+        color: #4e4e4e;
         transition: all 0.3s;
 
         &:hover {
@@ -96,7 +96,7 @@
         line-height: 46px;
         padding-left: 100px;
         text-decoration: none;
-        color: rgb(122, 122, 122);
+        color: #7a7a7a;
         transition: all 0.3s;
         background-color: #fff;
 
@@ -125,18 +125,18 @@
 
     h4 {
       font-size: $font-xxs;
-      color: #333;
+      color: #4e4e4e;
     }
 
     p {
       padding-top: 10px;
       font-size: $font-xxs;
-      color: #333;
+      color: #4e4e4e;
     }
 
     span {
       font-size: $font-m;
-      color: #333;
+      color: #4e4e4e;
       margin-top: 12px;
 
       i {

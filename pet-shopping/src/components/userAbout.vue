@@ -3,7 +3,7 @@
     <div class="userAbout">
       <div class="wrap">
         <header class="header">
-          <span><i class="fas fa-cat"></i></span>
+          <span><i class="fas fa-eject"></i></span>
           <h3>關於我們</h3>
         </header>
         <div class="container">
