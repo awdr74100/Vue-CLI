@@ -2,7 +2,7 @@
   <div>
     <loading :active.sync="effect.isLoading">
       <template slot="default">
-       <div class="loading-pulse"></div>
+        <div class="loading-pulse"></div>
       </template>
     </loading>
     <div class="adminOrderList">
@@ -31,10 +31,19 @@
           <tr v-for="(item, index) in orders" :key="index">
             <td class="t-m" style="text-align: left">{{item.create_at | dateTime}}</td>
             <td class="t-l">{{item.user.email}}</td>
-            <td class="t-xl">飛鳥拂女佯裝 數量：6件</td>
-            <td class="t-m">$6640</td>
+            <td class="t-xl">
+              <!-- <p>飛鳥拂女佯裝 數量：6件</p>
+               <p>飛鳥拂女佯裝 數量：6件</p>
+                <p>飛鳥拂女佯裝 數量：6件</p> -->
+              <ul class="list">
+                <li>
+                  <p>Country Naturals格然斯鄉村時光 雞肉鯡魚2.7kg × 2、成幼貓</p>
+                </li>
+              </ul>
+            </td>
+            <td class="t-m">{{item.total | dollar}}</td>
             <td class="t-s">
-              <span v-if="item.is_paid">尚未付款</span>
+              <span v-if="!item.is_paid">尚未付款</span>
               <span v-else class="text-paid">已付款</span>
             </td>
             <td class="t-message">
@@ -84,7 +93,7 @@
         const vm = this;
         vm.effect.isLoading = true;
         vm.$http.get(url).then((response) => {
-          console.log(response.data)
+          console.log(response.data);
           vm.orders = response.data.orders;
           vm.pagination = response.data.pagination;
           vm.effect.isLoading = false;
