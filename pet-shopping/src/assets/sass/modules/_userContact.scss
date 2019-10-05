@@ -12,21 +12,24 @@
     justify-content: center;
     align-items: flex-start;
     background-color: rgba(255, 255, 255, 0.541);
-    .company{
+
+    .company {
       width: 30%;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
       padding: 0px 20px;
-      h2{
+
+      h2 {
         margin-top: 50px;
         font-weight: bold;
         font-size: $font-xl - 1;
         padding-bottom: 30px;
         color: #4e4e4e;
         position: relative;
-        &::before{
+
+        &::before {
           content: "";
           position: absolute;
           display: block;
@@ -36,20 +39,23 @@
           background-color: rgb(48, 199, 73);
         }
       }
-      .address{
+
+      .address {
         line-height: 1.5;
       }
-      p{
+
+      p {
         font-size: $font-xxs + 1;
         margin-top: 16px;
       }
-      span{
+
+      span {
         color: #4e4e4e;
-        font-size: $font-xxs ;
+        font-size: $font-xxs;
       }
     }
 
-    iframe{
+    iframe {
       color: aqua;
     }
   }
@@ -68,6 +74,7 @@
       padding: 8px 0px;
       border-bottom: 2px solid #4e4e4e;
       font-size: $font-m;
+      font-weight: bold;
       color: #4e4e4e;
 
       i {
