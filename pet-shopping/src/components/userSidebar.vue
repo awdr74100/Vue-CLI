@@ -35,10 +35,14 @@
         </li>
         <li><a href="#">最新消息</a></li>
         <li>
-         <router-link to="/Adopt">領養專區</router-link>
-          </li>
-        <li><a href="#">聯絡我們</a></li>
-        <li><a href="#" class="mt-30"><i class="fas fa-shopping-cart"></i>購物車</a></li>
+          <router-link to="/Adopt">領養專區</router-link>
+        </li>
+        <li>
+          <router-link to="/Contact">聯絡我們</router-link>
+        </li>
+        <li>
+          <a href="#" class="mt-30"><i class="fas fa-shopping-cart"></i>購物車</a>
+        </li>
         <li>
           <router-link to="/admin/productList"><i class="fas fa-user-cog"></i>後台管理</router-link>
         </li>

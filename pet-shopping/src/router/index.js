@@ -12,6 +12,7 @@ import userProductList from '@/components/userProductList';
 import userProductDetail from '@/components/userProductDetail';
 import userCheckout from '@/components/userCheckout';
 import userAdopt from '@/components/userAdopt';
+import userContact from '@/components/userContact';
 // 後端組件
 import adminProductList from '@/components/adminProductList';
 import adminOrderList from '@/components/adminOrderList';
@@ -54,10 +55,14 @@ export default new Router({
         path: 'Checkout',
         name: 'Checkout',
         component: userCheckout,
-      },{
-        path:'Adopt',
-        name:'Adopt',
-        component:userAdopt,
+      }, {
+        path: 'Adopt',
+        name: 'Adopt',
+        component: userAdopt,
+      }, {
+        path: 'Contact',
+        name: 'Contact',
+        component: userContact,
       }]
     }, {
       path: '/admin',
