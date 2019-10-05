@@ -7,7 +7,51 @@
     position: relative;
     border: 1px solid rgb(223, 223, 223);
     box-shadow: 0px 0px 8px rgb(206, 206, 206);
-    margin: 26px auto 40px auto;
+    margin: 20px auto 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.541);
+    .company{
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 0px 20px;
+      h2{
+        margin-top: 50px;
+        font-weight: bold;
+        font-size: $font-xl - 1;
+        padding-bottom: 30px;
+        color: #4e4e4e;
+        position: relative;
+        &::before{
+          content: "";
+          position: absolute;
+          display: block;
+          bottom: 8px;
+          width: 60%;
+          height: 4px;
+          background-color: rgb(48, 199, 73);
+        }
+      }
+      .address{
+        line-height: 1.5;
+      }
+      p{
+        font-size: $font-xxs + 1;
+        margin-top: 16px;
+      }
+      span{
+        color: #4e4e4e;
+        font-size: $font-xxs ;
+      }
+    }
+
+    iframe{
+      color: aqua;
+    }
   }
 
   .message {
@@ -23,11 +67,12 @@
       text-align: center;
       padding: 8px 0px;
       border-bottom: 2px solid #4e4e4e;
-      font-size: $font-m + 1;
+      font-size: $font-m;
       color: #4e4e4e;
-      i{
+
+      i {
         margin-left: 10px;
-        font-size: $font-l;
+        font-size: $font-m;
       }
     }
 
@@ -35,7 +80,7 @@
       width: 100%;
       text-align: center;
       font-size: $font-xxs + 1;
-      margin-top: 26px;
+      margin-top: 30px;
       color: rgb(122, 122, 122);
     }
   }
@@ -48,7 +93,6 @@
     justify-content: flex-start;
     align-items: flex-start;
     margin-top: 20px;
-
 
     .inputRow {
       width: 100%;
