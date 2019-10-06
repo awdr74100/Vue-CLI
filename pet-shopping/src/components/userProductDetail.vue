@@ -6,15 +6,15 @@
       </template>
     </loading>
     <div class="userProductDetail">
-      <!-- addToCart模板 -->
-      <AddToCart :updateActive="updateCart" />
+      <!-- ShoppingCart模板 -->
+      <ShoppingCart :updateActive="updateCart" />
       <div class="wrap">
         <header class="header">
           <span><i class="fas fa-cat"></i></span>
           <h3>商品列表</h3>
         </header>
         <div class="container">
-          <div class="row mt-50 pb-500">
+          <div class="row mt-20 pb-500">
             <div class="col-6">
               <div class="leftImg">
                 <div class="img"><span :style="{backgroundImage:`url(${productDetailData.imageUrl})`}"></span></div>
@@ -72,10 +72,10 @@
 </template>
 
 <script>
-  import AddToCart from './AddToCart';
+  import ShoppingCart from './pageModules/ShoppingCart';
   export default {
     components: {
-      AddToCart,
+      ShoppingCart,
     },
     data() {
       return {

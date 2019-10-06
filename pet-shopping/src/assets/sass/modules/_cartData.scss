@@ -22,7 +22,12 @@
     border-bottom: 1px solid rgba(0, 0, 0, .125);
 
     i {
-      margin-left: 6px;
+      margin-left: 10px;
+      transition: all 0.3s;
+    }
+
+    .active {
+      transform: rotate(180deg);
     }
   }
 
@@ -167,14 +172,16 @@
       justify-content: center;
       align-items: center;
       color: #4ca74c;
-      .o-price{
-        &--delete{
+
+      .o-price {
+        &--delete {
           text-decoration: line-through;
           color: #333;
-          
+
         }
       }
-      .final-price{
+
+      .final-price {
         margin-top: 10px;
       }
     }
@@ -215,7 +222,8 @@
         margin-left: 0;
         color: #4ca74c;
         font-size: 19px;
-        &--disabled{
+
+        &--disabled {
           color: #333;
           text-decoration: line-through;
         }

@@ -23,11 +23,10 @@
 </template>
 
 <script>
-  import Swiper from './Swiper';
+  import Swiper from './pageModules/Swiper';
   export default {
     components: {
       Swiper,
-
     }
   }
 

@@ -13,6 +13,7 @@ import userProductDetail from '@/components/userProductDetail';
 import userCheckout from '@/components/userCheckout';
 import userAdopt from '@/components/userAdopt';
 import userContact from '@/components/userContact';
+import userNews from '@/components/userNews';
 // 後端組件
 import adminProductList from '@/components/adminProductList';
 import adminOrderList from '@/components/adminOrderList';
@@ -63,6 +64,10 @@ export default new Router({
         path: 'Contact',
         name: 'Contact',
         component: userContact,
+      }, {
+        path: 'News',
+        name: 'News',
+        component: userNews,
       }]
     }, {
       path: '/admin',

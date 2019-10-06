@@ -67,7 +67,7 @@
 </template>
 
 <script>
-  import Pagination from './Pagination';
+  import Pagination from './pageModules/Pagination';
   import $ from 'jquery';
   export default {
     components: {

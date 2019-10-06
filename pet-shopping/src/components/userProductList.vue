@@ -6,8 +6,8 @@
       </template>
     </loading>
     <div class="userProductList">
-      <!-- addToCart模板 -->
-      <AddToCart :updateActive="updateCart" />
+      <!-- ShoppingCart模板 -->
+      <ShoppingCart :updateActive="updateCart" />
       <div class="wrap">
         <header class="header">
           <span><i class="fas fa-cube"></i></span>
@@ -91,12 +91,12 @@
 </template>
 
 <script>
-  import Pagination from './Pagination';
-  import AddToCart from './AddToCart';
+  import Pagination from './pageModules/Pagination';
+  import ShoppingCart from './pageModules/ShoppingCart';
   export default {
     components: {
       Pagination,
-      AddToCart,
+      ShoppingCart,
     },
     data() {
       return {

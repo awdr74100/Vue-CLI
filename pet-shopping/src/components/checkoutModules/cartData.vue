@@ -1,6 +1,7 @@
 <template>
   <div class="cartData" :class="{'cartData--open':cartVisibility}">
-    <p class="cartData__title" @click="cartVisibility = !cartVisibility">購物車清單<i class="fas fa-caret-down"></i></p>
+    <p class="cartData__title" @click="cartVisibility = !cartVisibility">購物車清單<i class="fas fa-caret-down"
+        :class="{'active':cartVisibility == true}"></i></p>
     <div class="cartData__container">
       <table>
         <thead>

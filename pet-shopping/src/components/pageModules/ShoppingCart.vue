@@ -1,5 +1,5 @@
 <template>
-  <div class="addToCart">
+  <div class="shoppingCart">
     <div class="cart" @click="cartVisibility = !cartVisibility" :class="{'cart--active':cartVisibility}">
       <p class="event" :class="{'event--active':cartVisibility}">PAY</p>
       <span class="count">

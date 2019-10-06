@@ -42,20 +42,20 @@
     <Pagination :paginationData="pagination" @updatePagination="getCoupons" v-if="pagination.current_page !== 0">
     </Pagination>
     <!-- 新增、修改商品模板 -->
-    <updateModal @callUpdate="updateCoupon" :item="thisItem" />
+    <UpdateModal @callUpdate="updateCoupon" :item="thisItem" />
   </div>
 </template>
 
 <script>
   // 載入新增、修改商品的模板
-  import updateModal from './updateModal';
-  import Pagination from './Pagination';
+  import UpdateModal from './pageModules/UpdateModal';
+  import Pagination from './pageModules/Pagination';
   // 載入完整jquery
   import $ from 'jquery';
 
   export default {
     components: {
-      updateModal,
+      UpdateModal,
       Pagination,
     },
     data() {

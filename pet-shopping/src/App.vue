@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <Alert/>
+    <AlertMsg />
     <router-view />
   </div>
 </template>
 
 <script>
-import Alert from "./components/AlertMessage";
+  import AlertMsg from "./components/pageModules/AlertMsg";
   export default {
-    components:{
-      Alert,
+    components: {
+      AlertMsg,
     },
     name: 'App',
   }
