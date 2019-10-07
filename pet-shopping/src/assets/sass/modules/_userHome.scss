@@ -4,49 +4,67 @@
 
   .title {
     position: relative;
-    max-width: 80%;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
-    overflow: hidden;
-    margin-top: 30px;
-    
+    border-bottom: 2px solid rgb(192, 192, 192);
 
-    h3 {
-      position: relative;
-      margin: 0;
-      display: block;
-      width: 140px;
-      font-size: $font-s + 1;
-      color: #333333;
-      text-align: center;
+    .name {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: -2px;
+      padding: 0px 10px;
+      color: #535353;
 
-      &::before {
-        position: absolute;
-        left: -999px;
-        width: 990px;
-        top: 50%;
-        display: block;
-        content: "";
-        border: 1px solid #636363;
+      h3 {
+        padding: 20px 0px;
+        font-size: $font-s;
       }
 
-      &::after {
-        position: absolute;
-        right: -999px;
-        top: 50%;
-        width: 990px;
-        display: block;
-        content: "";
-        border: 1px solid #636363;
+      i {
+        margin-right: 10px;
+        font-size: $font-l;
+      }
+
+      &--like {
+        border-bottom: 2px solid rgb(211, 53, 53);
+
+        i {
+          color: rgb(211, 53, 53);
+        }
+      }
+
+      &--coupon {
+        border-bottom: 2px solid #f3de1f;
+
+        i {
+          color: #f3de1f;
+        }
       }
     }
 
-    i {
-      color: rgb(219, 57, 57);
-      margin-right: 10px;
+
+    .more {
+      font-family: '微軟正黑體';
+      padding: 8px 24px;
+      border: 1px solid #4a4a4a;
+      background-color: rgba(255, 255, 255, 0);
+      color: #4a4a4a;
+      margin-top: 4px;
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #4a4a4a;
+        color: #fff;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0px 0px 3px #4a4a4a;
+      }
     }
   }
 
@@ -112,6 +130,8 @@
     padding: 20px 40px 140px 40px;
     overflow: hidden;
     transition: all 0.3s;
+    border-radius: 10px;
+    border: 1px solid rgb(238, 238, 238);
 
     &:hover .detail {
       top: 0px;
@@ -159,7 +179,7 @@
       background-image: url("https://s.yimg.com/zp/images/EC1BF93E7EE1BBDC4F062500F7AA1CB76DF1F8A7");
       background-position: center center;
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: contain;
     }
 
     .content {
@@ -213,6 +233,65 @@
           font-weight: bold;
           color: rgb(76, 167, 76);
         }
+      }
+    }
+  }
+
+  .trackCard {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 40px;
+
+    p {
+      text-align: center;
+      // margin-left: 60px;
+      line-height: 2;
+      font-size: $font-m;
+      color: #4a4a4a;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    input {
+      width: 100%;
+      // margin-top: 30px;
+      border: none;
+      border-bottom: 2px solid #4a4a4a;
+      background-color: rgba(255, 255, 255, 0);
+      font-size: $font-s;
+      padding: 8px 0px;
+      font-family: "微軟正黑體";
+      color: #4a4a4a;
+      margin-top: 20px;
+      padding-left: 8px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      font-family: "微軟正黑體";
+      position: absolute;
+      padding: 10px 30px;
+      margin-top: 10px;
+      right: 40px;
+      background-color: #4a4a4a;
+      color: #fff;
+      border: 1px solid #4a4a4a;
+      font-size: $font-xs - 1;
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #333333;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0px 0px 3px #4a4a4a;
       }
     }
   }

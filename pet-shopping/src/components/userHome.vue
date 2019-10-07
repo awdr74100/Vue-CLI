@@ -38,10 +38,15 @@
               </div>
             </div>
           </div>
+          <!-- productCard title -->
           <div class="row">
             <div class="col-12">
               <div class="title">
-                <h3><i class="far fa-heart"></i>猜你喜歡</h3>
+                <div class="name  name--like">
+                  <i class="far fa-heart"></i>
+                  <h3>猜你喜歡</h3>
+                </div>
+                <button class="more">MORE</button>
               </div>
             </div>
           </div>
@@ -65,6 +70,34 @@
               </div>
             </li>
           </ul>
+          <!-- couponCard title -->
+          <div class="row">
+            <div class="col-12">
+              <div class="title">
+                <div class="name name--coupon">
+                  <i class="fab fa-speakap"></i>
+                  <h3>優惠消息</h3>
+                </div>
+                <button class="more">MORE</button>
+              </div>
+            </div>
+          </div>
+          <!-- couponCard -->
+
+          <!-- trackCard -->
+          <div class="row bg-dark mb-40">
+            <div class="col-6">
+              <div class="trackCard">
+                <p>想要接收最即時的優惠資訊？<br>快來訂閱「毛孩百貨」吧！</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="trackCard">
+                <input type="email" name="email" id="email" placeholder="請輸入Email">
+                <button>訂閱</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <footer class="footer">
