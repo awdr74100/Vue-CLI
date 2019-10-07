@@ -23,7 +23,7 @@
                       <p class="time"><i class="fas fa-clock"></i>上午10:00 - 下午4:00</p>
                       <p class="tel"><i class="fas fa-phone"></i>02-87897158</p>
                       <p class="content">在動物之家的狗狗.貓貓們都是我們的好朋友。為牠們打開幸福新生命的起點是我們的願景</p>
-                      <a href="https://www.facebook.com/tcapo.tas/" class="link">相關連結<i
+                      <a href="https://www.facebook.com/tcapo.tas/" target="_blank" class="link">相關連結<i
                           class="fas fa-external-link-alt"></i></a>
                     </div>
                   </div>
@@ -41,7 +41,7 @@
                       <p class="time"><i class="fas fa-clock"></i>上午8:00 - 下午6:00</p>
                       <p class="tel"><i class="fas fa-phone"></i>0986167920</p>
                       <p class="content">以結紮代替撲殺，推廣與實踐TNA，Trap補抓 - Nuter結紮 - Adopt送養</p>
-                      <a href="https://www.facebook.com/sxpsxp/" class="link">相關連結<i
+                      <a href="https://www.facebook.com/sxpsxp/" target="_blank" class="link">相關連結<i
                           class="fas fa-external-link-alt"></i></a>
                     </div>
                   </div>
@@ -59,7 +59,7 @@
                       <p class="time"><i class="fas fa-clock"></i>上午10:00 - 下午4:00</p>
                       <p class="tel"><i class="fas fa-phone"></i>04-23850949</p>
                       <p class="content">一起支持認養不棄養</p>
-                      <a href="https://reurl.cc/dr2b2g" class="link">相關連結<i class="fas fa-external-link-alt"></i></a>
+                      <a href="https://reurl.cc/dr2b2g" target="_blank" class="link">相關連結<i class="fas fa-external-link-alt"></i></a>
                     </div>
                   </div>
                 </li>
@@ -76,7 +76,7 @@
                       <p class="time"><i class="fas fa-clock"></i>上午00:00 - 下午11:59</p>
                       <p class="tel"><i class="fas fa-phone"></i>粉絲團聯絡</p>
                       <p class="content">貓奴們的貓咪社群、貓咪群組、貓咪論壇</p>
-                      <a href="https://reurl.cc/6gZ4ZO" class="link">相關連結<i class="fas fa-external-link-alt"></i></a>
+                      <a href="https://reurl.cc/6gZ4ZO" target="_blank" class="link">相關連結<i class="fas fa-external-link-alt"></i></a>
                     </div>
                   </div>
                 </li>
