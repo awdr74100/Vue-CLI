@@ -31,6 +31,9 @@
             <li>
               <router-link to="/ProductList/貓砂與貓砂盆">貓砂與貓砂盆</router-link>
             </li>
+             <li>
+              <router-link to="/ProductList/寵物戶外用品">寵物戶外用品</router-link>
+            </li>
           </ul>
         </li>
         <li>

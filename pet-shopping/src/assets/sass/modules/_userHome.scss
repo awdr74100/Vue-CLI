@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid rgb(192, 192, 192);
+    border-bottom: 2px solid rgb(190, 189, 189);
 
     .name {
       display: flex;
@@ -16,11 +16,12 @@
       align-items: center;
       margin-bottom: -2px;
       padding: 0px 10px;
-      color: #535353;
+      color: #d33535;
 
       h3 {
         padding: 20px 0px;
         font-size: $font-s;
+        font-weight: bold;
       }
 
       i {
@@ -29,18 +30,10 @@
       }
 
       &--like {
-        border-bottom: 2px solid rgb(211, 53, 53);
+        border-bottom: 2px solid #d33535;
 
         i {
-          color: rgb(211, 53, 53);
-        }
-      }
-
-      &--coupon {
-        border-bottom: 2px solid #f3de1f;
-
-        i {
-          color: #f3de1f;
+          color: #d33535;
         }
       }
     }
@@ -55,6 +48,8 @@
       margin-top: 4px;
       transition: all 0.3s;
       cursor: pointer;
+      text-decoration: none;
+      font-size: $font-xxs;
 
       &:hover {
         background-color: #4a4a4a;
@@ -100,8 +95,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: rgb(255, 255, 255);
+        color: rgb(238, 238, 238);
         font-size: $font-m;
+        font-weight: bold;
 
         &--class1 {
           background-image: url(~@/assets/img/class1.jpg);
@@ -114,6 +110,66 @@
         &--class3 {
           background-image: url(~@/assets/img/class3.jpeg);
         }
+
+        &--class4 {
+          background-image: url(~@/assets/img/class4.jpg);
+        }
+
+        &--class5 {
+          background-image: url(~@/assets/img/class5.jpg);
+        }
+
+        &--class6 {
+          background-image: url(~@/assets/img/class6.jpg);
+        }
+      }
+    }
+  }
+
+  .couponCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 30px 0px;
+
+    h4 {
+      margin-left: 80px;
+      font-size: $font-m;
+      color: #4a4a4a;
+      font-weight: bold;
+    }
+
+    p {
+      margin-left: 80px;
+      margin-top: 12px;
+      line-height: 1.5;
+      font-size: $font-xxs;
+      color: #4a4a4a;
+    }
+
+    button {
+      margin-top: 10px;
+      margin-left: 80px;
+      background-color: #4a4a4a;
+      color: #fff;
+      border: 1px solid #4a4a4a;
+      padding: 8px 50px;
+      border-radius: 5px;
+      font-size: $font-xs;
+      font-family: '微軟正黑體';
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0);
+        color: #4a4a4a;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0px 0px 3px #4a4a4a;
       }
     }
   }
@@ -127,7 +183,7 @@
     flex-direction: column;
     width: 100%;
     background-color: #fff;
-    padding: 20px 40px 140px 40px;
+    padding: 20px 40px 100px 40px;
     overflow: hidden;
     transition: all 0.3s;
     border-radius: 10px;
@@ -201,37 +257,10 @@
         padding-top: 10px;
         font-size: $font-xs;
         color: #ddae12;
+        padding-bottom: 20px;
 
         i {
           margin-right: 10px;
-        }
-      }
-
-      .price {
-        padding-top: 10px;
-        padding-bottom: 20px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-
-        .o-price {
-          color: #AAA;
-          text-decoration: line-through;
-          font-size: $font-xs;
-
-          &--active {
-            text-decoration: none;
-            font-size: $font-m;
-            font-weight: bold;
-            color: rgb(76, 167, 76);
-          }
-        }
-
-        .discount {
-          margin-left: 10px;
-          font-size: $font-m;
-          font-weight: bold;
-          color: rgb(76, 167, 76);
         }
       }
     }
