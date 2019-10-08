@@ -14,6 +14,7 @@ import userCheckout from '@/components/userCheckout';
 import userAdopt from '@/components/userAdopt';
 import userContact from '@/components/userContact';
 import userNews from '@/components/userNews';
+import userCoupon from '@/components/userCoupon';
 // 後端組件
 import adminProductList from '@/components/adminProductList';
 import adminOrderList from '@/components/adminOrderList';
@@ -68,6 +69,10 @@ export default new Router({
         path: 'News',
         name: 'News',
         component: userNews,
+      }, {
+        path: 'Coupon',
+        name: 'Coupon',
+        component: userCoupon,
       }]
     }, {
       path: '/admin',

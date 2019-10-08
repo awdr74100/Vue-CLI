@@ -40,6 +40,9 @@
           <router-link to="/News">最新消息</router-link>
         </li>
         <li>
+          <router-link to="/Coupon">優惠代碼</router-link>
+        </li>
+        <li>
           <router-link to="/Adopt">領養專區</router-link>
         </li>
         <li>
