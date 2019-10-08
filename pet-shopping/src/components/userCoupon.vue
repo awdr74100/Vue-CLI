@@ -3,19 +3,53 @@
     <div class="userCoupon">
       <div class="wrap">
         <header class="header">
-          <span><i class="fas fa-file-contract"></i></span>
-          <h3>聯絡我們</h3>
+          <span><i class="fas fa-tags"></i></span>
+          <h3>優惠活動</h3>
         </header>
         <div class="container">
-          <!-- try START -->
-          <scratch-card :key="renderCount" :cardWidth="cardWidth" :cardHeight="cardHeight"
-            :finishPercent="finishPercent" imageUrl="https://avatars2.githubusercontent.com/u/1077546?s=460&v=4"
-            :brushUrl="brushUrl" :forceReveal="forceReveal" @complete="aa">
-            <h2 class="card-content">This is a highly secretive message!!!</h2>
-          </scratch-card>
-          <button @click="forceReveal = true">Force Reveal!</button>
-          <button @click="renderCount++">Force Reset</button>
-          <!-- try END -->
+          <div class="row">
+            <div class="col-12">
+              <div class="coupon">
+                <h3 class="discount">SAVE<span>10%</span>*</h3>
+                <p class="content">慶祝「毛孩百貨」正式開幕，9折優惠碼等你來領取！</p>
+                <p class="alert">優惠代碼：</p>
+                <p class="code">sdf9fwef7</p>
+                <button class="btn">取得更多優惠？</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="scratchCard">
+                <h3 class="title">刮刮樂</h3>
+                <div class="ex">
+                  <h4>優惠卷列表</h4>
+                  <ul class="list">
+                    <li class="list__item">8折優惠卷</li>
+                    <li class="list__item">9折優惠卷</li>
+                    <li class="list__item">75折優惠卷</li>
+                    <li class="list__item">6折優惠卷</li>
+                    <li class="list__item">5折優惠卷</li>
+                  </ul>
+                </div>
+                <div class="card">
+                  <scratch-card :key="renderCount" :cardWidth="cardWidth" :cardHeight="cardHeight"
+                    :finishPercent="finishPercent"
+                    imageUrl="https://raw.githubusercontent.com/awdr74100/Learning-process/master/jQuery/jQuery%20final%20project/img/banner003.jpg"
+                    :brushUrl="brushUrl" :forceReveal="forceReveal" @complete="aa">
+                    <div class="card-content">
+                      <p>sdf9fwef7</p>
+                    </div>
+                    <!-- <h2 class="card-content">This is a highly secretive message!!!</h2> -->
+                  </scratch-card>
+                  <!-- <button @click="forceReveal = true">Force Reveal!</button>
+                  <button @click="renderCount++">Force Reset</button> -->
+                
+                </div>
+              
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <footer class="footer">
@@ -32,14 +66,15 @@
 <script>
   import ScratchCard from 'vue-scratchcard';
   import BRUSH from 'vue-scratchcard/example/brush.png';
+
   export default {
     components: {
-      ScratchCard
+      ScratchCard,
     },
     data() {
       return {
         renderCount: 0,
-        cardWidth: 300,
+        cardWidth:500,
         cardHeight: 300,
         finishPercent: 70,
         brushUrl: BRUSH,

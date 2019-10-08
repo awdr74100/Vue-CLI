@@ -2,5 +2,185 @@
   position: relative;
   background-color: #f8f9f8ef;
 
-  
+  .coupon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 85%;
+    background: linear-gradient(45deg, #f05f5f, #df4040);
+    box-shadow: 0px 0px 10px #df4040;
+    color: #fff;
+    margin: 20px auto 30px auto;
+
+
+    .discount {
+      font-size: 60px;
+      margin-top: 50px;
+      font-weight: 900;
+      color: #ffffff;
+
+      span {
+        margin-left: 20px;
+      }
+    }
+
+    .content {
+      position: relative;
+      width: 75%;
+      text-align: center;
+      font-size: 20px;
+      margin-top: 20px;
+      padding-bottom: 40px;
+      border-bottom: 5px dashed #fff;
+
+      &::after {
+        display: block;
+        content: '';
+        position: absolute;
+        left: -70px;
+        bottom: -52px;
+        width: 60px;
+        height: 100px;
+        background-image: url(~@/assets/img/cut.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        transform: rotate(270deg);
+        background-size: contain;
+        z-index: 10;
+      }
+
+      &::before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: 26px;
+        width: 30px;
+        height: 30px;
+        background-image: url(~@/assets/img/bullhorn.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        background-size: contain;
+      }
+    }
+
+    .alert {
+      margin-top: 26px;
+    }
+
+    .code {
+      margin-top: 10px;
+      padding: 12px 80px;
+      background-color: #ffffffef;
+      color: #333333;
+      font-size: $font-s;
+      text-align: center;
+    }
+
+
+    .btn {
+      padding: 10px 30px;
+      border: 1px solid #ff9811;
+      background-color: #ff9811;
+      color: #fff;
+      font-family: '微軟正黑體';
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-size: $font-xs;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        border: 1px solid #cf7b0d;
+        background-color: #cf7b0d;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0px 0px 3px #ff9811;
+      }
+    }
+  }
+
+  .scratchCard {
+    width: 85%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    // border: 3px dashed #df4040; 
+    // background-color: #df4040;
+    background: linear-gradient(45deg, #e6b976, #f7a919);
+    box-shadow: 0px 0px 10px #e6b976;
+
+
+    .title {
+      width: 100%;
+      margin-top: 30px;
+      font-size: 36px;
+      color: #ffffff;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .ex {
+      flex: 1;
+      height: 300px;
+      // margin-left: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items:center;
+      background-color: #ffaf47c0;
+
+      h4{
+       
+        font-size: $font-m;
+        color: #fff;
+      }
+
+
+      .list {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        &__item{
+          font-size: $font-s;
+          color: rgb(71, 71, 71);
+          padding: 16px 0px;
+        }
+      }
+    }
+
+    .card {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      width: 500px;
+      height: 300px;
+      margin-right: 30px;
+      text-align: center;
+
+      .card-content {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        background-color: #f5cc5e;
+
+        p {
+          font-size: $font-xl;
+        }
+      }
+    }
+  }
+
 }
