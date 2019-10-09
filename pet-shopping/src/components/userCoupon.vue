@@ -112,7 +112,7 @@
       randomGetCoupon() {
         // 取得所有優惠卷需要Admin，故不使用Ajax拿取
         const objectData = [{
-            code: 'idojerjheij',
+            code: 'idojerjhej',
             discount: 75,
           }, {
             code: 'afwegwegw',

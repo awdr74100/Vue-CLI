@@ -20,24 +20,21 @@
         <thead>
           <tr>
             <th class="t-m" style="text-align: left">購買時間</th>
-            <th class="t-l">Email</th>
-            <th class="t-xl">購買款項</th>
+            <!-- <th class="t-l">Email</th> -->
+            <th class="t-l">購買款項</th>
             <th class="t-m">應付金額</th>
             <th class="t-s">付款狀態</th>
-            <th class="t-message">留言</th>
+            <!-- <th class="t-message">留言</th> -->
           </tr>
         </thead>
         <tbody>
           <tr v-for="(item, index) in orders" :key="index">
             <td class="t-m" style="text-align: left">{{item.create_at | dateTime}}</td>
-            <td class="t-l">{{item.user.email}}</td>
-            <td class="t-xl">
-              <!-- <p>飛鳥拂女佯裝 數量：6件</p>
-               <p>飛鳥拂女佯裝 數量：6件</p>
-                <p>飛鳥拂女佯裝 數量：6件</p> -->
+            <!-- <td class="t-l">{{item.user.email}}</td> -->
+            <td class="t-l">
               <ul class="list">
-                <li>
-                  <p>Country Naturals格然斯鄉村時光 雞肉鯡魚2.7kg × 2、成幼貓</p>
+                <li class="list__item" v-for="(productItem,index) in item.products" :key="index">
+                  <p>{{productItem.product.title}}<span class="unit">3 / 個</span></p>
                 </li>
               </ul>
             </td>
@@ -46,23 +43,18 @@
               <span v-if="!item.is_paid">尚未付款</span>
               <span v-else class="text-paid">已付款</span>
             </td>
-            <td class="t-message">
+            <!-- <td class="t-message">
               <span class="btn">
                 <i class="fas fa-align-right"></i>
               </span>
-              <!-- <div class="alert" >
-                <div class="msg">
-                  我要一雙鞋子，請幫忙出貨，或請幫忙背或
-                </div>
-              </div> -->
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>
+      <!-- Pagination模板 -->
+      <Pagination :paginationData="pagination" @updatePagination="getOrders" v-if="pagination.current_page !== 0">
+      </Pagination>
     </div>
-    <!-- Pagination模板 -->
-    <Pagination :paginationData="pagination" @updatePagination="getOrders" v-if="pagination.current_page !== 0">
-    </Pagination>
   </div>
 </template>
 

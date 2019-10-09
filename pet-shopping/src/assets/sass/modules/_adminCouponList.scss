@@ -4,6 +4,7 @@
   margin-right: 20px;
   position: relative;
   font-family: "微軟正黑體";
+  min-height: 100vh;
 
   .addCoupon {
     display: flex;
@@ -55,7 +56,7 @@
       background-color: #343a40;
     }
 
-    .t-code{
+    .t-code {
       flex: 0.4;
     }
 

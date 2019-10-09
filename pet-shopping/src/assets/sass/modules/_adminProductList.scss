@@ -4,12 +4,14 @@
   margin-right: 20px;
   position: relative;
   font-family: "微軟正黑體";
+  min-height: 100vh;
 
   .addProduct {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin-bottom: 10px;
+    position: relative;
 
     .btn {
       padding: 10px 13px;
@@ -32,6 +34,7 @@
   }
 
   table {
+    position: relative;
     width: 100%;
     background-color: #fff;
     box-shadow: 1px 1px 5px rgb(165, 165, 165);
@@ -67,7 +70,7 @@
 
     .t-l {
       flex: 1;
-      line-height: 1.5;
+      // line-height: 1.5;
     }
 
     .text-up {

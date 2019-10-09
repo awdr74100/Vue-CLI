@@ -1,11 +1,13 @@
 .adminSidebar {
   background-color: #fff;
-  position: relative;
+  position: fixed;
+  max-width: 16%;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   box-shadow: 1px 1px 5px rgb(165, 165, 165);
 
   .logo {

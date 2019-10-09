@@ -4,6 +4,7 @@
   margin-right: 20px;
   position: relative;
   font-family: "微軟正黑體";
+  min-height: 100vh;
 
   .selectMode {
     position: relative;
@@ -73,42 +74,10 @@
       background-color: #343a40;
     }
 
+
     .t-s {
       width: 100px;
       text-align: center;
-    }
-
-    .t-message {
-      width: 70px;
-      position: relative;
-      text-align: center;
-
-      .btn {
-        transition: all 0.3s;
-        cursor: pointer;
-
-        &:hover {
-          color: rgb(76, 167, 76);
-        }
-      }
-
-      .alert {
-        display: none;
-        position: absolute;
-        top: 40px;
-        right: 40px;
-        background-color: #343a40;
-
-        .msg {
-          color: #fff;
-          width: 150px;
-          display: flex;
-          justify-content: flex-start;
-          align-items: flex-start;
-
-        }
-      }
-
     }
 
     .t-m {
@@ -122,13 +91,23 @@
     }
 
     .t-l {
-      flex: 0.4;
+      flex: 1;
     }
 
     .text-paid {
       color: rgb(76, 167, 76);
     }
-
+  }
+  .list{
+    &__item{
+      padding: 8px 0px;
+    }
+    .unit{
+      margin-left: 10px;
+      color: rgb(238, 110, 6);
+      // font-weight: bold;
+    }
 
   }
+
 }

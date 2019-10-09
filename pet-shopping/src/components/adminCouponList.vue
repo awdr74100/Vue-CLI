@@ -37,10 +37,10 @@
           </tr>
         </tbody>
       </table>
+      <!-- Pagination模板 -->
+      <Pagination :paginationData="pagination" @updatePagination="getCoupons" v-if="pagination.current_page !== 0">
+      </Pagination>
     </div>
-    <!-- Pagination模板 -->
-    <Pagination :paginationData="pagination" @updatePagination="getCoupons" v-if="pagination.current_page !== 0">
-    </Pagination>
     <!-- 新增、修改商品模板 -->
     <UpdateModal @callUpdate="updateCoupon" :item="thisItem" />
   </div>
