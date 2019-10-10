@@ -149,16 +149,16 @@
       color: #4a4a4a;
     }
 
-    button {
+    a {
       margin-top: 10px;
       margin-left: 80px;
+      text-decoration: none;
       background-color: #4a4a4a;
       color: #fff;
       border: 1px solid #4a4a4a;
-      padding: 8px 50px;
+      padding: 10px 50px;
       border-radius: 5px;
       font-size: $font-xs;
-      font-family: '微軟正黑體';
       transition: all 0.3s;
       cursor: pointer;
 
@@ -281,6 +281,10 @@
       color: #4a4a4a;
       font-weight: bold;
       letter-spacing: 2px;
+    }
+
+    .error {
+      border-bottom: 2px solid #e03838;
     }
 
     input {

@@ -22,12 +22,13 @@
           <p>優惠卷</p>
         </router-link>
       </li>
-      <li class="list__item">
+      <!-- 未來可發展功能 -->
+      <!-- <li class="list__item">
         <a href="#">
           <i class="fas fa-stream"></i>
           <p>網站狀態</p>
         </a>
-      </li>
+      </li> -->
       <li class="list__item">
         <router-link to="/" @click.native="alertMessage">
           <i class="fas fa-store-alt"></i>

@@ -4,7 +4,7 @@
       <div class="logo">
         <router-link to="/"></router-link>
       </div>
-      <input type="text" name="search" id="" placeholder="搜尋商品">
+      <input type="text" name="search" id="" placeholder="查詢訂單" v-model="orderId" @keyup.enter="searchOrder">
       <ul class="list">
         <li>
           <router-link to="/">首　　頁</router-link>
@@ -31,7 +31,7 @@
             <li>
               <router-link to="/ProductList/貓砂與貓砂盆">貓砂與貓砂盆</router-link>
             </li>
-             <li>
+            <li>
               <router-link to="/ProductList/寵物戶外用品">寵物戶外用品</router-link>
             </li>
           </ul>
@@ -49,7 +49,7 @@
           <router-link to="/Contact">聯絡我們</router-link>
         </li>
         <li>
-          <a href="#" class="mt-30"><i class="fas fa-shopping-cart"></i>購物車</a>
+          <router-link to="/Checkout" class="mt-30"><i class="fas fa-shopping-cart"></i>購物車</router-link>
         </li>
         <li>
           <router-link to="/admin/productList"><i class="fas fa-user-cog"></i>後台管理</router-link>
@@ -68,7 +68,25 @@
     data() {
       return {
         dropdownOpen: false,
+        orderId: '',
       }
+    },
+    methods: {
+      searchOrder() {
+        const vm = this;
+        let orderId = vm.orderId
+        if (orderId == '') {
+         vm.$bus.$emit('message:push', '訂單編號不能為空', 'danger');
+        } else {
+          vm.$router.push({
+            path: `/Checkout`,
+            query: {
+              id: orderId
+            },
+          })
+        }
+        vm.orderId = '';
+      },
     },
   }
 

@@ -20,7 +20,7 @@
         </label>
       </li>
     </ul>
-    <button @click="callnextStep">下一步，填寫訂購資料<i class="fas fa-arrow-right"></i></button>
+    <button @click.prevent="callnextStep">下一步，填寫訂購資料<i class="fas fa-arrow-right"></i></button>
   </div>
 </template>
 

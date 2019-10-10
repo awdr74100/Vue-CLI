@@ -15,6 +15,11 @@ import 'swiper/dist/css/swiper.css'
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 // ScratchCard套件 -- 備註：以 userCoupon 元件載入
+// vee-validate套件
+import VeeValidate, {
+  Validator
+} from 'vee-validate';
+import zhTW from 'vee-validate/dist/locale/zh_TW';
 
 // 自訂 bus
 import './bus';
@@ -25,12 +30,19 @@ import dollarFilter from './filters/dollar';
 
 // 元件方式載入loadin-overlay套件
 Vue.component('Loading', Loading);
+
 // 全域載入Filter方法
 Vue.filter('currency', currencyFilter);
 Vue.filter('dateTime', dateTimeFilter);
 Vue.filter('dollar', dollarFilter);
+
 // 啟用附加套件
-Vue.use(VueAxios, axios, VueAwesomeSwiper);
+Vue.use(VueAxios, axios);
+Vue.use(VueAwesomeSwiper);
+Vue.use(VeeValidate);
+
+// 啟用附加套件 -- 設定語系
+Validator.localize('zhTW', zhTW);
 
 // 前端 axios 請求附帶 Cookies 設定
 axios.defaults.withCredentials = true;

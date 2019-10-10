@@ -12,13 +12,12 @@
               <div class="coupon">
                 <h3 class="discount">SAVE<span>10%</span>*</h3>
                 <p class="content">慶祝「毛孩百貨」正式開幕，9折優惠碼等你來領取！</p>
-                <p class="alert">優惠代碼：</p>
-                <p class="code">sdf9fwef7</p>
-                <button class="btn">點我取得更多優惠！</button>
+                <p class="alert" :class="{'alert--open':getCoupon}">優惠代碼：</p>
+                <p class="code" :class="{'code--open':getCoupon}">sdf9fwef7</p>
+                <button class="btn" :class="{'btn--close':getCoupon}" @click="getCoupon = true">點我領取！</button>
               </div>
             </div>
           </div>
-
           <div class="row">
             <div class="col-12">
               <div class="couponGame">
@@ -55,7 +54,6 @@
                   v-else-if="scratchCard.renderCount >=0 && scratchCard.renderCount <=1 && couponGame == 'get' ">還可拿{{2 - scratchCard.renderCount}}張刮刮卡</button>
                 <button class="btn btn--end" v-else>以達到抽卡上限</button>
               </div>
-
             </div>
           </div>
         </div>
@@ -92,6 +90,7 @@
           brushUrl: BRUSH,
           forceReveal: false,
         },
+        getCoupon: false,
         couponGame: 'start',
         randomCouponIndex: 0,
         randomCoupon: [],
@@ -112,23 +111,24 @@
       randomGetCoupon() {
         // 取得所有優惠卷需要Admin，故不使用Ajax拿取
         const objectData = [{
-            code: 'idojerjhej',
-            discount: 75,
-          }, {
-            code: 'afwegwegw',
-            discount: 8,
-          }, {
-            code: 'nwbrtbrtb',
-            discount: 85,
-          }, {
-            code: '',
-            discount: 0,
-          }, {
-            code: '',
-            discount: 0,
-          },
-
-        ];
+          code: 'idojerjhej',
+          discount: 75,
+        }, {
+          code: 'afwegwegw',
+          discount: 8,
+        }, {
+          code: 'nwbrtbrtb',
+          discount: 85,
+        }, {
+          code: '',
+          discount: 0,
+        }, {
+          code: '',
+          discount: 0,
+        }, {
+          code: '',
+          discount: 0,
+        }];
         const vm = this;
         let objectDataLen = objectData.length;
         let object = {};

@@ -54,10 +54,6 @@
         font-size: $font-xxs;
       }
     }
-
-    iframe {
-      color: aqua;
-    }
   }
 
   .message {
@@ -109,13 +105,24 @@
       align-items: center;
     }
 
+    .errorMsg {
+      margin-top: 6px;
+      margin-left: 80px;
+      color: #f03d3d;
+    }
+
+    .error {
+      border: 1px solid #f03d3d;
+    }
+
     label {
       width: 80px;
-      // text-align: center;
+      color: #3a3a3a;
+      // font-weight: bold;
 
       &.remark {
         align-self: flex-start;
-        margin-top: 6px;
+        margin-top: 4px;
       }
     }
 

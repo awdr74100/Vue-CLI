@@ -29,22 +29,29 @@
               <div class="message">
                 <div class="name">意見回饋<i class="far fa-comment-alt"></i></div>
                 <p class="ex">如果您有任何疑問，或想回饋反映的意見，歡迎與我們聯繫。</p>
-                <form action="#" class="form">
+                <form action="#" class="form" @submit.prevent="sendForm">
                   <div class="inputRow">
-                    <label for="name">你的姓名</label>
-                    <input type="text" name="name" id="name" placeholder="我們如何稱呼你？">
+                    <label for="name">你的姓名*</label>
+                    <input type="text" name="name" :class="{'error':errors.has('name')}" id="name"
+                      placeholder="我們如何稱呼你？" v-validate="'required'">
                   </div>
+                  <span class="errorMsg" v-if="errors.has('name')">姓名 必須輸入</span>
                   <div class="inputRow">
-                    <label for="contact">聯絡方式</label>
-                    <input type="tel" name="contact" id="contact" placeholder="提供電話號碼">
-                    <input type="email" name="mail" id="contact" placeholder="提供Email">
+                    <label for="contact">聯絡方式*</label>
+                    <input type="tel" name="tel" :class="{'error':errors.has('tel')}" id="contact" placeholder="提供電話號碼"
+                      v-validate="'required|digits:10'">
+                    <input type="email" name="mail" id="contact" placeholder="提供Email (選填)">
                   </div>
+                  <span class="errorMsg" v-if="errors.has('tel')">{{errors.first('tel').replace(/tel/,'電話')}}</span>
                   <div class="inputRow">
-                    <label for="remark" class="remark">訊息內容</label>
-                    <textarea name="remark" id="remark" cols="30" rows="8" placeholder="你想告訴我們什麼？"></textarea>
+                    <label for="remark" class="remark">訊息內容*</label>
+                    <textarea name="remark" id="remark" :class="{'error':errors.has('remark')}" cols="30" rows="8"
+                      placeholder="你想告訴我們什麼？" v-validate="'required'"></textarea>
                   </div>
+                  <span class="errorMsg"
+                    v-if="errors.has('remark')">{{errors.first('remark').replace(/remark/,'內容')}}</span>
                   <div class="inputRow">
-                    <button class="btn" @click.prevent="sendForm">送出訊息</button>
+                    <button class="btn">送出訊息</button>
                   </div>
                 </form>
               </div>
@@ -67,7 +74,13 @@
   export default {
     methods: {
       sendForm() {
-        this.$bus.$emit('message:push', '以傳送訊息', 'success');
+        this.$validator.validate().then(valid => {
+          if (valid) {
+            this.$bus.$emit('message:push', '以傳送訊息', 'success');
+          } else {
+            this.$bus.$emit('message:push', '資料填寫錯誤，請再檢查一次', 'danger');
+          }
+        });
       },
     }
   }

@@ -11,7 +11,7 @@
       </li>
       <li class="checkoutStep__item">
         <span class="step" :class="{'step--active':step=='showOrderDetail'}"><i class="far fa-credit-card"></i></span>
-        <p class="name" :class="{'name--active':step=='showOrderDetail'}">確認訂單並付款</p>
+        <p class="name" :class="{'name--active':step=='showOrderDetail'}">查看訂單細節</p>
       </li>
       <li class="checkoutStep__item checkoutStep--cancel">
         <span class="step" :class="{'step--active':step=='completeOrder'}"><i class="far fa-handshake"></i></span>

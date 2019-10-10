@@ -42,149 +42,168 @@
   }
 
   .form {
-    width: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row wrap;
 
-    .userRow {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      margin-top: 8px;
-      width: 80%;
-
-      .icon {
-        width: 45px;
-        height: 35px;
-        line-height: 35px;
-        text-align: center;
-        color: #fff;
-        background-color: #4e4e4e;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-      }
-    }
-
-    label {
+    .errorMsg {
       display: block;
-      color: #4e4e4e;
-      margin-top: 20px;
-      font-size: $font-xs - 1;
+      color: #da4646;
+      margin-top: 6px;
     }
 
-    input {
-      height: 35px;
-      border: 1px solid rgb(204, 204, 204);
-      width: 100%;
-      padding-left: 10px;
-      font-size: $font-xs;
-      color: #4e4e4e;
-      font-family: '微軟正黑體';
-      background-color: rgb(252, 252, 252);
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
+    .userData {
+      width: 50%;
 
-      &:focus {
-        box-shadow: 0px 0px 5px #aaaaaa;
-        outline: none;
-      }
-    }
-
-    textarea {
-      font-family: '微軟正黑體';
-      margin-top: 10px;
-      width: 80%;
-      border: 1px solid rgb(204, 204, 204);
-      border-radius: 5px;
-      font-size: $font-xs;
-      color: #4e4e4e;
-      background-color: rgb(252, 252, 252);
-
-      &:focus {
-        box-shadow: 0px 0px 5px #aaaaaa;
-        outline: none;
-      }
-    }
-  }
-
-  .pay {
-    width: 50%;
-
-    .list {
-      width: 80%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      margin-top: 22px;
-
-      &__item {
-        width: 100%;
+      .userRow {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        border-bottom: 1px solid #dfdfdf;
+        margin-top: 8px;
+        width: 80%;
+
+        .icon {
+          width: 45px;
+          height: 35px;
+          line-height: 35px;
+          text-align: center;
+          color: #fff;
+          background-color: #4e4e4e;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+        }
+
+        input {
+          height: 35px;
+          border: 1px solid rgb(204, 204, 204);
+          width: 100%;
+          padding-left: 10px;
+          font-size: $font-xs;
+          color: #4e4e4e;
+          font-family: '微軟正黑體';
+          background-color: rgb(252, 252, 252);
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+
+          &:focus {
+            box-shadow: 0px 0px 5px #aaaaaa;
+            outline: none;
+          }
+        }
+      }
+
+      .error{
+        // border: 1px solid #da4646;
+        box-shadow: 0px 0px 5px #da4646;
       }
 
       label {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-left: 10px;
+        display: block;
         color: #4e4e4e;
-        padding: 20px 0px;
-        cursor: pointer;
-        width: 100%;
+        margin-top: 20px;
         font-size: $font-xs - 1;
+      }
 
-        i {
-          font-size: $font-l;
-          margin-right: 10px;
+      textarea {
+        font-family: '微軟正黑體';
+        margin-top: 10px;
+        width: 80%;
+        border: 1px solid rgb(204, 204, 204);
+        border-radius: 5px;
+        font-size: $font-xs;
+        color: #4e4e4e;
+        background-color: rgb(252, 252, 252);
+
+        &:focus {
+          box-shadow: 0px 0px 5px #aaaaaa;
+          outline: none;
         }
       }
     }
-  }
 
-  .btn-group {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+    .pay {
+      width: 50%;
 
-    .btn {
-      padding: 8px 30px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-family: '微軟正黑體';
-      font-size: $font-xxs;
+      .list {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 22px;
 
-      &--prev {
-        background-color: #4e4e4e;
-        color: #fff;
-        border: 1px solid #4e4e4e;
+        &__item {
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          border-bottom: 1px solid #dfdfdf;
+        }
 
-        i {
-          margin-right: 8px;
+        label {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin-left: 10px;
+          color: #4e4e4e;
+          padding: 20px 0px;
+          cursor: pointer;
+          width: 100%;
+          font-size: $font-xs - 1;
+
+          i {
+            font-size: $font-l;
+            margin-right: 10px;
+          }
         }
       }
+    }
 
-      &--next {
-        background-color: #4e4e4e;
-        color: #fff;
-        border: 1px solid #4e4e4e;
+    .btn-group {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
 
-        i {
-          margin-left: 8px;
+      .btn {
+        padding: 8px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-family: '微軟正黑體';
+        font-size: $font-xxs;
+
+        &--prev {
+          background-color: #4e4e4e;
+          color: #fff;
+          border: 1px solid #4e4e4e;
+
+          i {
+            margin-right: 8px;
+          }
         }
-      }
 
-      &:hover {
-        background-color: rgba(255, 255, 255, 0);
-        color: #4e4e4e;
-      }
+        &--next {
+          background-color: #4e4e4e;
+          color: #fff;
+          border: 1px solid #4e4e4e;
 
-      &:focus {
-        outline: none;
+          i {
+            margin-left: 8px;
+          }
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0);
+          color: #4e4e4e;
+        }
+
+        &:focus {
+          outline: none;
+        }
       }
     }
   }

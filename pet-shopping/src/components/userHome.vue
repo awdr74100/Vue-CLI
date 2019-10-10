@@ -74,7 +74,8 @@
             </div>
             <div class="col-4">
               <div class="couponCard">
-                <button>立即領取</button>
+                <router-link to="/Coupon">立即領取</router-link>
+                <!-- <a href="#">立即領取</a> -->
               </div>
             </div>
           </div>
@@ -114,7 +115,8 @@
             </div>
             <div class="col-6">
               <div class="trackCard">
-                <input type="email" name="email" id="email" placeholder="請輸入Email">
+                <input type="email" name="email" id="email" placeholder="請輸入Email" v-validate="'required|email'"
+                  :class="{'error':errors.has('email')}">
                 <button @click="trackWebSite">訂閱</button>
               </div>
             </div>
@@ -186,7 +188,13 @@
       },
       // 模擬訂閱優惠資訊
       trackWebSite() {
-        this.$bus.$emit('message:push', '訂閱成功', 'success');
+        this.$validator.validate().then(valid => {
+          if (valid) {
+            this.$bus.$emit('message:push', '訂閱成功', 'success');
+          } else {
+            this.$bus.$emit('message:push', 'Email填寫錯誤，請再檢查一次', 'danger');
+          }
+        });
       }
     },
     created() {

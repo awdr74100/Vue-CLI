@@ -12,7 +12,8 @@
           <h3>訂單資訊</h3>
         </header>
         <section class="cartEmpty" v-if="cartProductLen === 0 ">
-          <p>尚未加入任何商品</p>
+          <p v-if="this.$route.query.id">找不到訂單，請再檢查一次</p>
+          <p v-else>尚未加入任何商品</p>
           <button @click="toShopping"><i class="fas fa-arrow-left"></i>繼續逛逛</button>
         </section>
         <div class="container" v-if="cartProductLen > 0">
@@ -104,12 +105,16 @@
         const url = `${process.env.API_Server}/api/${process.env.API_Path}/order/${orderId}`;
         vm.effect.isLoading = true;
         vm.$http.get(url).then((response) => {
-          vm.cartProductData = response.data.order;
-          vm.cartProductLen = Object.keys(response.data.order.products).length;
-          if (response.data.order.is_paid == true) {
-            vm.step = 'completeOrder';
+          if (response.data.order == null) {
+            vm.$bus.$emit('message:push', '查詢訂單失敗，請再檢查一次', 'danger');
           } else {
-            vm.step = 'showOrderDetail';
+            vm.cartProductData = response.data.order;
+            vm.cartProductLen = Object.keys(response.data.order.products).length;
+            if (response.data.order.is_paid == true) {
+              vm.step = 'completeOrder';
+            } else {
+              vm.step = 'showOrderDetail';
+            }
           }
           vm.effect.isLoading = false;
         })
@@ -121,8 +126,21 @@
         })
       }
     },
+    // 時時監控查詢訂單動作
+    watch: {
+      '$route.query'() {
+        this.showOrderDetial(this.$route.query.id);
+        console.log(this.$route.query.id);
+      }
+    },
     created() {
-      this.getCartData();
+      const vm = this;
+      // 判斷查詢訂單或者結帳
+      if (vm.$route.query.id) {
+        vm.showOrderDetial(vm.$route.query.id);
+      } else {
+        this.getCartData();
+      }
     },
   }
 
