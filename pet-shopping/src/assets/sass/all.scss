@@ -14,7 +14,7 @@
 
 // modules
 @import "modules/loading";
-@import "modules/alertMessage";
+@import "modules/alertMsg";
 @import "modules/login";
 @import "modules/pagination";
 @import "modules/shoppingCart";
@@ -35,7 +35,7 @@
 @import "modules/adminProductList";
 @import "modules/adminOrderList";
 @import "modules/adminCouponList";
-// 結帳頁面
+// --結帳頁面
 @import "modules/checkoutStep";
 @import "modules/applyCoupon";
 @import "modules/deliveryMethods";
