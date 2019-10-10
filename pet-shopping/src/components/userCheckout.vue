@@ -130,7 +130,6 @@
     watch: {
       '$route.query'() {
         this.showOrderDetial(this.$route.query.id);
-        console.log(this.$route.query.id);
       }
     },
     created() {
