@@ -8,25 +8,25 @@
       <form action="#" class="form" @submit.prevent="createOrder">
         <div class="userData">
           <h3 class="sectionTitle">收件人資訊</h3>
-          <label for="name">姓名 *</label>
+          <label for="name">姓名*</label>
           <div class="userRow" :class="{'error':errors.has('name')}">
             <div class="icon"><i class="fas fa-user"></i></div>
             <input type="text" name="name" id="name" v-model="userData.user.name" v-validate="'required'">
           </div>
           <span class="errorMsg" v-if="errors.has('name')">姓名 必須輸入</span>
-          <label for="tel">連絡電話 *</label>
+          <label for="tel">連絡電話*</label>
           <div class="userRow" :class="{'error':errors.has('tel')}">
             <div class="icon"><i class="fas fa-phone"></i></div>
             <input type="tel" name="tel" id="tel" v-model="userData.user.tel" v-validate="'required|digits:10'">
           </div>
           <span class="errorMsg" v-if="errors.has('tel')">{{errors.first('tel').replace(/tel/,'電話')}}</span>
-          <label for="email">電子郵件 *</label>
+          <label for="email">電子郵件*</label>
           <div class="userRow" :class="{'error':errors.has('email')}">
             <div class="icon"><i class="fas fa-envelope"></i></div>
             <input type="email" name="email" id="email" v-model="userData.user.email" v-validate="'required|email'">
           </div>
           <span class="errorMsg" v-if="errors.has('email')">{{errors.first('email')}}</span>
-          <label for="address">收件地址 *</label>
+          <label for="address">收件地址*</label>
           <div class="userRow" :class="{'error':errors.has('address')}">
             <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
             <input type="text" name="address" id="address" v-model="userData.user.address" v-validate="'required'">
@@ -34,7 +34,7 @@
           <span class="errorMsg" v-if="errors.has('address')">地址 必須輸入</span>
 
           <label for="remarks">備註 (選填)</label>
-          <textarea name="remarks" id="remarks" cols="30" rows="7" v-model="userData.message"></textarea>
+          <textarea name="remarks" id="remarks" cols="30" rows="6" v-model="userData.message"></textarea>
         </div>
         <div class="pay">
           <h3 class="sectionTitle">付款方式</h3>
