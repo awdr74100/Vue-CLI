@@ -17,7 +17,7 @@
         const vm = this;
         this.$http.post(url).then((response) => {
           if (response.data.success) {
-            console.log(response.data);
+            // console.log(response.data);
             vm.$bus.$emit('message:push', response.data.message, 'success');
             vm.$router.push('/');
           } else {
