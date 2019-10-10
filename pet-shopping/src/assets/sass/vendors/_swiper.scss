@@ -8,16 +8,20 @@
     left: 6%;
     bottom: 10%;
     z-index: 10;
-    background-color: #f7f3f1b7;
+    background-color: #ffffffd0;
     color: black;
     text-align: center;
     padding: 25px 20px;
     line-height: 2;
     font-size: $font-s;
+    border-radius: 20px;
+    box-shadow: 0px 0px 3px rgb(145, 145, 145);
+    border: 1px solid rgb(184, 184, 184);
 
     span {
       color: darken($color-minor, 20);
       font-size: $font-xl;
+      text-shadow: 0px 0px 5px rgb(233, 233, 233);
     }
   }
 
@@ -55,6 +59,7 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    pointer-events: none;
 
     &--Img1 {
       background-image: url(~@/assets/img/banner1.jpg);
